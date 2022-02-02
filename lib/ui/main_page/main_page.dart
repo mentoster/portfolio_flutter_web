@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/ui/global_widgets/appbar.dart';
+import 'package:portfolio_flutter_web/ui/theme/app_constants.dart';
 
+import 'sections/about_me/MeAndProjects.dart';
 import 'sections/top_section/top_section.dart';
 
 class MainPage extends StatelessWidget {
@@ -13,10 +15,15 @@ class MainPage extends StatelessWidget {
       appBar: const AppBarWidget(),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
-          child: SizedBox(
-              width: double.infinity,
-              height: size.height,
-              child: const TopSection())),
+          child: Column(
+        children: [
+          const TopSection(),
+          SizedBox(
+            height: defaultPadding * 2,
+          ),
+          MeAndProjects(),
+        ],
+      )),
     );
   }
 }

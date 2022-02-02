@@ -4,24 +4,25 @@ import 'package:portfolio_flutter_web/ui/theme/app_constants.dart';
 
 import 'sections/about_me/MeAndProjects.dart';
 import 'sections/top_section/top_section.dart';
+import 'sections/work_experience/work_experience.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const AppBarWidget(),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
           child: Column(
-        children: [
-          const TopSection(),
+        children: const [
+          TopSection(),
           SizedBox(
             height: defaultPadding * 2,
           ),
           MeAndProjects(),
+          WorkExperience()
         ],
       )),
     );

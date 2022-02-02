@@ -56,9 +56,13 @@ class ProjectCard extends StatelessWidget {
                 "Flutter & UI/UX Design",
                 style: TextStyle(fontSize: 14),
               ),
-              const Text(
-                "Социальная сеть\n",
-                style: heading2,
+              SizedBox(
+                width: 231,
+                child: const Text(
+                  "Социальная сеть\n",
+                  style: heading2,
+                  softWrap: true,
+                ),
               ),
               Row(
                 children: const [

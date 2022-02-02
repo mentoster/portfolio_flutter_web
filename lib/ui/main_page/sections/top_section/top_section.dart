@@ -9,7 +9,6 @@ class TopSection extends StatelessWidget {
     return const Scaffold(
       appBar: AppBarWidget(),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.blue,
       body: Text("hello world"),
     );
   }

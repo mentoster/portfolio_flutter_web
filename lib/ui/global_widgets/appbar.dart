@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:portfolio_flutter_web/ui/style/fonts.dart';
+import 'package:portfolio_flutter_web/ui/theme/colors.dart';
+import 'package:portfolio_flutter_web/ui/theme/fonts.dart';
 
 class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
   const AppBarWidget({Key? key}) : super(key: key);
@@ -16,7 +17,12 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
             child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
           child: Container(
-            color: Colors.white.withOpacity(0.5),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.5),
+              border: const Border(
+                bottom: BorderSide(width: 0.5, color: appBarStroke),
+              ),
+            ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 128),
               child: Row(
@@ -30,28 +36,28 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                   )),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         "Главная",
                         style: appBar,
                       ),
                       SizedBox(
                         width: _appBarPadding,
                       ),
-                      Text(
+                      const Text(
                         "Обо мне ",
                         style: appBar,
                       ),
                       SizedBox(
                         width: _appBarPadding,
                       ),
-                      Text(
+                      const Text(
                         "Опыт работы",
                         style: appBar,
                       ),
                       SizedBox(
                         width: _appBarPadding,
                       ),
-                      Text(
+                      const Text(
                         "Достижения",
                         style: appBar,
                       ),
@@ -69,7 +75,7 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                               borderRadius: BorderRadius.circular(18.0),
                             ))),
                             onPressed: () {},
-                            child: Text(
+                            child: const Text(
                               'Связаться',
                               style: appBar,
                             )),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_flutter_web/ui/main_page/sections/top_section/top_section.dart';
 
+import 'ui/main_page/main_page.dart';
 import 'ui/theme/app_theme.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: Themes.light,
       darkTheme: Themes.dark,
       themeMode: ThemeMode.light,
-      home: const TopSection(),
+      home: const MainPage(),
     );
   }
 }

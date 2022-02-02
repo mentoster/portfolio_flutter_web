@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:portfolio_flutter_web/ui/theme/colors.dart';
-import 'package:portfolio_flutter_web/ui/theme/fonts.dart';
+import 'package:portfolio_flutter_web/ui/theme/app_addition_colors.dart';
+import 'package:portfolio_flutter_web/ui/theme/app_fonts.dart';
 
 class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
   const AppBarWidget({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 128),
+              padding: const EdgeInsets.symmetric(horizontal: 64),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

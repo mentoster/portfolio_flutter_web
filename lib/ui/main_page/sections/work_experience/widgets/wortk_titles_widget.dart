@@ -13,25 +13,25 @@ class WorkTitlesWidget extends StatelessWidget {
     return Wrap(
       spacing: 24,
       children: [
-        JobWidget(
+        const JobWidget(
           title: "Unity",
           subTitle: "Очень заинтригован созданием игр. Принялся изучать unity.",
         ),
-        JobWidget(
+        const JobWidget(
           title: "RTUITLab",
           subTitle:
               "Принятие на работу Unity разработчиком по созданному тестовому проекту.",
         ),
-        JobWidget(
+        const JobWidget(
           title: "Flutter",
           subTitle:
               "Впервые создал проект на flutter. Заинтересован в технологии.",
         ),
-        JobWidget(
+        const JobWidget(
           title: "Design",
           subTitle: "Был заинтересован в развитие UI/UX навыков",
         ),
-        JobWidget(
+        const JobWidget(
           title: "Design",
           subTitle: "Устроен в вузе преподавателем unity.",
         ),
@@ -58,7 +58,7 @@ class WorkTitlesWidget extends StatelessWidget {
                           fontSize: usualText.fontSize,
                           fontWeight: FontWeight.bold),
                     ),
-                    TextSpan(
+                    const TextSpan(
                       text: ' с\nвами и обсуждать ',
                       style: usualText,
                     ),
@@ -69,7 +69,7 @@ class WorkTitlesWidget extends StatelessWidget {
                           fontSize: usualText.fontSize,
                           fontWeight: FontWeight.bold),
                     ),
-                    TextSpan(
+                    const TextSpan(
                       text: ' проекты.',
                       style: usualText,
                     ),

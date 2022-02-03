@@ -8,7 +8,7 @@ class WorkExpTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "Опыт работы",
       style: heading1,
       textAlign: TextAlign.center,

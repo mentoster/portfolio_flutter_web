@@ -8,7 +8,7 @@ class DescriptionTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "Информацию о том, когда я начал заниматься той или иной технологией\nвы можете найти в моем опыте работы.  Соотвествующие\nданные расположенны на таймлайне.",
       style: usualText,
       textAlign: TextAlign.center,

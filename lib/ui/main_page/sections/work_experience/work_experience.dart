@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_flutter_web/ui/theme/app_fonts.dart';
 
 import 'widgets/description_text_widget.dart';
 import 'widgets/timeline_widget.dart';
@@ -18,18 +17,18 @@ class WorkExperience extends StatelessWidget {
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: const [
-            WorkExpTitleWidget(),
-            SizedBox(
+          children: [
+            const WorkExpTitleWidget(),
+            const SizedBox(
               height: 32,
             ),
-            DescriptionTextWidget(),
-            SizedBox(
+            const DescriptionTextWidget(),
+            const SizedBox(
               height: 32,
             ),
-            WorkTitlesWidget(),
-            TimelineWidget(),
-            SizedBox(
+            const WorkTitlesWidget(),
+            const TimelineWidget(),
+            const SizedBox(
               height: 32,
             ),
             YearsWidget()

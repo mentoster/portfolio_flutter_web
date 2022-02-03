@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_flutter_web/ui/global_widgets/circle_icon.dart';
+import 'package:portfolio_flutter_web/ui/main_page/sections/top_section/widgets/circle_icon.dart';
 import 'package:portfolio_flutter_web/ui/theme/app_fonts.dart';
 
 class LeftTextColumn extends StatelessWidget {
@@ -57,22 +57,22 @@ class LeftTextColumn extends StatelessWidget {
           children: const [
             CircleIcon(
               name: "vkontakte",
-              iconPath: "assets/icons/vk.svg",
+              iconPath: "assets/icons/social_networks/vk.svg",
               radius: _iconRadius,
             ),
             CircleIcon(
               name: "whatsapp",
-              iconPath: "assets/icons/whatsapp.svg",
+              iconPath: "assets/icons/social_networks/whatsapp.svg",
               radius: _iconRadius,
             ),
             CircleIcon(
               name: "telegram",
-              iconPath: "assets/icons/telegram.svg",
+              iconPath: "assets/icons/social_networks/telegram.svg",
               radius: _iconRadius,
             ),
             CircleIcon(
               name: "github",
-              iconPath: "assets/icons/github.svg",
+              iconPath: "assets/icons/social_networks/github.svg",
               radius: _iconRadius,
             ),
           ],

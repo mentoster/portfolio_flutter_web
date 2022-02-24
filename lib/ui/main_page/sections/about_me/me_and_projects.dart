@@ -10,7 +10,7 @@ class MeAndProjects extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 1197,
+        height: 1100,
         width: 1116,
         child: Scaffold(
             body: Column(

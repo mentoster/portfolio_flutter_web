@@ -12,7 +12,7 @@ class LastProjectsGridWidget extends StatelessWidget {
       context: context,
       removeTop: true,
       child: SizedBox(
-        height: 750,
+        height: 700,
         child: GridView.count(
           physics: const NeverScrollableScrollPhysics(),
           crossAxisCount: 2,

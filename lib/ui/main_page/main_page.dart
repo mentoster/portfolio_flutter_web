@@ -3,6 +3,7 @@ import 'package:portfolio_flutter_web/ui/global_widgets/appbar.dart';
 import 'package:portfolio_flutter_web/ui/theme/app_constants.dart';
 
 import 'sections/about_me/me_and_projects.dart';
+import 'sections/contact_me/contact_me.dart';
 import 'sections/diploms/diplomas.dart';
 import 'sections/hackatons.dart/hackathons.dart';
 import 'sections/top_section/top_section.dart';
@@ -22,17 +23,18 @@ class MainPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: const [
           TopSection(),
-          // SizedBox(
-          //   height: defaultPadding * 2,
-          // ),
-          // MeAndProjects(),
-          // WorkExperience(),
-          // WorkInstruments(),
-          // SizedBox(
-          //   height: defaultPadding * 2,
-          // ),
+          SizedBox(
+            height: defaultPadding * 2,
+          ),
+          MeAndProjects(),
+          WorkExperience(),
+          WorkInstruments(),
+          SizedBox(
+            height: defaultPadding * 2,
+          ),
           Hackathons(),
           Diplomas(),
+          ContactMe(),
         ],
       )),
     );

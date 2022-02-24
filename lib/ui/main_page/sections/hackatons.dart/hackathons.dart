@@ -11,7 +11,7 @@ class Hackathons extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 1116,
-      height: 1000,
+      height: 970,
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

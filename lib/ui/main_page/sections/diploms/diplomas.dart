@@ -12,7 +12,7 @@ class Diplomas extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
         width: 1116,
-        height: 1000,
+        height: 900,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,7 +41,6 @@ class Diplomas extends StatelessWidget {
                   width: 124,
                 ),
                 const DiplomaTextWidget()
-                // DiplomasCarousel(),
               ],
             ),
           ],

@@ -2,22 +2,22 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/ui/theme/app_constants.dart';
 
-class CarouselControlsWidget extends StatelessWidget {
+class HackCarouselControlsWidget extends StatelessWidget {
   final SwiperController swiperController;
   final int length;
+  final Axis axis;
 
-  const CarouselControlsWidget({
-    Key? key,
-    required this.swiperController,
-    required this.length,
-  }) : super(key: key);
+  const HackCarouselControlsWidget(
+      {Key? key,
+      required this.swiperController,
+      required this.length,
+      required this.axis})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final themeData = Theme.of(context);
-
-    final color = Colors.black;
-    final disableColor = Colors.black;
+    const color = Colors.black;
+    const disableColor = Colors.black;
     Color prevColor;
     Color nextColor;
 
@@ -27,25 +27,45 @@ class CarouselControlsWidget extends StatelessWidget {
     nextColor = next ? color : disableColor;
 
     Widget child;
-
-    child = Row(
-      key: key,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        buildButton(
-          color: prevColor,
-          iconDaga: Icons.arrow_back_ios,
-          quarterTurns: 0,
-          previous: true,
-        ),
-        buildButton(
-          color: nextColor,
-          iconDaga: Icons.arrow_forward_ios,
-          quarterTurns: 0,
-          previous: false,
-        )
-      ],
-    );
+    if (axis == Axis.horizontal) {
+      child = Row(
+        key: key,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          buildButton(
+            color: prevColor,
+            iconDaga: Icons.arrow_back_ios,
+            quarterTurns: 0,
+            previous: true,
+          ),
+          buildButton(
+            color: nextColor,
+            iconDaga: Icons.arrow_forward_ios,
+            quarterTurns: 0,
+            previous: false,
+          )
+        ],
+      );
+    } else {
+      child = Column(
+        key: key,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          buildButton(
+            color: prevColor,
+            iconDaga: Icons.arrow_back_ios,
+            quarterTurns: -3,
+            previous: true,
+          ),
+          buildButton(
+            color: nextColor,
+            iconDaga: Icons.arrow_forward_ios,
+            quarterTurns: -3,
+            previous: false,
+          )
+        ],
+      );
+    }
 
     return SizedBox(
       height: double.infinity,

@@ -1,30 +1,28 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter_web/ui/main_page/sections/diploms/widgets/diploma_widget.dart';
+import 'package:portfolio_flutter_web/ui/global_widgets/carousel_controls_widget.dart';
+import 'package:portfolio_flutter_web/ui/main_page/sections/hackatons.dart/widgets/hackathon_diploma_widget.dart';
 
-import 'package:portfolio_flutter_web/ui/theme/app_constants.dart';
-
-import '../../../../global_widgets/carousel_controls_widget.dart';
-import 'hackathon_diploma_widget.dart';
-
-class HackathonCarousel extends StatelessWidget {
-  HackathonCarousel({Key? key}) : super(key: key);
+class DiplomasCarousel extends StatelessWidget {
+  DiplomasCarousel({Key? key}) : super(key: key);
   final SwiperController _controller = SwiperController();
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 1116,
+      width: 558,
       height: 700,
       child: Stack(
         children: [
           Center(
             child: SizedBox(
-              width: 1000,
+              height: 600,
               child: ShaderMask(
                 shaderCallback: (rect) {
                   return const LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                     colors: [
                       Colors.transparent,
                       Colors.black,
@@ -39,14 +37,16 @@ class HackathonCarousel extends StatelessWidget {
                   height: 700,
                   child: Swiper(
                     itemBuilder: (BuildContext context, int index) {
-                      return const HackathonDiplomaWidget();
+                      return const DiplomaWidget();
                     },
+                    scrollDirection: Axis.vertical,
                     itemCount: 6,
-                    viewportFraction: 0.4,
+                    viewportFraction: 0.6,
                     scale: 0.6,
                     indicatorLayout: PageIndicatorLayout.COLOR,
                     autoplay: true,
                     autoplayDelay: 6000,
+                    // pagination: const SwiperPagination(),
                     controller: _controller,
                   ),
                 ),
@@ -56,7 +56,7 @@ class HackathonCarousel extends StatelessWidget {
           HackCarouselControlsWidget(
             swiperController: _controller,
             length: 6,
-            axis: Axis.horizontal,
+            axis: Axis.vertical,
           ),
         ],
       ),

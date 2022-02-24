@@ -11,24 +11,24 @@ class Hackathons extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 1116,
-      height: 2000,
+      height: 1000,
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
+            const Text(
               "Победитель и участников хакатонов.",
               style: heading1,
             ),
-            SizedBox(
+            const SizedBox(
               height: defaultPadding,
             ),
-            Text(
+            const Text(
               "Я активно принимаю участиве во многих хакатонах -\n соревнованиях, в которых командам нужно\nза короткое время разработать прототип продукта\nЗдесь вы можете посмотреть,\nв каких конкретно я учавствовал.\n\nИспользуйте стрелки для навигации.",
               style: usualText,
               textAlign: TextAlign.center,
             ),
-            SizedBox(
+            const SizedBox(
               height: defaultPadding,
             ),
             HackathonCarousel()

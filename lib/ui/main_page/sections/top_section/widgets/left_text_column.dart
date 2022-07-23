@@ -70,21 +70,25 @@ class LeftTextColumn extends StatelessWidget {
                 name: "vkontakte",
                 iconPath: "assets/icons/social_networks/vk.svg",
                 radius: _iconRadius,
+                backgroundColor: Color.fromARGB(255, 232, 238, 255),
               ),
               CircleIcon(
                 name: "whatsapp",
                 iconPath: "assets/icons/social_networks/whatsapp.svg",
                 radius: _iconRadius,
+                backgroundColor: Color.fromARGB(255, 232, 255, 232),
               ),
               CircleIcon(
                 name: "telegram",
                 iconPath: "assets/icons/social_networks/telegram.svg",
                 radius: _iconRadius,
+                backgroundColor: Color.fromARGB(255, 232, 247, 255),
               ),
               CircleIcon(
                 name: "github",
                 iconPath: "assets/icons/social_networks/github.svg",
                 radius: _iconRadius,
+                backgroundColor: Color.fromARGB(255, 233, 232, 232),
               ),
             ],
           )

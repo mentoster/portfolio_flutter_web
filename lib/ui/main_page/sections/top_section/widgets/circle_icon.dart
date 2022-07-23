@@ -2,23 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CircleIcon extends StatelessWidget {
-  const CircleIcon(
-      {Key? key,
-      required this.iconPath,
-      required this.name,
-      required this.radius})
-      : super(key: key);
+  const CircleIcon({
+    Key? key,
+    required this.iconPath,
+    required this.name,
+    required this.radius,
+    this.backgroundColor = const Color(0xfffbfdff),
+  }) : super(key: key);
+
   final String iconPath;
   final String name;
   final double radius;
+  final Color backgroundColor;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: radius,
       height: radius,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         shape: BoxShape.circle,
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color(0x0a000000),
             blurRadius: 1,
@@ -35,7 +38,7 @@ class CircleIcon extends StatelessWidget {
             offset: Offset(0, 4),
           ),
         ],
-        color: Color(0xfffbfdff),
+        color: backgroundColor,
       ),
       padding: const EdgeInsets.all(4),
       child: SvgPicture.asset(iconPath, semanticsLabel: name),

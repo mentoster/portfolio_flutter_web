@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_flutter_web/ui/main_page/sections/top_section/widgets/circle_icon.dart';
-
-import '../../../../theme/app_constants.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SocialNetworkButton extends StatelessWidget {
   final String link;
   final String tag;
-  final Icon icon;
+  final String iconPath;
+  final String name;
   final Color backgroundColor;
   const SocialNetworkButton(
       {Key? key,
       required this.link,
       required this.tag,
-      required this.icon,
+      required this.iconPath,
+      required this.name,
       required this.backgroundColor})
       : super(key: key);
 
@@ -28,13 +28,16 @@ class SocialNetworkButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          icon,
           SizedBox(
+              width: 32,
+              height: 32,
+              child: SvgPicture.asset(iconPath, semanticsLabel: name)),
+          const SizedBox(
             width: 8,
           ),
           SelectableText(
             tag,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           )
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../theme/app_constants.dart';
+import '../../../../theme/app_fonts.dart';
 import 'big_input_widget.dart';
 import 'contact_button.dart';
 import 'input_widget.dart';
@@ -43,54 +44,64 @@ class ContactForm extends StatelessWidget {
           ],
           color: Colors.white,
         ),
-        padding: EdgeInsets.all(64),
+        padding: const EdgeInsets.all(64),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
               SocialNetworkButton(
-                icon: Icon(Icons.ac_unit),
-                link: "vk.com",
-                tag: "@mentoster_official",
-                backgroundColor: Colors.blue,
-              ),
-              SocialNetworkButton(
-                icon: Icon(Icons.ac_unit),
+                name: "telegram",
+                iconPath: "assets/icons/social_networks/telegram.svg",
                 link: "telegram.com",
                 tag: "@mentoster",
                 backgroundColor: Colors.blue,
               ),
               SocialNetworkButton(
-                icon: Icon(Icons.ac_unit),
+                name: "whatsapp",
+                iconPath: "assets/icons/social_networks/whatsapp.svg",
                 link: "whatsapp.com",
                 tag: "@mentoster",
                 backgroundColor: Colors.green,
               ),
-            ],
-          ),
-          const SizedBox(
-            height: 64,
-          ),
-          Row(
-            children: [
-              SmallInputWidget(title: "Имя", hint: "Введите ваше имя"),
-              SizedBox(
-                width: 24,
+              SocialNetworkButton(
+                name: "vkontakte",
+                iconPath: "assets/icons/social_networks/vk.svg",
+                link: "vk.com",
+                tag: "@mentoster_official",
+                backgroundColor: Colors.blue,
               ),
-              SmallInputWidget(title: "Почта", hint: "Введите вашу почту"),
             ],
           ),
           const SizedBox(
             height: defaultPadding,
           ),
-          BigInputWidget(
+          const SelectableText(
+            "Или отправить формочку на почту:",
+            style: usualText,
+          ),
+          const SizedBox(
+            height: defaultPadding,
+          ),
+          Row(
+            children: const [
+              SmallInputWidget(title: "Ваше имя", hint: "Введите ваше имя"),
+              SizedBox(
+                width: 24,
+              ),
+              SmallInputWidget(title: "Ваша почта", hint: "Введите вашу почту"),
+            ],
+          ),
+          const SizedBox(
+            height: defaultPadding,
+          ),
+          const BigInputWidget(
             title: "Описание",
             hint: "Опишите ваш проект",
           ),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
-          ContactButton()
+          const ContactButton()
         ]),
       ),
     );

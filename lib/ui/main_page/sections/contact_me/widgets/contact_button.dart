@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_flutter_web/ui/theme/app_fonts.dart';
 
 import '../../../../theme/app_constants.dart';
@@ -14,19 +15,24 @@ class ContactButton extends StatelessWidget {
         height: 83,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
-          color: Color(0x4cb1dbff),
+          color: const Color(0x4cb1dbff),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            SelectableText(
+          children: [
+            const SelectableText(
               "Связаться",
               style: heading2,
             ),
-            SizedBox(
+            const SizedBox(
               width: defaultPadding,
             ),
-            Icon(Icons.ac_unit)
+            SizedBox(
+              width: 48,
+              height: 48,
+              child: SvgPicture.asset("assets/icons/own_icons/connect.svg",
+                  semanticsLabel: "connect"),
+            ),
           ],
         ),
       ),

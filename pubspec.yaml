@@ -62,6 +62,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/social_networks/
+    - assets/icons/own_icons/
     - assets/icons/instruments/top_5/
     - assets/icons/instruments/others/
 

@@ -1,10 +1,9 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_flutter_web/ui/global_widgets/appbar.dart';
 import 'package:portfolio_flutter_web/ui/theme/app_constants.dart';
 
+import 'background/main_page_background.dart';
+import 'background/main_page_filter.dart';
 import 'sections/about_me/me_and_projects.dart';
 import 'sections/contact_me/contact_me.dart';
 import 'sections/diploms/diplomas.dart';
@@ -25,18 +24,8 @@ class MainPage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
           child: Stack(children: [
-        SvgPicture.asset("assets/icons/abstract_figures/blob1.svg"),
-        BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 56, sigmaY: 56),
-          child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
-              ),
-              child: SizedBox(
-                width: size.width,
-                height: size.height,
-              )),
-        ),
+        const MainPageBackGround(),
+        MainPageFilter(size: size),
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: const [

@@ -13,6 +13,7 @@ class Hackathons extends StatelessWidget {
       width: 1116,
       height: 970,
       child: Scaffold(
+        backgroundColor: Colors.white.withOpacity(0),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

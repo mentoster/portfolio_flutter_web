@@ -15,6 +15,7 @@ class WorkInstruments extends StatelessWidget {
         height: 924,
         width: 1116,
         child: Scaffold(
+          backgroundColor: Colors.white.withOpacity(0),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [

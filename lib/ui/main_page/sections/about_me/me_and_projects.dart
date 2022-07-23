@@ -13,18 +13,19 @@ class MeAndProjects extends StatelessWidget {
         height: 1100,
         width: 1116,
         child: Scaffold(
+            backgroundColor: Colors.white.withOpacity(0),
             body: Column(
-          children: const [
-            AboutMeWidget(),
-            SizedBox(
-              height: 32,
-            ),
-            ProjectsTitleWidget(),
-            SizedBox(
-              height: 32,
-            ),
-            LastProjectsGridWidget(),
-          ],
-        )));
+              children: const [
+                AboutMeWidget(),
+                SizedBox(
+                  height: 32,
+                ),
+                ProjectsTitleWidget(),
+                SizedBox(
+                  height: 32,
+                ),
+                LastProjectsGridWidget(),
+              ],
+            )));
   }
 }

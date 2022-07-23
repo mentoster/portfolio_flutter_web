@@ -15,6 +15,7 @@ class WorkExperience extends StatelessWidget {
       height: 750,
       width: 1116,
       child: Scaffold(
+        backgroundColor: Colors.white.withOpacity(0),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

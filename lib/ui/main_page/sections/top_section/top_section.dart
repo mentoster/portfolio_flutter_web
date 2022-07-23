@@ -14,6 +14,7 @@ class TopSection extends StatelessWidget {
         width: 1600,
         height: size.height,
         child: Scaffold(
+          backgroundColor: Colors.white.withOpacity(0),
           body: Stack(
             children: [
               Align(

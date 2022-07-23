@@ -76,7 +76,7 @@ class ContactForm extends StatelessWidget {
             height: defaultPadding,
           ),
           const SelectableText(
-            "Или отправить формочку на почту:",
+            "Отправить форму на почту:",
             style: usualText,
           ),
           const SizedBox(

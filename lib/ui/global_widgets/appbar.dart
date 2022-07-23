@@ -11,14 +11,14 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        backgroundColor: Colors.white.withOpacity(0.5),
+        backgroundColor: Colors.white.withOpacity(0.2),
         elevation: 0,
         flexibleSpace: ClipRect(
             child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+          filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.5),
+              color: Colors.white.withOpacity(0.2),
               border: const Border(
                 bottom: BorderSide(width: 0.5, color: appBarStroke),
               ),

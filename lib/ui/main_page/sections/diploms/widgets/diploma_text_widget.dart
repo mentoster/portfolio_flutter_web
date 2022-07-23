@@ -38,7 +38,7 @@ class DiplomaTextWidget extends StatelessWidget {
           const SizedBox(
             height: defaultPadding,
           ),
-          const Text(
+          const SelectableText(
             "Сертификация компании Cisco считается одной из самых престижных сертификаций в области ИТ. \n\nЭто связано с тем, что в отличии от систем сертификации многих других вендеров, сертификационные экзамены Cisco включат в себя помимо стандартных тестов на вопросы, симуляции и настройку виртуального оборудования.",
             style: usualText,
           ),
@@ -55,7 +55,7 @@ class DiplomaTextWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(18.0),
                 ))),
                 onPressed: () {},
-                child: const Text(
+                child: const SelectableText(
                   'Подробнее',
                   style: appBar,
                 )),

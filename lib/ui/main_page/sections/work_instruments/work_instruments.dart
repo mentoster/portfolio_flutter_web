@@ -18,7 +18,7 @@ class WorkInstruments extends StatelessWidget {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
-              Text(
+              SelectableText(
                 "Работал с стеком & клиент",
                 style: heading1,
               ),
@@ -29,7 +29,7 @@ class WorkInstruments extends StatelessWidget {
               SizedBox(
                 height: 32,
               ),
-              Text("Мой топ 5", style: heading2),
+              SelectableText("Мой топ 5", style: heading2),
               SizedBox(
                 height: 32,
               ),
@@ -37,7 +37,7 @@ class WorkInstruments extends StatelessWidget {
               SizedBox(
                 height: 32,
               ),
-              Text("Другие", style: heading2),
+              SelectableText("Другие", style: heading2),
               SizedBox(
                 height: 32,
               ),

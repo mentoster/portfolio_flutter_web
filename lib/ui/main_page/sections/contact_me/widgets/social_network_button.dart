@@ -32,7 +32,7 @@ class SocialNetworkButton extends StatelessWidget {
           SizedBox(
             width: 8,
           ),
-          Text(
+          SelectableText(
             tag,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           )

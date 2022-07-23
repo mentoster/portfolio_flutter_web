@@ -18,14 +18,14 @@ class ContactMe extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          const SelectableText(
             "Связаться",
             style: heading1,
           ),
           const SizedBox(
             height: defaultPadding,
           ),
-          const Text(
+          const SelectableText(
             "Здесь вы можете описать свой проект, и я с вами обязательно свяжусь.",
             style: usualText,
           ),

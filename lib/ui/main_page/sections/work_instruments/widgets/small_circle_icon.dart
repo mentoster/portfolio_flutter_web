@@ -54,7 +54,7 @@ class SmallCircleIcon extends StatelessWidget {
           width: 70,
           height: 18,
           child: FittedBox(
-            child: Text(
+            child: SelectableText(
               title,
               textAlign: TextAlign.center,
               style: const TextStyle(

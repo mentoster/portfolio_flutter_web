@@ -52,7 +52,7 @@ class ProjectCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              const SelectableText(
                 "Flutter & UI/UX Design",
                 style: TextStyle(fontSize: 14),
               ),
@@ -66,7 +66,7 @@ class ProjectCard extends StatelessWidget {
               ),
               Row(
                 children: const [
-                  Text(
+                  SelectableText(
                     "Подробнее",
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),

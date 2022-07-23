@@ -13,10 +13,10 @@ class ProjectsTitleWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text("Последние работы", style: heading1),
+        const SelectableText("Последние работы", style: heading1),
         Row(
           children: [
-            Text(
+            SelectableText(
               "Больше проектов",
               style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,

@@ -47,7 +47,7 @@ class InstrumentSearchWidget extends StatelessWidget {
                 SizedBox(
                   width: defaultPadding,
                 ),
-                Text("Figm|"),
+                SelectableText("Figm|"),
               ],
             )),
       ),

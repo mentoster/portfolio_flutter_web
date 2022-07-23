@@ -16,7 +16,7 @@ class Diplomas extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            const SelectableText(
               "Сертификаты",
               style: heading1,
             ),
@@ -25,7 +25,7 @@ class Diplomas extends StatelessWidget {
             ),
             const SizedBox(
               width: 670,
-              child: Text(
+              child: SelectableText(
                 "Во время обучения я получил достаточно много сертификатов, здесь вы можете посмотреть, какие конкретно.\nМои знания не ограничиваются этими сертификатами, так как много информации я получаю самостоятельно через интернет.",
                 style: usualText,
               ),

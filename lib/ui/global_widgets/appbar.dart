@@ -30,34 +30,34 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Center(
-                      child: Text(
+                      child: SelectableText(
                     "Портфолио",
                     style: usualText,
                   )),
                   Row(
                     children: [
-                      const Text(
+                      const SelectableText(
                         "Главная",
                         style: appBar,
                       ),
                       SizedBox(
                         width: _appBarPadding,
                       ),
-                      const Text(
+                      const SelectableText(
                         "Обо мне ",
                         style: appBar,
                       ),
                       SizedBox(
                         width: _appBarPadding,
                       ),
-                      const Text(
+                      const SelectableText(
                         "Опыт работы",
                         style: appBar,
                       ),
                       SizedBox(
                         width: _appBarPadding,
                       ),
-                      const Text(
+                      const SelectableText(
                         "Достижения",
                         style: appBar,
                       ),
@@ -75,7 +75,7 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                               borderRadius: BorderRadius.circular(18.0),
                             ))),
                             onPressed: () {},
-                            child: const Text(
+                            child: const SelectableText(
                               'Связаться',
                               style: appBar,
                             )),

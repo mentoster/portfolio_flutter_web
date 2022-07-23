@@ -38,7 +38,7 @@ class WorkTitlesWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            SelectableText(
               "Сейчас",
               style: TextStyle(
                   fontSize: heading2.fontSize, fontWeight: FontWeight.bold),

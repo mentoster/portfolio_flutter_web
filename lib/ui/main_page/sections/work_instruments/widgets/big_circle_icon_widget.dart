@@ -45,7 +45,7 @@ class BigCircleIcon extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        Text(
+        SelectableText(
           title,
           style: heading2,
         )

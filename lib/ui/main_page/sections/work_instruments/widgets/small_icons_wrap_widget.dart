@@ -63,7 +63,8 @@ class _SmallIconsWrapWidgetState extends State<SmallIconsWrapWidget> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 16),
-                  child: Text('Error: ${snapshot.error}, cant load icons'),
+                  child: SelectableText(
+                      'Error: ${snapshot.error}, cant load icons'),
                 )
               ],
             );

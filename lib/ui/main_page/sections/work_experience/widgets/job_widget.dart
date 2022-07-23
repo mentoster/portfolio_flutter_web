@@ -14,14 +14,14 @@ class JobWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        SelectableText(
           title,
           style: heading2,
         ),
         Container(
             width: 164,
             padding: const EdgeInsets.symmetric(vertical: 24),
-            child: Text(
+            child: SelectableText(
               subTitle,
               style: usualText,
             )),

@@ -19,7 +19,7 @@ class ContactButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
-            Text(
+            SelectableText(
               "Связаться",
               style: heading2,
             ),

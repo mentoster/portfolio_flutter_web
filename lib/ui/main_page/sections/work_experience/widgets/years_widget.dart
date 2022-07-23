@@ -11,27 +11,27 @@ class YearsWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const Text(
+        const SelectableText(
           "2019",
           style: heading2,
         ),
-        const Text(
+        const SelectableText(
           "2020",
           style: heading2,
         ),
-        const Text(
+        const SelectableText(
           "2020",
           style: heading2,
         ),
-        const Text(
+        const SelectableText(
           "2021",
           style: heading2,
         ),
-        const Text(
+        const SelectableText(
           "2021",
           style: heading2,
         ),
-        Text(
+        SelectableText(
           _yearNow,
           style: heading2,
         ),

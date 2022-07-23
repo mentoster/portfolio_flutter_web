@@ -19,7 +19,7 @@ class HackTagWidget extends StatelessWidget {
           SizedBox(
             width: 8,
           ),
-          Text("Российский")
+          SelectableText("Российский")
         ],
       ),
     );

@@ -46,7 +46,7 @@ class HackathonDiplomaWidget extends StatelessWidget {
         const SizedBox(
           height: defaultPadding,
         ),
-        const Text(
+        const SelectableText(
           "Цифровой прорыв, финал 2021",
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
@@ -63,7 +63,7 @@ class HackathonDiplomaWidget extends StatelessWidget {
         const SizedBox(
           height: defaultPadding,
         ),
-        const Text(
+        const SelectableText(
           "Участвовал игровым разработчиком.",
           style: usualText,
         ),

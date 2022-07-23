@@ -16,14 +16,14 @@ class Hackathons extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
+            const SelectableText(
               "Победитель и участников хакатонов.",
               style: heading1,
             ),
             const SizedBox(
               height: defaultPadding,
             ),
-            const Text(
+            const SelectableText(
               "Я активно принимаю участиве во многих хакатонах -\n соревнованиях, в которых командам нужно\nза короткое время разработать прототип продукта\nЗдесь вы можете посмотреть,\nв каких конкретно я учавствовал.\n\nИспользуйте стрелки для навигации.",
               style: usualText,
               textAlign: TextAlign.center,

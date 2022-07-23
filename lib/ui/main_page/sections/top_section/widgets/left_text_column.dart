@@ -8,6 +8,7 @@ class LeftTextColumn extends StatelessWidget {
     Key? key,
   }) : super(key: key);
   static const _iconRadius = 36.0;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,11 +34,11 @@ class LeftTextColumn extends StatelessWidget {
               ],
             ),
           ),
-          const Text(
+          const SelectableText(
             "UI/UX Дизайнер, Flutter и Unity разработчик.",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
           ),
-          Text(
+          SelectableText(
             "Нанимая меня, вы\nполучаете сертифицированного специалиста,\nкоторый любит своё дело. ",
             style: TextStyle(
                 color: Colors.grey[600], fontSize: usualText.fontSize! * 1.5),
@@ -54,7 +55,7 @@ class LeftTextColumn extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: defaultPadding * 2, vertical: defaultPadding),
-                  child: Text(
+                  child: SelectableText(
                     'Нанять меня',
                     style: TextStyle(
                         fontSize: appBar.fontSize! * 1.5,

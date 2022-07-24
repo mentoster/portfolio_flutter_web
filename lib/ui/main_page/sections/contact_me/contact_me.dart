@@ -19,7 +19,7 @@ class ContactMe extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
           SelectableText(
-            "Связаться",
+            "Обсуждение проектов",
             style: heading1,
           ),
           SizedBox(

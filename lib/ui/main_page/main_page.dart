@@ -30,9 +30,6 @@ class MainPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: const [
             TopSection(),
-            SizedBox(
-              height: defaultPadding * 2,
-            ),
             MeAndProjects(),
             WorkExperience(),
             WorkInstruments(),

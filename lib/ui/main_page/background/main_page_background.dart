@@ -33,12 +33,22 @@ class MainPageBackGround extends StatelessWidget {
               height: 700,
             ),
             Positioned(
-              top: size.width / 3 - 10,
+              top: size.width / 3 - 25,
               left: 125,
               child:
                   SvgPicture.asset("assets/icons/abstract_figures/blob3.svg"),
               width: 100,
               height: 100,
+            ),
+            Positioned(
+              top: size.width / 6,
+              right: 180,
+              child: Opacity(
+                  opacity: 0.2,
+                  child: SvgPicture.asset(
+                      "assets/icons/abstract_figures/blob3.svg")),
+              width: 800,
+              height: 800,
             ),
           ],
         ),

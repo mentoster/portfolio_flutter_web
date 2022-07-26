@@ -11,29 +11,38 @@ class WorkExperience extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     return SizedBox(
-      height: 750,
-      width: 1116,
+      height: 782,
+      width: size.width,
       child: Scaffold(
-        backgroundColor: Colors.white.withOpacity(0),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const WorkExpTitleWidget(),
-            const SizedBox(
-              height: 32,
+        backgroundColor: Colors.orange.withOpacity(0.03),
+        body: Center(
+          child: SizedBox(
+            width: 1200,
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 32,
+                ),
+                const WorkExpTitleWidget(),
+                const SizedBox(
+                  height: 32,
+                ),
+                const DescriptionTextWidget(),
+                const SizedBox(
+                  height: 32,
+                ),
+                const WorkTitlesWidget(),
+                const TimelineWidget(),
+                const SizedBox(
+                  height: 32,
+                ),
+                YearsWidget()
+              ],
             ),
-            const DescriptionTextWidget(),
-            const SizedBox(
-              height: 32,
-            ),
-            const WorkTitlesWidget(),
-            const TimelineWidget(),
-            const SizedBox(
-              height: 32,
-            ),
-            YearsWidget()
-          ],
+          ),
         ),
       ),
     );

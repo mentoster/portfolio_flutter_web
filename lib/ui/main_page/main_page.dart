@@ -33,9 +33,6 @@ class MainPage extends StatelessWidget {
             MeAndProjects(),
             WorkExperience(),
             WorkInstruments(),
-            SizedBox(
-              height: defaultPadding * 2,
-            ),
             Hackathons(),
             Diplomas(),
             ContactMe(),

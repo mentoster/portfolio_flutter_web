@@ -10,40 +10,50 @@ class Diplomas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     return SizedBox(
-        width: 1116,
+        width: size.width,
         height: 900,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SelectableText(
-              "Сертификаты",
-              style: heading1,
-            ),
-            const SizedBox(
-              height: defaultPadding,
-            ),
-            const SizedBox(
-              width: 670,
-              child: SelectableText(
-                "Во время обучения я получил достаточно много сертификатов, здесь вы можете посмотреть, какие конкретно.\nМои знания не ограничиваются этими сертификатами, так как много информации я получаю самостоятельно через интернет.",
-                style: usualText,
+        child: Scaffold(
+          backgroundColor: Colors.lightBlue.withOpacity(0.03),
+          body: Center(
+            child: SizedBox(
+              width: 1200,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SelectableText(
+                    "Сертификаты",
+                    style: heading1,
+                  ),
+                  const SizedBox(
+                    height: defaultPadding,
+                  ),
+                  const SizedBox(
+                    width: 670,
+                    child: SelectableText(
+                      "Во время обучения я получил достаточно много сертификатов, здесь вы можете посмотреть, какие конкретно.\nМои знания не ограничиваются этими сертификатами, так как много информации я получаю самостоятельно через интернет.",
+                      style: usualText,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: defaultPadding,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      DiplomasCarousel(),
+                      const SizedBox(
+                        width: 124,
+                      ),
+                      const DiplomaTextWidget()
+                    ],
+                  ),
+                ],
               ),
             ),
-            const SizedBox(
-              height: defaultPadding,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                DiplomasCarousel(),
-                const SizedBox(
-                  width: 124,
-                ),
-                const DiplomaTextWidget()
-              ],
-            ),
-          ],
+          ),
         ));
   }
 }

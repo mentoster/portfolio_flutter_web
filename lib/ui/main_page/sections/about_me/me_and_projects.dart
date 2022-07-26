@@ -15,7 +15,7 @@ class MeAndProjects extends StatelessWidget {
       height: 1216,
       width: size.width,
       child: Scaffold(
-          backgroundColor: Colors.lightBlue.withOpacity(0.05),
+          backgroundColor: Colors.lightBlue.withOpacity(0.03),
           body: Center(
             child: SizedBox(
               width: 1200,

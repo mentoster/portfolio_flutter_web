@@ -42,7 +42,7 @@ class MainPageBackGround extends StatelessWidget {
             ),
             Positioned(
               top: size.width / 6,
-              right: 180,
+              right: 20,
               child: Opacity(
                   opacity: 0.2,
                   child: SvgPicture.asset(

@@ -14,14 +14,23 @@ class _DragPlayStateStateful extends State<DragPlay> {
 
   @override
   Widget build(BuildContext context) {
-    return LongPressDraggable(
-      feedback: widget.child,
-      childWhenDragging: Opacity(
-        opacity: 0,
-        child: widget.child,
-      ),
-      onDragEnd: (details) => setState(() => position = details.offset),
-      child: widget.child,
+    return Stack(
+      children: [
+        Positioned(
+            left: position.dx,
+            top: position.dy,
+            width: 100,
+            height: 100,
+            child: LongPressDraggable(
+              feedback: widget.child,
+              childWhenDragging: Opacity(
+                opacity: 1,
+                child: widget.child,
+              ),
+              onDragEnd: (details) => setState(() => position = details.offset),
+              child: widget.child,
+            ))
+      ],
     );
   }
 }

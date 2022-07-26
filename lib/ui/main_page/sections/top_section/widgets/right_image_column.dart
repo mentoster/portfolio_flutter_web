@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'dart:math' as math;
+
+import '../../../../global_widgets/drag_play.dart';
 
 class RightImageColumn extends StatelessWidget {
   const RightImageColumn({
@@ -8,7 +11,6 @@ class RightImageColumn extends StatelessWidget {
   }) : super(key: key);
 
   final Size size;
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -42,6 +44,30 @@ class RightImageColumn extends StatelessWidget {
                 ),
                 Image.asset("assets/images/me_photo.png",
                     fit: BoxFit.fitHeight),
+                Positioned(
+                  height: size.height / 12,
+                  right: 200,
+                  top: size.height / 12,
+                  child: Transform.rotate(
+                    angle: -math.pi / 4,
+                    child: Image.asset("assets/icons/abstract_figures/star.png",
+                        fit: BoxFit.fitHeight),
+                  ),
+                ),
+                Positioned(
+                  height: size.height / 8,
+                  left: 100,
+                  top: size.height / 8,
+                  child: Image.asset("assets/icons/abstract_figures/dog.png",
+                      fit: BoxFit.fitHeight),
+                ),
+                Positioned(
+                  height: size.height / 8,
+                  left: 0,
+                  bottom: size.height / 12,
+                  child: Image.asset("assets/icons/abstract_figures/star.png",
+                      fit: BoxFit.fitHeight),
+                ),
               ]),
         )
       ],

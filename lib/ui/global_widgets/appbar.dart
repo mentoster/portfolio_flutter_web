@@ -31,7 +31,7 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                 children: [
                   const Center(
                       child: SelectableText(
-                    "Портфолио",
+                    "Mentoster",
                     style: usualText,
                   )),
                   Row(

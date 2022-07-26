@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sa3_liquid/sa3_liquid.dart';
-import 'package:simple_animations/simple_animations.dart';
 
 class MainPageBackGround extends StatelessWidget {
   const MainPageBackGround({

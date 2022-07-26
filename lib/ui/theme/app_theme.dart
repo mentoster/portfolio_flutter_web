@@ -5,9 +5,7 @@ abstract class Themes {
     primaryColor: const Color(0xff0468D7),
     colorScheme: const ColorScheme(
       primary: Color(0xff0468D7),
-      primaryVariant: Colors.white,
       secondary: Color(0xff64ffda),
-      secondaryVariant: Color(0xff00bfa5),
       surface: Color(0xff424242),
       background: Color(0xffFAFAFA),
       error: Color(0xffd32f2f),
@@ -23,9 +21,7 @@ abstract class Themes {
   static final ThemeData dark = ThemeData.dark().copyWith(
       colorScheme: const ColorScheme(
         primary: Color(0xffff9800),
-        primaryVariant: Color(0xff000000),
         secondary: Color(0xff64ffda),
-        secondaryVariant: Color(0xff00bfa5),
         surface: Color(0xff424242),
         background: Color(0xff616161),
         error: Color(0xffd32f2f),

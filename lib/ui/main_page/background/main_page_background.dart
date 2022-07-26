@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sa3_liquid/sa3_liquid.dart';
+import 'package:simple_animations/simple_animations.dart';
 
 class MainPageBackGround extends StatelessWidget {
   const MainPageBackGround({
@@ -49,6 +51,16 @@ class MainPageBackGround extends StatelessWidget {
                       "assets/icons/abstract_figures/blob3.svg")),
               width: 800,
               height: 800,
+            ),
+            Positioned(
+              top: size.width + 500,
+              right: 20,
+              child: Opacity(
+                  opacity: 0.2,
+                  child: SvgPicture.asset(
+                      "assets/icons/abstract_figures/blob4.svg")),
+              width: 1200,
+              height: 1200,
             ),
           ],
         ),

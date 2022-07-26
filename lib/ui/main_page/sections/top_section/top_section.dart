@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/animated_background.dart';
 import 'widgets/left_text_column.dart';
 import 'widgets/right_image_column.dart';
 
@@ -9,8 +10,9 @@ class TopSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Center(
-      child: SizedBox(
+    return Stack(alignment: Alignment.center, children: [
+      AnimatedBackground(size: size),
+      SizedBox(
         width: 1600,
         height: size.height,
         child: Scaffold(
@@ -27,6 +29,6 @@ class TopSection extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ]);
   }
 }

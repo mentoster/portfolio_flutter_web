@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/ui/global_widgets/appbar.dart';
 import 'package:portfolio_flutter_web/ui/theme/app_constants.dart';
+import 'package:sa3_liquid/sa3_liquid.dart';
 
 import 'background/main_page_background.dart';
 import 'background/main_page_filter.dart';
@@ -24,6 +25,7 @@ class MainPage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
           child: Stack(children: [
+
         const MainPageBackGround(),
         MainPageFilter(size: size),
         Column(

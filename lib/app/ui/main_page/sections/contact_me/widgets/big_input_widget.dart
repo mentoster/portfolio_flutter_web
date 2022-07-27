@@ -30,7 +30,7 @@ class BigInputWidget extends StatelessWidget {
           ),
           filled: true,
           hintStyle: TextStyle(color: Colors.black.withOpacity(0.67)),
-          hintText: "Введите ваше имя",
+          hintText: hint,
           labelText: title,
           fillColor: Colors.transparent),
     ));

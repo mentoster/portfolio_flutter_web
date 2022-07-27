@@ -14,6 +14,7 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white.withOpacity(0.2),
         elevation: 0,
         flexibleSpace: ClipRect(
@@ -44,13 +45,19 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                                         "Mentoster",
                                         style: usualText,
                                       )))
-                          : Row(
-                              children: const [
-                                Icon(Icons.arrow_back_rounded),
-                                SelectableText(" К портфолио",
-                                    style: usualText),
-                              ],
-                            )),
+                          : Link(
+                              uri: Uri.parse(Routes.INITIAL),
+                              builder: (BuildContext context,
+                                      FollowLink? followLink) =>
+                                  TextButton(
+                                      onPressed: followLink,
+                                      child: Row(
+                                        children: const [
+                                          Icon(Icons.arrow_back_rounded),
+                                          Text(" К портфолио",
+                                              style: usualText),
+                                        ],
+                                      )))),
                   Row(
                     children: [
                       const SelectableText(
@@ -74,10 +81,16 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                       SizedBox(
                         width: _appBarPadding,
                       ),
-                      const SelectableText(
-                        "Проекты",
-                        style: appBar,
-                      ),
+                      Link(
+                          uri: Uri.parse(Routes.PROJECTS),
+                          builder:
+                              (BuildContext context, FollowLink? followLink) =>
+                                  TextButton(
+                                      onPressed: followLink,
+                                      child: const Text(
+                                        "Проекты",
+                                        style: appBar,
+                                      ))),
                       SizedBox(
                         width: _appBarPadding,
                       ),

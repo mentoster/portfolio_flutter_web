@@ -22,6 +22,7 @@ class MainPage extends StatelessWidget {
       appBar: const AppBarWidget(needBack: false),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
+
           child: Stack(children: [
         const MainPageBackGround(),
         MainPageFilter(size: size),

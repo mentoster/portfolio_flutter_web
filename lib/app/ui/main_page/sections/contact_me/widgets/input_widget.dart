@@ -17,6 +17,9 @@ class SmallInputWidget extends StatelessWidget {
         child: TextFormField(
           keyboardType:
               isEmail ? TextInputType.emailAddress : TextInputType.name,
+          autofillHints: <String>[
+            isEmail ? AutofillHints.email : AutofillHints.nickname,
+          ],
           autocorrect: true,
           maxLines: 1,
           decoration: InputDecoration(

@@ -7,7 +7,7 @@ part './app_routes.dart';
 
 class AppPages {
   static Map<String, Widget Function(BuildContext)> routes = {
-    Routes.INITIAL: (context) => const MainPage(),
-    Routes.PROJECTS: (context) => const ProjectsPage(),
+    Routes.INITIAL: (_) => const MainPage(),
+    Routes.PROJECTS: (_) => const ProjectsPage(),
   };
 }

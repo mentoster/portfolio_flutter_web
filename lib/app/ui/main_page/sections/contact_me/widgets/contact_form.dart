@@ -84,11 +84,16 @@ class ContactForm extends StatelessWidget {
           ),
           Row(
             children: const [
-              SmallInputWidget(title: "Ваше имя", hint: "Введите ваше имя"),
+              SmallInputWidget(
+                  title: "Ваше имя", hint: "Введите ваше имя", isEmail: false),
               SizedBox(
                 width: 24,
               ),
-              SmallInputWidget(title: "Ваша почта", hint: "Введите вашу почту"),
+              SmallInputWidget(
+                title: "Ваша почта",
+                hint: "Введите вашу почту",
+                isEmail: true,
+              ),
             ],
           ),
           const SizedBox(

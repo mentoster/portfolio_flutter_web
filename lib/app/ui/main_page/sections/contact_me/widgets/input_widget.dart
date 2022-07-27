@@ -3,14 +3,21 @@ import 'package:flutter/material.dart';
 class SmallInputWidget extends StatelessWidget {
   final String title;
   final String hint;
-  const SmallInputWidget({Key? key, required this.title, required this.hint})
-      : super(key: key);
-
+  const SmallInputWidget({
+    Key? key,
+    required this.title,
+    required this.hint,
+    required this.isEmail,
+  }) : super(key: key);
+  final bool isEmail;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
         width: 231,
         child: TextFormField(
+          keyboardType:
+              isEmail ? TextInputType.emailAddress : TextInputType.name,
+          autocorrect: true,
           maxLines: 1,
           decoration: InputDecoration(
               border: OutlineInputBorder(
@@ -29,7 +36,7 @@ class SmallInputWidget extends StatelessWidget {
               ),
               filled: true,
               hintStyle: TextStyle(color: Colors.black.withOpacity(0.67)),
-              hintText: "Введите ваше имя",
+              hintText: hint,
               labelText: title,
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 16, vertical: 25),

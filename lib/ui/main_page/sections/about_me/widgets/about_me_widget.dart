@@ -26,7 +26,7 @@ class AboutMeWidget extends StatelessWidget {
         ),
         RichText(
           text: TextSpan(
-            text: "3+",
+            text: ("${DateTime.now().year - 2019}+").toString(),
             style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 96,

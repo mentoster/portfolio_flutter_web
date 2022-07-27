@@ -5,8 +5,8 @@ import 'package:portfolio_flutter_web/ui/theme/app_addition_colors.dart';
 import 'package:portfolio_flutter_web/ui/theme/app_fonts.dart';
 
 class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
-  const AppBarWidget({Key? key}) : super(key: key);
-
+  const AppBarWidget({Key? key, required this.needBack}) : super(key: key);
+  final bool needBack;
   final _appBarPadding = 24.0;
   @override
   Widget build(BuildContext context) {
@@ -29,11 +29,19 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Center(
-                      child: SelectableText(
-                    "Mentoster",
-                    style: usualText,
-                  )),
+                  Center(
+                      child: !needBack
+                          ? const SelectableText(
+                              "Mentoster",
+                              style: usualText,
+                            )
+                          : Row(
+                              children: const [
+                                Icon(Icons.arrow_back_rounded),
+                                SelectableText(" К портфолио",
+                                    style: usualText),
+                              ],
+                            )),
                   Row(
                     children: [
                       const SelectableText(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'ui/main_page/main_page.dart';
+import 'ui/projects_page/projects_page.dart';
 import 'ui/theme/app_theme.dart';
 
 void main() {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       theme: Themes.light,
       darkTheme: Themes.dark,
       themeMode: ThemeMode.light,
-      home: const MainPage(),
+      home: const ProjectsPage(),
+      // home: const MainPage(),
     );
   }
 }

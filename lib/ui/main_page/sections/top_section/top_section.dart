@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/animated_background.dart';
+import '../../../global_widgets/animated_background.dart';
 import 'widgets/left_text_column.dart';
 import 'widgets/right_image_column.dart';
 

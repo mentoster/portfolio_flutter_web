@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/data/icons/big_icons.dart';
 import 'package:portfolio_flutter_web/ui/theme/app_fonts.dart';
 
-import 'widgets/InstrumentSearchWidget.dart';
+import '../../../global_widgets/search_widget';
 import 'widgets/small_icons_wrap_widget.dart';
 import 'widgets/top_five_widget.dart';
 
@@ -34,7 +34,7 @@ class WorkInstruments extends StatelessWidget {
                   SizedBox(
                     height: 32,
                   ),
-                  InstrumentSearchWidget(),
+                  SearchWidget(),
                   SizedBox(
                     height: 32,
                   ),

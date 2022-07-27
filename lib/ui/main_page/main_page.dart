@@ -19,7 +19,7 @@ class MainPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: const AppBarWidget(),
+      appBar: const AppBarWidget(needBack: false),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
           child: Stack(children: [

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/ui/theme/app_constants.dart';
 
-class InstrumentSearchWidget extends StatelessWidget {
-  const InstrumentSearchWidget({
+class SearchWidget extends StatelessWidget {
+  const SearchWidget({
     Key? key,
   }) : super(key: key);
 

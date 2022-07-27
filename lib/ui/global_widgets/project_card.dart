@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/ui/theme/app_fonts.dart';
 
+import '../../data/enums/technology.dart';
+import '../../data/models/project.dart';
+
 class ProjectCard extends StatelessWidget {
-  const ProjectCard({Key? key}) : super(key: key);
+  const ProjectCard(
+      {Key? key,
+      required this.projectPreview,
+      required this.title,
+      required this.technology,
+      required this.date})
+      : super(key: key);
+  final ProjectPreview projectPreview;
+  final String title;
+  final List<Technology> technology;
+  final DateTime date;
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +52,11 @@ class ProjectCard extends StatelessWidget {
           ClipRRect(
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(24), bottomLeft: Radius.circular(24)),
-            child: Container(
+            child: SizedBox(
               height: 357,
               width: 289.5,
-              color: Colors.black,
+              child: Image.asset(projectPreview.previewImagePath,
+                  fit: BoxFit.cover),
             ),
           ),
           const SizedBox(
@@ -52,14 +66,14 @@ class ProjectCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SelectableText(
-                "Flutter & UI/UX Design",
-                style: TextStyle(fontSize: 14),
+              SelectableText(
+                technology.map((val) => val.toShortString()).join(" & "),
+                style: const TextStyle(fontSize: 14),
               ),
-              const SizedBox(
+              SizedBox(
                 width: 231,
                 child: Text(
-                  "Социальная сеть\n",
+                  "$title\n",
                   style: heading2,
                   softWrap: true,
                 ),

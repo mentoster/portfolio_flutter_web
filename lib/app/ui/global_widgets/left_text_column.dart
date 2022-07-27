@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_flutter_web/ui/main_page/sections/top_section/widgets/circle_icon.dart';
-import 'package:portfolio_flutter_web/ui/theme/app_constants.dart';
-import 'package:portfolio_flutter_web/ui/theme/app_fonts.dart';
+
+import '../theme/app_constants.dart';
+import '../theme/app_fonts.dart';
+import 'circle_icon.dart';
 
 class LeftTextColumn extends StatelessWidget {
   const LeftTextColumn({

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
-import 'app/ui/main_page/main_page.dart';
-import 'app/ui/projects_page/projects_page.dart';
+import 'app/routes/app_pages.dart';
 import 'app/ui/theme/app_theme.dart';
-
 
 void main() {
   setUrlStrategy(PathUrlStrategy());
@@ -18,16 +16,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/",
-      routes: {
-        "/": (context) => MainPage(),
-        "/projects": (context) => ProjectsPage(),
-      },
+      initialRoute: Routes.INITIAL,
+      routes: AppPages.routes,
       title: 'Flutter Demo',
       theme: Themes.light,
       darkTheme: Themes.dark,
       themeMode: ThemeMode.light,
-      // home: const MainPage(),
     );
   }
 }

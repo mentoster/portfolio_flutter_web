@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter_web/app/routes/app_pages.dart';
+import 'package:url_launcher/link.dart';
 
 import '../theme/app_addition_colors.dart';
 import '../theme/app_fonts.dart';
@@ -32,10 +34,16 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                 children: [
                   Center(
                       child: !needBack
-                          ? const SelectableText(
-                              "Mentoster",
-                              style: usualText,
-                            )
+                          ? Link(
+                              uri: Uri.parse(Routes.INITIAL),
+                              builder: (BuildContext context,
+                                      FollowLink? followLink) =>
+                                  TextButton(
+                                      onPressed: followLink,
+                                      child: const Text(
+                                        "Mentoster",
+                                        style: usualText,
+                                      )))
                           : Row(
                               children: const [
                                 Icon(Icons.arrow_back_rounded),

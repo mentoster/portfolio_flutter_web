@@ -9,10 +9,16 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _controller = ScrollController();
+
     return Scaffold(
-      appBar: const AppBarWidget(needBack: true),
+      appBar: AppBarWidget(
+        needBack: true,
+        controller: _controller,
+      ),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
+        controller: _controller,
         child: Column(
           children: const [
             TopSectionProjects(),

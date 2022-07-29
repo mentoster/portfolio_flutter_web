@@ -12,33 +12,35 @@ import 'sections/work_experience/work_experience.dart';
 import 'sections/work_instruments/work_instruments.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
+  MainPage({Key? key}) : super(key: key);
+  final ScrollController _controller = ScrollController();
+  final List<String> entries = <String>['A', 'B', 'C'];
+  final List<int> colorCodes = <int>[600, 500, 100];
+  final sections = const [
+    TopSection(),
+    MeAndProjects(),
+    WorkExperience(),
+    WorkInstruments(),
+    Hackathons(),
+    Diplomas(),
+    ContactMe(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    // _animateToIndex();
 
     return Scaffold(
-      appBar: const AppBarWidget(needBack: false),
+      appBar: AppBarWidget(needBack: false, controller: _controller),
       extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-
-          child: Stack(children: [
-        const MainPageBackGround(),
-        MainPageFilter(size: size),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            TopSection(),
-            MeAndProjects(),
-            WorkExperience(),
-            WorkInstruments(),
-            Hackathons(),
-            Diplomas(),
-            ContactMe(),
-          ],
-        ),
-      ])),
+      body: ListView.builder(
+          controller: _controller,
+          padding: const EdgeInsets.all(8),
+          itemCount: sections.length,
+          itemBuilder: (BuildContext context, int index) {
+            return sections[index];
+          }),
     );
   }
 }

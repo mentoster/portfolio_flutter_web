@@ -8,11 +8,24 @@ import '../theme/app_addition_colors.dart';
 import '../theme/app_fonts.dart';
 
 class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
-  const AppBarWidget({Key? key, required this.needBack}) : super(key: key);
+  const AppBarWidget(
+      {Key? key, required this.needBack, required this.controller})
+      : super(key: key);
+  final ScrollController controller;
+
   final bool needBack;
   final _appBarPadding = 24.0;
+  void _animateToHeight(double size) {
+    controller.animateTo(
+      size,
+      duration: const Duration(seconds: 2),
+      curve: Curves.fastOutSlowIn,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white.withOpacity(0.2),
@@ -60,27 +73,38 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                                       )))),
                   Row(
                     children: [
-                      const SelectableText(
-                        "Главная",
-                        style: appBar,
-                      ),
+                      Link(
+                          uri: Uri.parse(Routes.INITIAL),
+                          builder:
+                              (BuildContext context, FollowLink? followLink) =>
+                                  TextButton(
+                                      onPressed: needBack
+                                          ? followLink
+                                          : () => _animateToHeight(0),
+                                      child: const Text(
+                                        "Главная",
+                                        style: appBar,
+                                      ))),
                       SizedBox(
                         width: _appBarPadding,
                       ),
-                      const SelectableText(
-                        "Обо мне ",
-                        style: appBar,
-                      ),
-                      SizedBox(
-                        width: _appBarPadding,
-                      ),
-                      const SelectableText(
-                        "Опыт работы",
-                        style: appBar,
-                      ),
-                      SizedBox(
-                        width: _appBarPadding,
-                      ),
+                      !needBack
+                          ? Row(
+                              children: [
+                                TextButton(
+                                  onPressed: () =>
+                                      _animateToHeight(size.height - 64),
+                                  child: const Text(
+                                    "Обо мне ",
+                                    style: appBar,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: _appBarPadding,
+                                ),
+                              ],
+                            )
+                          : const SizedBox.shrink(),
                       Link(
                           uri: Uri.parse(Routes.PROJECTS),
                           builder:
@@ -88,7 +112,7 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                                   TextButton(
                                       onPressed: followLink,
                                       child: const Text(
-                                        "Проекты",
+                                        "Все Проекты",
                                         style: appBar,
                                       ))),
                       SizedBox(
@@ -104,8 +128,10 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                                     RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ))),
-                            onPressed: () {},
-                            child: const SelectableText(
+                            onPressed: () => _animateToHeight(
+                                controller.position.viewportDimension +
+                                    controller.position.maxScrollExtent),
+                            child: const Text(
                               'Связаться',
                               style: appBar,
                             )),

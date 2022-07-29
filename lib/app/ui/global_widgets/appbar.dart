@@ -15,10 +15,10 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
 
   final bool needBack;
   final _appBarPadding = 24.0;
-  void _animateToHeight(double size) {
+  void _animateToHeight(double size, {duration = 2}) {
     controller.animateTo(
       size,
-      duration: const Duration(seconds: 2),
+      duration: Duration(seconds: duration),
       curve: Curves.fastOutSlowIn,
     );
   }
@@ -130,7 +130,8 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                             ))),
                             onPressed: () => _animateToHeight(
                                 controller.position.viewportDimension +
-                                    controller.position.maxScrollExtent),
+                                    controller.position.maxScrollExtent,
+                                duration: 6),
                             child: const Text(
                               'Связаться',
                               style: appBar,

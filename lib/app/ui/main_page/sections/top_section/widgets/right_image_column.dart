@@ -18,6 +18,8 @@ class RightImageColumn extends StatelessWidget {
         height: size.height - 64,
         width: 800,
         child: ParallaxStack(
+          resetCurve: Curves.fastOutSlowIn,
+          resetDuration: const Duration(milliseconds: 400),
           layers: [
             ParallaxLayer(
               xOffset: 25,

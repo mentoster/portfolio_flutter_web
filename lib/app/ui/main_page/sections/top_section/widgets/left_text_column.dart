@@ -67,7 +67,7 @@ class LeftTextColumn extends StatelessWidget {
                                         Theme.of(context).colorScheme.primary),
                                 colors: [
                                   Theme.of(context).colorScheme.primary,
-                                  Color.fromARGB(255, 0, 183, 255),
+                                  const Color.fromARGB(255, 0, 183, 255),
                                   Theme.of(context).colorScheme.primary,
                                 ]),
                           ])),

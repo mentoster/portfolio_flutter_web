@@ -20,7 +20,7 @@ class ProjectsGridWidget extends StatelessWidget {
       child: SizedBox(
         height: 764,
         child: GridView.builder(
-            itemCount: projects.projects.length,
+            itemCount: count,
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,

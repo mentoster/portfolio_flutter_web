@@ -33,7 +33,14 @@ class WorkInstruments extends StatelessWidget {
                   SizedBox(
                     height: 32,
                   ),
-                  SearchWidget(texts: []),
+                  SearchWidget(texts: [
+                    "Unity",
+                    "Flutter",
+                    "Dart",
+                    "C++",
+                    "C#",
+                    "Figma"
+                  ]),
                   SizedBox(
                     height: 32,
                   ),

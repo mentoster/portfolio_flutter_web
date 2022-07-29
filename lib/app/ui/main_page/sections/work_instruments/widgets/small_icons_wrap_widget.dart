@@ -17,12 +17,12 @@ class SmallIconsWrapWidget extends StatefulWidget {
 }
 
 class _SmallIconsWrapWidgetState extends State<SmallIconsWrapWidget> {
+
   Future<List<String>> _initImages() async {
-    // >> To get paths you need these 2 lines
     final manifestContent = await rootBundle.loadString('AssetManifest.json');
 
     final Map<String, dynamic> manifestMap = json.decode(manifestContent);
-    // >> To get paths you need these 2 lines
+
     final imagePaths = manifestMap.keys
         .where((String key) => key.contains('assets/icons/instruments/others/'))
         .where((String key) => key.contains('.svg'))

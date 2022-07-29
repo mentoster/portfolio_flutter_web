@@ -1,4 +1,4 @@
-import 'package:portfolio_flutter_web/app/ui/main_page/main_page.dart';
+import '../ui/main_page/main_page.dart';
 import 'package:flutter/material.dart';
 
 import '../ui/projects_page/projects_page.dart';

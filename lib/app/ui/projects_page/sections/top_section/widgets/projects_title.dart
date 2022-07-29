@@ -14,9 +14,8 @@ class ProjectsTitle extends StatelessWidget {
     return PlayAnimation<double>(
         tween: Tween<double>(begin: 0.0, end: 1.0),
         curve: Curves.ease,
-        fps: 72,
-        delay: Duration(milliseconds: (4 * 0.2 * 1000).round()),
-        duration: const Duration(seconds: 4),
+        fps: 300,
+        duration: const Duration(seconds: 2),
         builder: (context, child, value) {
           return Padding(
             padding: EdgeInsets.only(

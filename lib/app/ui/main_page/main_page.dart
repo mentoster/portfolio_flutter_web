@@ -12,6 +12,7 @@ import 'sections/work_instruments/work_instruments.dart';
 class MainPage extends StatelessWidget {
   MainPage({Key? key}) : super(key: key);
   final ScrollController _controller = ScrollController();
+
   final sections = const [
     TopSection(),
     MeAndProjects(),

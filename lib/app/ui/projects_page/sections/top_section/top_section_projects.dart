@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../global_widgets/animated_background.dart';
-import '../../../theme/app_fonts.dart';
 import 'widgets/projects_image.dart';
 import 'widgets/projects_title.dart';
 

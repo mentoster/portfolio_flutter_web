@@ -19,23 +19,25 @@ class ProjectsGridWidget extends StatelessWidget {
       removeTop: true,
       child: SizedBox(
         height: 764,
-        child: GridView.count(
-          physics: const NeverScrollableScrollPhysics(),
-          crossAxisCount: 2,
-          crossAxisSpacing: 24,
-          mainAxisSpacing: 24,
-          padding: const EdgeInsets.only(
-              left: defaultPadding * 2, right: defaultPadding * 2),
-          childAspectRatio: 1.621848,
-          children: List.generate(count, (index) {
-            return ProjectCard(
-              projectPreview: projects.projects[0].projectPreview,
-              date: projects.projects[0].date,
-              title: projects.projects[0].title,
-              technology: projects.projects[0].technology,
-            );
-          }),
-        ),
+        child: GridView.builder(
+            itemCount: projects.projects.length,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 24,
+              mainAxisSpacing: 24,
+              childAspectRatio: 1.621848,
+            ),
+            padding: const EdgeInsets.only(
+                left: defaultPadding * 2, right: defaultPadding * 2),
+            itemBuilder: (context, i) {
+              return ProjectCard(
+                projectPreview: projects.projects[i].projectPreview,
+                date: projects.projects[i].date,
+                title: projects.projects[i].title,
+                technology: projects.projects[i].technology,
+              );
+            }),
       ),
     );
   }

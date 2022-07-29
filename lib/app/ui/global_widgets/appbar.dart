@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:portfolio_flutter_web/app/routes/app_pages.dart';
+import '../../routes/app_pages.dart';
 import 'package:url_launcher/link.dart';
 
 import '../theme/app_addition_colors.dart';
@@ -121,21 +121,30 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                       SizedBox(
                         height: 40,
                         width: 178,
-                        child: ElevatedButton(
-                            style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                            ))),
-                            onPressed: () => _animateToHeight(
-                                controller.position.viewportDimension +
-                                    controller.position.maxScrollExtent,
-                                duration: 6),
-                            child: const Text(
-                              'Связаться',
-                              style: appBar,
-                            )),
+                        child: Link(
+                          uri: Uri.parse(Routes.INITIAL),
+                          builder: (BuildContext context,
+                                  FollowLink? followLink) =>
+                              ElevatedButton(
+                                  style: ButtonStyle(
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
+                                  ))),
+                                  onPressed: !needBack
+                                      ? () => _animateToHeight(
+                                          controller
+                                                  .position.viewportDimension +
+                                              controller
+                                                  .position.maxScrollExtent,
+                                          duration: 6)
+                                      : followLink,
+                                  child: const Text(
+                                    'Связаться',
+                                    style: appBar,
+                                  )),
+                        ),
                       ),
                     ],
                   ),

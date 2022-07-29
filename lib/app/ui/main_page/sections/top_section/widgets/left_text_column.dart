@@ -1,8 +1,10 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 import '../../../../theme/app_constants.dart';
 import '../../../../theme/app_fonts.dart';
+import 'animated_text_no_fade.dart';
 import 'circle_icon.dart';
 
 class LeftTextColumn extends StatelessWidget {
@@ -20,40 +22,61 @@ class LeftTextColumn extends StatelessWidget {
         spacing: defaultPadding,
         children: [
           PlayAnimation<double>(
+            tween: Tween<double>(begin: 0.0, end: 1.0),
+            curve: Curves.ease,
+            fps: 300,
+            duration: Duration(seconds: animationTime),
+            builder: (context, child, value) {
+              return Padding(
+                padding: EdgeInsets.only(
+                    left: defaultPadding * 4 - value * defaultPadding * 4),
+                child: Opacity(
+                  opacity: value,
+                  child: Text(
+                    "Привет! Я",
+                    style: TextStyle(
+                        fontWeight: heading1.fontWeight,
+                        fontSize: heading1.fontSize! * 1.5),
+                  ),
+                ),
+              );
+            },
+          ),
+          PlayAnimation<double>(
               tween: Tween<double>(begin: 0.0, end: 1.0),
               curve: Curves.ease,
-              fps: 72,
+              fps: 300,
               duration: Duration(seconds: animationTime),
               builder: (context, child, value) {
                 return Padding(
                   padding: EdgeInsets.only(
                       left: defaultPadding * 4 - value * defaultPadding * 4),
                   child: Opacity(
-                    opacity: value,
-                    child: RichText(
-                      text: TextSpan(
-                        text: "Привет! Я",
-                        style: TextStyle(
-                            fontWeight: heading1.fontWeight,
-                            fontSize: heading1.fontSize! * 1.5),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: '\nМакаров Дмитрий',
-                            style: TextStyle(
-                                fontSize: heading1.fontSize! * 1.5,
-                                fontWeight: heading1.fontWeight,
-                                color: Theme.of(context).colorScheme.primary),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                      opacity: value,
+                      child: AnimatedTextKit(
+                          repeatForever: true,
+                          isRepeatingAnimation: true,
+                          pause: const Duration(milliseconds: 400),
+                          animatedTexts: [
+                            ColorizeAnimatedTextNoFade('Макаров Дмитрий',
+                                speed: const Duration(milliseconds: 400),
+                                textStyle: TextStyle(
+                                    fontSize: heading1.fontSize! * 1.5,
+                                    fontWeight: heading1.fontWeight,
+                                    color:
+                                        Theme.of(context).colorScheme.primary),
+                                colors: [
+                                  Theme.of(context).colorScheme.primary,
+                                  Color.fromARGB(255, 0, 183, 255),
+                                  Theme.of(context).colorScheme.primary,
+                                ]),
+                          ])),
                 );
               }),
           PlayAnimation<double>(
               tween: Tween<double>(begin: 0.0, end: 1.0),
               curve: Curves.ease,
-              fps: 72,
+              fps: 300,
               delay:
                   Duration(milliseconds: (animationTime * 0.2 * 1000).round()),
               duration: Duration(seconds: animationTime),
@@ -74,7 +97,7 @@ class LeftTextColumn extends StatelessWidget {
           PlayAnimation<double>(
               tween: Tween<double>(begin: 0.0, end: 1.0),
               curve: Curves.ease,
-              fps: 72,
+              fps: 300,
               delay:
                   Duration(milliseconds: (animationTime * 0.4 * 1000).round()),
               duration: Duration(seconds: animationTime),
@@ -94,7 +117,7 @@ class LeftTextColumn extends StatelessWidget {
           PlayAnimation<double>(
               tween: Tween<double>(begin: 0.0, end: 1.0),
               curve: Curves.ease,
-              fps: 72,
+              fps: 300,
               delay:
                   Duration(milliseconds: (animationTime * 0.6 * 1000).round()),
               duration: Duration(seconds: animationTime),
@@ -130,7 +153,7 @@ class LeftTextColumn extends StatelessWidget {
           PlayAnimation<double>(
               tween: Tween<double>(begin: 0.0, end: 1.0),
               curve: Curves.ease,
-              fps: 72,
+              fps: 300,
               delay:
                   Duration(milliseconds: (animationTime * 0.8 * 1000).round()),
               duration: Duration(seconds: animationTime),

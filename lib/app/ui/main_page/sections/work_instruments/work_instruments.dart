@@ -33,7 +33,7 @@ class WorkInstruments extends StatelessWidget {
                   SizedBox(
                     height: 32,
                   ),
-                  SearchWidget(),
+                  SearchWidget(texts: []),
                   SizedBox(
                     height: 32,
                   ),

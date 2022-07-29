@@ -1,12 +1,13 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 import '../theme/app_constants.dart';
 
 class SearchWidget extends StatelessWidget {
   const SearchWidget({
-    Key? key,
+    Key? key, required this.texts,
   }) : super(key: key);
-
+  final List<String> texts;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,12 +44,26 @@ class SearchWidget extends StatelessWidget {
         child: Align(
             alignment: Alignment.centerLeft,
             child: Row(
-              children: const [
-                Icon(Icons.search),
-                SizedBox(
+              children: [
+                const Icon(Icons.search),
+                const SizedBox(
                   width: defaultPadding,
                 ),
-                SelectableText("Figm|"),
+                AnimatedTextKit(
+                  repeatForever: true,
+                  isRepeatingAnimation: true,
+                  pause: const Duration(seconds: 3),
+                  animatedTexts: [
+                    for (var t in texts)
+                      TypewriterAnimatedText(
+                        t,
+                        speed: const Duration(milliseconds: 200),
+                        textStyle: const TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                  ],
+                ),
               ],
             )),
       ),

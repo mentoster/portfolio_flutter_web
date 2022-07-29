@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter_web/app/data/information_data/info_projects.dart';
 
 import '../../../../global_widgets/search_widget.dart';
 import '../../../../theme/app_fonts.dart';
@@ -15,26 +16,26 @@ class ProjectListTitle extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
-        children: const [
-          SizedBox(
+        children: [
+          const SizedBox(
             height: 32,
           ),
-          SelectableText(
+          const SelectableText(
             "Проекты",
             style: heading1,
           ),
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
-          SearchWidget(),
-          SizedBox(
+          SearchWidget(texts: [for (var pr in projects.projects) pr.title]),
+          const SizedBox(
             height: 32,
           ),
-          SelectableText(
+          const SelectableText(
             "All Gamedev Unity Flutter UI/UX Design  ",
             style: heading2Bold,
           ),
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
         ],

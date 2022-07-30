@@ -22,42 +22,45 @@ class WorkInstruments extends StatelessWidget {
               width: 1200,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  SizedBox(
+                children: [
+                  const SizedBox(
                     height: 32,
                   ),
-                  SelectableText(
+                  const SelectableText(
                     "Работал с стеком & клиент",
                     style: heading1,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 32,
                   ),
-                  SearchWidget(texts: [
-                    "Unity",
-                    "Flutter",
-                    "Dart",
-                    "C++",
-                    "C#",
-                    "Figma"
-                  ]),
-                  SizedBox(
+                  SearchWidget(
+                    texts: const [
+                      "Unity",
+                      "Flutter",
+                      "Dart",
+                      "C++",
+                      "C#",
+                      "Figma"
+                    ],
+                    onChanged: () {},
+                  ),
+                  const SizedBox(
                     height: 32,
                   ),
-                  SelectableText("Мой топ 5", style: heading2),
-                  SizedBox(
+                  const SelectableText("Мой топ 5", style: heading2),
+                  const SizedBox(
                     height: 32,
                   ),
-                  TopFiveWidget(),
-                  SizedBox(
+                  const TopFiveWidget(),
+                  const SizedBox(
                     height: 32,
                   ),
-                  SelectableText("Другие", style: heading2),
-                  SizedBox(
+                  const SelectableText("Другие", style: heading2),
+                  const SizedBox(
                     height: 32,
                   ),
-                  SmallIconsWrapWidget(),
-                  SizedBox(
+                  const SmallIconsWrapWidget(),
+                  const SizedBox(
                     height: 32,
                   ),
                 ],

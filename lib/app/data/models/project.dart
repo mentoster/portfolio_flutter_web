@@ -31,9 +31,11 @@ class ProjectPage {
   final String? videoPath;
   final String backgroundImagePath;
   final String? projectLink;
+  final String description;
   ProjectPage(
       {required this.images,
       this.videoPath,
+      required this.description,
       required this.backgroundImagePath,
       this.projectLink});
 }

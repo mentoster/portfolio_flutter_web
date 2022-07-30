@@ -9,7 +9,9 @@ final projects = Projects([
     projectPreview:
         ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
     projectPage: ProjectPage(
-        backgroundImagePath: "assets/images/my_photo.png", images: []),
+        description: "Описание",
+        backgroundImagePath: "assets/images/my_photo.png",
+        images: []),
   ),
   Project(
     title: "Revolit",
@@ -18,7 +20,9 @@ final projects = Projects([
     projectPreview:
         ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
     projectPage: ProjectPage(
-        backgroundImagePath: "assets/images/my_photo.png", images: []),
+        description: "Описание",
+        backgroundImagePath: "assets/images/my_photo.png",
+        images: []),
   ),
   Project(
     title: "Revolit",
@@ -27,7 +31,9 @@ final projects = Projects([
     projectPreview:
         ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
     projectPage: ProjectPage(
-        backgroundImagePath: "assets/images/my_photo.png", images: []),
+        description: "Описание",
+        backgroundImagePath: "assets/images/my_photo.png",
+        images: []),
   ),
   Project(
     title: "Revolit",
@@ -36,7 +42,9 @@ final projects = Projects([
     projectPreview:
         ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
     projectPage: ProjectPage(
-        backgroundImagePath: "assets/images/my_photo.png", images: []),
+        description: "Описание",
+        backgroundImagePath: "assets/images/my_photo.png",
+        images: []),
   ),
   Project(
     title: "Revolit",
@@ -45,6 +53,8 @@ final projects = Projects([
     projectPreview:
         ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
     projectPage: ProjectPage(
-        backgroundImagePath: "assets/images/my_photo.png", images: []),
+        description: "Описание",
+        backgroundImagePath: "assets/images/my_photo.png",
+        images: []),
   ),
 ]);

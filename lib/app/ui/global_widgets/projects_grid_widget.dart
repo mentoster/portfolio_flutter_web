@@ -10,8 +10,9 @@ class ProjectsGridWidget extends StatelessWidget {
     required this.projects,
     required this.count,
   }) : super(key: key);
-  final Projects projects;
+  final List<Project> projects;
   final int count;
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery.removePadding(
@@ -32,10 +33,10 @@ class ProjectsGridWidget extends StatelessWidget {
                 left: defaultPadding * 2, right: defaultPadding * 2),
             itemBuilder: (context, i) {
               return ProjectCard(
-                projectPreview: projects.projects[i].projectPreview,
-                date: projects.projects[i].date,
-                title: projects.projects[i].title,
-                technology: projects.projects[i].technology,
+                projectPreview: projects[i].projectPreview,
+                date: projects[i].date,
+                title: projects[i].title,
+                technology: projects[i].technology,
               );
             }),
       ),

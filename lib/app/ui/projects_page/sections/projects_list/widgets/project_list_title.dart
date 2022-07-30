@@ -7,8 +7,9 @@ import '../../../../theme/app_fonts.dart';
 class ProjectListTitle extends StatelessWidget {
   const ProjectListTitle({
     Key? key,
+    required this.onSearch,
   }) : super(key: key);
-
+  final Function onSearch;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,7 +28,17 @@ class ProjectListTitle extends StatelessWidget {
           const SizedBox(
             height: 32,
           ),
-          SearchWidget(texts: [for (var pr in projects.projects) pr.title]),
+          const SelectableText(
+            "Ищите нужный вам проект",
+            style: usualText,
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          SearchWidget(
+            texts: [for (var pr in projects.projects) pr.title],
+            onChanged: onSearch,
+          ),
           const SizedBox(
             height: 32,
           ),

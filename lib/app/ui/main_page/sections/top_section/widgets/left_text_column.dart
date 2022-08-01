@@ -131,20 +131,19 @@ class LeftTextColumn extends StatelessWidget {
                           height: 60,
                           child: ElevatedButton(
                               style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(60),
-                              ))),
+                                backgroundColor: MaterialStateProperty.all(
+                                    Theme.of(context).colorScheme.primary),
+                              ),
                               onPressed: () {},
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: defaultPadding * 2,
                                     vertical: defaultPadding),
-                                child: SelectableText(
+                                child: Text(
                                   'Нанять меня',
                                   style: TextStyle(
                                       fontSize: appBar.fontSize! * 1.5,
+                                      color: Colors.white,
                                       fontWeight: appBar.fontWeight),
                                 ),
                               )),

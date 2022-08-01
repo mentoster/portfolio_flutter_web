@@ -23,7 +23,7 @@ final projects = Projects([
         ]),
   ),
   Project(
-    title: "Revolit",
+    title: "Revolit0",
     technologies: [Technology.gamedev, Technology.unity],
     date: DateTime(2022, 06, 01),
     preview: ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
@@ -33,7 +33,7 @@ final projects = Projects([
         images: []),
   ),
   Project(
-    title: "Revolit",
+    title: "Revolit1",
     technologies: [Technology.gamedev, Technology.unity],
     date: DateTime(2022, 06, 01),
     preview: ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
@@ -43,7 +43,7 @@ final projects = Projects([
         images: []),
   ),
   Project(
-    title: "Revolit",
+    title: "Revolit2",
     technologies: [Technology.gamedev, Technology.unity],
     date: DateTime(2022, 06, 01),
     preview: ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
@@ -53,7 +53,7 @@ final projects = Projects([
         images: []),
   ),
   Project(
-    title: "Revolit",
+    title: "Revolit3",
     technologies: [Technology.gamedev, Technology.unity],
     date: DateTime(2022, 06, 01),
     preview: ProjectPreview(previewImagePath: "assets/images/my_photo.png"),

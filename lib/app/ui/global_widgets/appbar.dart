@@ -145,31 +145,36 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                           builder:
                               (BuildContext context, FollowLink? followLink) =>
                                   Container(
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               boxShadow: [
                                 BoxShadow(
-                                  color: Color.fromARGB(146, 4, 102, 215),
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primary
+                                      .withOpacity(0.50),
                                   blurRadius: 24,
-                                  offset: Offset(0, 0),
+                                  offset: const Offset(0, 0),
                                 ),
                               ],
                             ),
                             child: ElevatedButton(
                                 style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0),
-                                ))),
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Theme.of(context).colorScheme.primary),
+                                ),
                                 onPressed: !needBack
                                     ? () => _animateToHeight(
                                         controller.position.viewportDimension +
                                             controller.position.maxScrollExtent,
                                         duration: 6)
                                     : followLink,
-                                child: Text(
+                                child: const Text(
                                   'Связаться',
-                                  style: textStyle,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 )),
                           ),
                         ),

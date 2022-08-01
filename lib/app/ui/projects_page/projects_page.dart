@@ -15,7 +15,6 @@ class ProjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ScrollController _controller = ScrollController();
-
     return Scaffold(
       appBar: AppBarWidget(
         needBack: true,

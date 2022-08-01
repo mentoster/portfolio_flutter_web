@@ -9,12 +9,12 @@ class ProjectCard extends StatelessWidget {
       {Key? key,
       required this.projectPreview,
       required this.title,
-      required this.technology,
+      required this.technologies,
       required this.date})
       : super(key: key);
   final ProjectPreview projectPreview;
   final String title;
-  final List<Technology> technology;
+  final List<Technology> technologies;
   final DateTime date;
 
   @override
@@ -67,7 +67,7 @@ class ProjectCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SelectableText(
-                technology.map((val) => val.toShortString()).join(" & "),
+                technologies.map((val) => val.toShortString()).join(" & "),
                 style: const TextStyle(fontSize: 14),
               ),
               SizedBox(

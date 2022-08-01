@@ -33,10 +33,10 @@ class ProjectsGridWidget extends StatelessWidget {
                 left: defaultPadding * 2, right: defaultPadding * 2),
             itemBuilder: (context, i) {
               return ProjectCard(
-                projectPreview: projects[i].projectPreview,
+                projectPreview: projects[i].preview,
                 date: projects[i].date,
                 title: projects[i].title,
-                technology: projects[i].technologies,
+                technologies: projects[i].technologies,
               );
             }),
       ),

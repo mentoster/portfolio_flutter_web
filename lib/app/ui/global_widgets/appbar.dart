@@ -142,27 +142,36 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                         width: 178,
                         child: Link(
                           uri: Uri.parse(Routes.INITIAL),
-                          builder: (BuildContext context,
-                                  FollowLink? followLink) =>
-                              ElevatedButton(
-                                  style: ButtonStyle(
-                                      shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18.0),
-                                  ))),
-                                  onPressed: !needBack
-                                      ? () => _animateToHeight(
-                                          controller
-                                                  .position.viewportDimension +
-                                              controller
-                                                  .position.maxScrollExtent,
-                                          duration: 6)
-                                      : followLink,
-                                  child: Text(
-                                    'Связаться',
-                                    style: textStyle,
-                                  )),
+                          builder:
+                              (BuildContext context, FollowLink? followLink) =>
+                                  Container(
+                            decoration: const BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromARGB(146, 4, 102, 215),
+                                  blurRadius: 24,
+                                  offset: Offset(0, 0),
+                                ),
+                              ],
+                            ),
+                            child: ElevatedButton(
+                                style: ButtonStyle(
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                ))),
+                                onPressed: !needBack
+                                    ? () => _animateToHeight(
+                                        controller.position.viewportDimension +
+                                            controller.position.maxScrollExtent,
+                                        duration: 6)
+                                    : followLink,
+                                child: Text(
+                                  'Связаться',
+                                  style: textStyle,
+                                )),
+                          ),
                         ),
                       ),
                     ],

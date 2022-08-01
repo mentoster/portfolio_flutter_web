@@ -86,18 +86,18 @@ class ProjectCard extends StatelessWidget {
                     TextButton(
                   onPressed: followLink,
                   child: Row(
-                    children: const [
+                    children: [
                       Text(
                         "Подробнее",
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black),
+                            color: Theme.of(context).colorScheme.primary),
                       ),
                       Icon(
                         Icons.arrow_forward,
                         size: 18,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.primary,
                       )
                     ],
                   ),

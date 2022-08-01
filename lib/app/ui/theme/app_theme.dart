@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'no_transition_on_web.dart';
+
 abstract class Themes {
   static final ThemeData light = ThemeData.light().copyWith(
+    pageTransitionsTheme: NoTransitionsOnWeb(),
     useMaterial3: true,
-    pageTransitionsTheme: const PageTransitionsTheme(builders: {
-      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-    }),
     primaryColor: const Color(0xff0468D7),
     colorScheme: const ColorScheme(
       primary: Color.fromARGB(255, 4, 102, 215),
@@ -23,6 +23,7 @@ abstract class Themes {
   );
 
   static final ThemeData dark = ThemeData.dark().copyWith(
+      pageTransitionsTheme: NoTransitionsOnWeb(),
       useMaterial3: true,
       colorScheme: const ColorScheme(
         primary: Color.fromARGB(255, 255, 153, 0),

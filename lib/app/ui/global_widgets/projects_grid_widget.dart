@@ -36,7 +36,7 @@ class ProjectsGridWidget extends StatelessWidget {
                 projectPreview: projects[i].projectPreview,
                 date: projects[i].date,
                 title: projects[i].title,
-                technology: projects[i].technology,
+                technology: projects[i].technologies,
               );
             }),
       ),

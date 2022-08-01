@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../data/enums/technology.dart';
 import '../../../../data/information_data/info_projects.dart';
 import '../../../../data/models/project.dart';
 import '../../../global_widgets/projects_grid_widget.dart';
@@ -13,20 +14,39 @@ class ProjectsList extends StatefulWidget {
 }
 
 class _ProjectsListState extends State<ProjectsList> {
-  final List<Project> _searchResult = List.from(projects.projects);
-
+  List<Project> _searchResult = List.from(projects.projects);
+  List<Project> _filterResult = List.from(projects.projects);
+  Technology? tech;
   onSearchTextChanged(String text) async {
     _searchResult.clear();
     if (text.isEmpty) {
-      setState(() {
-        _searchResult;
-      });
+      _searchResult = List.from(projects.projects);
+      _filterResult = List.from(_searchResult);
+      onTagSearch(tech);
       return;
     }
 
     for (var pr in projects.projects) {
       if (pr.title.toLowerCase().contains(text.toLowerCase())) {
         _searchResult.add(pr);
+      }
+    }
+    _filterResult = List.from(_searchResult);
+    onTagSearch(tech);
+  }
+
+  onTagSearch(Technology? technology) {
+    tech = technology;
+    if (technology == null) {
+      setState(() {});
+      return;
+    }
+    _filterResult.clear();
+    for (var pr in _searchResult) {
+      for (var t in pr.technologies) {
+        if (t == technology) {
+          _filterResult.add(pr);
+        }
       }
     }
     setState(() {});
@@ -36,10 +56,10 @@ class _ProjectsListState extends State<ProjectsList> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SizedBox(
-      height: 400 +
+      height: 500 +
           200 *
-              (_searchResult.length.toDouble() +
-                  _searchResult.length.toDouble() % 2),
+              (_filterResult.length.toDouble() +
+                  _filterResult.length.toDouble() % 2),
       width: size.width,
       child: Scaffold(
         backgroundColor: Colors.blue.withOpacity(0.03),
@@ -50,13 +70,14 @@ class _ProjectsListState extends State<ProjectsList> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                ProjectListTitle(onSearch: onSearchTextChanged),
+                ProjectListTitle(
+                    onSearch: onSearchTextChanged, onTagSearch: onTagSearch),
                 SizedBox(
                     height: 200 *
-                        (_searchResult.length.toDouble() +
-                            _searchResult.length.toDouble() % 2),
+                        (_filterResult.length.toDouble() +
+                            _filterResult.length.toDouble() % 2),
                     child: ProjectsGridWidget(
-                        projects: _searchResult, count: _searchResult.length)),
+                        projects: _filterResult, count: _filterResult.length)),
               ],
             ),
           ),

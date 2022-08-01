@@ -4,7 +4,7 @@ import '../models/project.dart';
 final projects = Projects([
   Project(
     title: "Revolit",
-    technology: [Technology.gamedev, Technology.unity],
+    technologies: [Technology.gamedev, Technology.unity],
     date: DateTime(2022, 06, 01),
     projectPreview:
         ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
@@ -15,7 +15,7 @@ final projects = Projects([
   ),
   Project(
     title: "Revolit",
-    technology: [Technology.gamedev, Technology.unity],
+    technologies: [Technology.gamedev, Technology.unity],
     date: DateTime(2022, 06, 01),
     projectPreview:
         ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
@@ -26,7 +26,7 @@ final projects = Projects([
   ),
   Project(
     title: "Revolit",
-    technology: [Technology.gamedev, Technology.unity],
+    technologies: [Technology.gamedev, Technology.unity],
     date: DateTime(2022, 06, 01),
     projectPreview:
         ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
@@ -37,7 +37,7 @@ final projects = Projects([
   ),
   Project(
     title: "Revolit",
-    technology: [Technology.gamedev, Technology.unity],
+    technologies: [Technology.gamedev, Technology.unity],
     date: DateTime(2022, 06, 01),
     projectPreview:
         ProjectPreview(previewImagePath: "assets/images/my_photo.png"),
@@ -48,7 +48,7 @@ final projects = Projects([
   ),
   Project(
     title: "Revolit",
-    technology: [Technology.gamedev, Technology.unity],
+    technologies: [Technology.gamedev, Technology.unity],
     date: DateTime(2022, 06, 01),
     projectPreview:
         ProjectPreview(previewImagePath: "assets/images/my_photo.png"),

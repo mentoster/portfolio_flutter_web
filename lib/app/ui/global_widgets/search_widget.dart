@@ -60,9 +60,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                 if (input.isEmpty) {
                   setState(() => isTyping = false);
                 } else {
-                  widget.onChanged(input);
                   setState(() => isTyping = true);
                 }
+                widget.onChanged(input);
               },
               decoration: InputDecoration(
                   border: OutlineInputBorder(

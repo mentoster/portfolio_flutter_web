@@ -8,13 +8,13 @@ class Projects {
 class Project {
   Project({
     required this.title,
-    required this.technology,
+    required this.technologies,
     required this.date,
     required this.projectPreview,
     required this.projectPage,
   });
   final String title;
-  final List<Technology> technology;
+  final List<Technology> technologies;
   final DateTime date;
   final ProjectPreview projectPreview;
   final ProjectPage projectPage;

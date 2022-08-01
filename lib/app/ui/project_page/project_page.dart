@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/app/ui/project_page/widgets/project_images.dart';
 
-import '../../data/information_data/info_projects.dart';
+import '../../data/models/project.dart';
 import '../global_widgets/appbar.dart';
 import 'widgets/project_description.dart';
 
 class ProjectPage extends StatelessWidget {
-  ProjectPage({Key? key}) : super(key: key);
-  final project = projects.projects[0];
+  const ProjectPage({Key? key, required this.project}) : super(key: key);
+  final Project project;
 
   @override
   Widget build(BuildContext context) {

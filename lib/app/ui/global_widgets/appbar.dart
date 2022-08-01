@@ -48,7 +48,7 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
                 bottom: BorderSide(
                     width: 0.5,
                     color: isDarkTheme
-                        ? Color.fromARGB(90, 0, 0, 0)
+                        ? const Color.fromARGB(90, 0, 0, 0)
                         : appBarStroke),
               ),
             ),

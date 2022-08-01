@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 
 import '../../data/enums/technology.dart';
 import '../../data/models/project.dart';
+import '../../routes/app_pages.dart';
 import '../theme/app_fonts.dart';
 
 class ProjectCard extends StatelessWidget {
@@ -78,18 +80,28 @@ class ProjectCard extends StatelessWidget {
                   softWrap: true,
                 ),
               ),
-              Row(
-                children: const [
-                  SelectableText(
-                    "Подробнее",
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              Link(
+                uri: Uri.parse(Routes.PROJECTS + "/" + title.toLowerCase()),
+                builder: (BuildContext context, FollowLink? followLink) =>
+                    TextButton(
+                  onPressed: followLink,
+                  child: Row(
+                    children: const [
+                      Text(
+                        "Подробнее",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        size: 18,
+                        color: Colors.black,
+                      )
+                    ],
                   ),
-                  Icon(
-                    Icons.arrow_forward,
-                    size: 18,
-                    color: Colors.black,
-                  )
-                ],
+                ),
               ),
             ],
           )

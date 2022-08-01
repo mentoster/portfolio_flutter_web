@@ -1,3 +1,5 @@
+import 'package:portfolio_flutter_web/app/data/information_data/info_projects.dart';
+
 import '../ui/main_page/main_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +12,9 @@ class AppPages {
   static Map<String, Widget Function(BuildContext)> routes = {
     Routes.INITIAL: (_) => MainPage(),
     Routes.PROJECTS: (_) => const ProjectsPage(),
-    Routes.PROJECT: (_) => ProjectPage(),
+    for (final pr in projects.projects)
+      Routes.PROJECTS + "/" + pr.title.toLowerCase(): (_) => ProjectPage(
+            project: pr,
+          ),
   };
 }

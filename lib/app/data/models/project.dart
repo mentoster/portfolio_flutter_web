@@ -1,10 +1,5 @@
 import '../enums/technology.dart';
 
-class Projects {
-  final List<Project> projects;
-  Projects(this.projects);
-}
-
 class Project {
   Project({
     required this.title,
@@ -15,9 +10,9 @@ class Project {
   });
   final String title;
   final List<Technology> technologies;
-  final DateTime date;
   final ProjectPreview preview;
   final ProjectPage page;
+  final DateTime date;
 }
 
 class ProjectPreview {

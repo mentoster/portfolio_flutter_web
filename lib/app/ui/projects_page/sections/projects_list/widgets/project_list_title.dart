@@ -55,7 +55,7 @@ class _ProjectListTitleState extends State<ProjectListTitle> {
             height: 32,
           ),
           SearchWidget(
-            texts: [for (var pr in projects.projects) pr.title],
+            texts: [for (var pr in projects) pr.title],
             onChanged: widget.onSearch,
           ),
           const SizedBox(

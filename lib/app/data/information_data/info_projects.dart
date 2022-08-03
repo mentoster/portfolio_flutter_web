@@ -1,7 +1,7 @@
 import '../enums/technology.dart';
 import '../models/project.dart';
 
-final projects = Projects([
+final projects = [
   Project(
     title: "Revolit",
     technologies: [Technology.gamedev, Technology.unity],
@@ -62,4 +62,4 @@ final projects = Projects([
         backgroundImagePath: "assets/images/my_photo.png",
         images: []),
   ),
-]);
+];

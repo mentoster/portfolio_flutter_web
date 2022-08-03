@@ -12,7 +12,7 @@ class AppPages {
   static Map<String, Widget Function(BuildContext)> routes = {
     Routes.INITIAL: (_) => MainPage(),
     Routes.PROJECTS: (_) => const ProjectsPage(),
-    for (final pr in projects.projects)
+    for (final pr in projects)
       Routes.PROJECTS + "/" + pr.title.toLowerCase(): (_) => ProjectPage(
             project: pr,
           ),

@@ -34,7 +34,7 @@ class MeAndProjects extends StatelessWidget {
                     height: 32,
                   ),
                   ProjectsGridWidget(
-                    projects: projects.projects,
+                    projects: projects,
                     count: 4,
                   ),
                   const SizedBox(

@@ -14,19 +14,19 @@ class ProjectsList extends StatefulWidget {
 }
 
 class _ProjectsListState extends State<ProjectsList> {
-  List<Project> _searchResult = List.from(projects.projects);
-  List<Project> _filterResult = List.from(projects.projects);
+  List<Project> _searchResult = List.from(projects);
+  List<Project> _filterResult = List.from(projects);
   Technology? tech;
   onSearchTextChanged(String text) async {
     _searchResult.clear();
     if (text.isEmpty) {
-      _searchResult = List.from(projects.projects);
+      _searchResult = List.from(projects);
       _filterResult = List.from(_searchResult);
       onTagSearch(tech);
       return;
     }
 
-    for (var pr in projects.projects) {
+    for (var pr in projects) {
       if (pr.title.toLowerCase().contains(text.toLowerCase())) {
         _searchResult.add(pr);
       }

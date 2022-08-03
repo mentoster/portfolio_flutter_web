@@ -1,5 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter_web/app/data/information_data/info_diplomas.dart';
 
 import '../../../../global_widgets/carousel_controls_widget.dart';
 import 'hackathon_diploma_widget.dart';
@@ -37,9 +38,11 @@ class HackathonCarousel extends StatelessWidget {
                   height: 700,
                   child: Swiper(
                     itemBuilder: (BuildContext context, int index) {
-                      return const HackathonDiplomaWidget();
+                      return HackathonDiplomaWidget(
+                        diploma: diplomas[index],
+                      );
                     },
-                    itemCount: 6,
+                    itemCount: diplomas.length,
                     viewportFraction: 0.4,
                     scale: 0.6,
                     indicatorLayout: PageIndicatorLayout.COLOR,

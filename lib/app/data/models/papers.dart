@@ -7,11 +7,15 @@ class Paper {
 
 enum DiplomaTags {
   win,
+  top5,
+  top3,
   country,
   world,
   unity,
   gamedev,
   design,
+  flutter,
+  figma
 }
 
 class Diploma extends Paper {

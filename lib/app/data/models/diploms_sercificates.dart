@@ -5,24 +5,34 @@ class Paper {
   Paper({required this.image, required this.title});
 }
 
+enum DiplomaTags {
+  win,
+  country,
+  world,
+  unity,
+  gamedev,
+  design,
+}
+
 class Diploma extends Paper {
   final String shortDescription;
-
-  Diploma(
-      {required this.shortDescription,
-      required String image,
-      required String title})
-      : super(image: image, title: title);
+  final List<DiplomaTags> tags;
+  Diploma({
+    required String title,
+    required this.shortDescription,
+    required this.tags,
+    required String image,
+  }) : super(image: image, title: title);
 }
 
 class Certificate extends Paper {
   final String description;
   final String link;
 
-  Certificate(
-      {required this.description,
-      required this.link,
-      required String image,
-      required String title})
-      : super(image: image, title: title);
+  Certificate({
+    required String title,
+    required this.description,
+    required this.link,
+    required String image,
+  }) : super(image: image, title: title);
 }

@@ -18,7 +18,7 @@ class DiplomasCarousel extends StatelessWidget {
         children: [
           Center(
             child: SizedBox(
-              width: 1000,
+              width: 1064,
               child: ShaderMask(
                 shaderCallback: (rect) {
                   return const LinearGradient(
@@ -56,7 +56,7 @@ class DiplomasCarousel extends StatelessWidget {
           ),
           PaperCarouselControlsWidget(
             swiperController: _controller,
-            length: 6,
+            length: diplomas.length,
             axis: Axis.horizontal,
           ),
         ],

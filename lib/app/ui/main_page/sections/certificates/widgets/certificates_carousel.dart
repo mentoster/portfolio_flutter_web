@@ -6,8 +6,10 @@ import '../../../../global_widgets/carousel_controls_widget.dart';
 import 'certificate_widget.dart';
 
 class CertificatesCarousel extends StatelessWidget {
-  CertificatesCarousel({Key? key, required this.onChanged}) : super(key: key);
-  final SwiperController _controller = SwiperController();
+  const CertificatesCarousel(
+      {Key? key, required this.onChanged, required this.controller})
+      : super(key: key);
+  final SwiperController controller;
   final Function onChanged;
   @override
   Widget build(BuildContext context) {
@@ -49,15 +51,15 @@ class CertificatesCarousel extends StatelessWidget {
                     indicatorLayout: PageIndicatorLayout.COLOR,
                     autoplay: true,
                     autoplayDelay: 6000,
+                    controller: controller,
                     onIndexChanged: (value) => onChanged(value),
-                    controller: _controller,
                   ),
                 ),
               ),
             ),
           ),
           PaperCarouselControlsWidget(
-            swiperController: _controller,
+            swiperController: controller,
             length: certificates.length,
             axis: Axis.vertical,
           ),

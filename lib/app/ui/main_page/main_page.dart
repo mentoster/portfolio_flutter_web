@@ -13,14 +13,14 @@ class MainPage extends StatelessWidget {
   MainPage({Key? key}) : super(key: key);
   final ScrollController _controller = ScrollController();
 
-  final sections = const [
-    TopSection(),
-    MeAndProjects(),
-    WorkExperience(),
-    WorkInstruments(),
-    DiplomasWidget(),
+  final sections = [
+    const TopSection(),
+    const MeAndProjects(),
+    const WorkExperience(),
+    const WorkInstruments(),
+    const DiplomasWidget(),
     CertificatesWidget(),
-    ContactMe(),
+    const ContactMe(),
   ];
 
   @override

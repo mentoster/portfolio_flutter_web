@@ -4,23 +4,29 @@ import 'package:portfolio_flutter_web/app/data/information_data/info_certificate
 import '../../../../theme/app_constants.dart';
 import '../../../../theme/app_fonts.dart';
 
-class CertificatesTextWidget extends StatelessWidget {
+class CertificatesTextWidget extends StatefulWidget {
+
   const CertificatesTextWidget({
     Key? key,
     required this.index,
   }) : super(key: key);
   final int index;
+
+  @override
+  State<CertificatesTextWidget> createState() => _CertificatesTextWidgetState();
+}
+
+class _CertificatesTextWidgetState extends State<CertificatesTextWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 470,
       width: 434,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            certificates[index].title,
+            certificates[widget.index].title,
             style: TextStyle(
                 fontWeight: heading1.fontWeight,
                 color: Theme.of(context).colorScheme.primary,
@@ -30,7 +36,7 @@ class CertificatesTextWidget extends StatelessWidget {
             height: defaultPadding,
           ),
           SelectableText(
-            certificates[index].description,
+            certificates[widget.index].description,
             style: usualText,
           ),
           const SizedBox(

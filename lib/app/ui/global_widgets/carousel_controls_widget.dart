@@ -5,13 +5,12 @@ class PaperCarouselControlsWidget extends StatelessWidget {
   final SwiperController swiperController;
   final int length;
   final Axis axis;
-
-  const PaperCarouselControlsWidget(
-      {Key? key,
-      required this.swiperController,
-      required this.length,
-      required this.axis})
-      : super(key: key);
+  const PaperCarouselControlsWidget({
+    Key? key,
+    required this.swiperController,
+    required this.length,
+    required this.axis,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +71,9 @@ class PaperCarouselControlsWidget extends StatelessWidget {
             swiperController.next(animation: true);
           }
         },
+        padding: EdgeInsets.zero,
+        alignment: Alignment.center,
+        iconSize: 48,
         icon: Icon(
           icon,
           semanticLabel: previous ? 'Previous' : 'Next',

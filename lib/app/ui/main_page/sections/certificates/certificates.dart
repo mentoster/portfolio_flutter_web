@@ -1,3 +1,4 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 
 import '../../../theme/app_constants.dart';
@@ -6,7 +7,8 @@ import 'widgets/certificate_text_widget.dart';
 import 'widgets/certificates_carousel.dart';
 
 class CertificatesWidget extends StatefulWidget {
-  const CertificatesWidget({Key? key}) : super(key: key);
+  CertificatesWidget({Key? key}) : super(key: key);
+  final SwiperController controller = SwiperController();
 
   @override
   State<CertificatesWidget> createState() => _CertificatesWidgetState();
@@ -27,7 +29,7 @@ class _CertificatesWidgetState extends State<CertificatesWidget> {
 
     return SizedBox(
         width: size.width,
-        height: 900,
+        height: 924,
         child: Scaffold(
           backgroundColor: Colors.lightBlue.withOpacity(0.03),
           body: Center(
@@ -56,7 +58,10 @@ class _CertificatesWidgetState extends State<CertificatesWidget> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CertificatesCarousel(onChanged: indexChanged),
+                      CertificatesCarousel(
+                        onChanged: indexChanged,
+                        controller: widget.controller,
+                      ),
                       const SizedBox(
                         width: 124,
                       ),

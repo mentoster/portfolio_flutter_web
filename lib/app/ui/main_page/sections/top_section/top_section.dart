@@ -23,8 +23,7 @@ class TopSection extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: RightImageColumn(size: size),
               ),
-              const Align(
-                  alignment: Alignment.centerLeft, child: LeftTextColumn()),
+              const Align(alignment: Alignment.center, child: LeftTextColumn()),
             ],
           ),
         ),

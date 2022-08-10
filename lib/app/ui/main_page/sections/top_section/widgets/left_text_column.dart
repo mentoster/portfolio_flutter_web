@@ -15,8 +15,9 @@ class LeftTextColumn extends StatelessWidget {
   final animationTime = 2;
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.only(left: 64),
+      padding: EdgeInsets.only(right: size.width * 0.35),
       child: Wrap(
         direction: Axis.vertical,
         spacing: defaultPadding,

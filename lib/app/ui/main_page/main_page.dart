@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter_web/app/ui/main_page/sections/certificates/certificates.dart';
 
 import '../global_widgets/appbar.dart';
 import 'sections/about_me/me_and_projects.dart';
 import 'sections/contact_me/contact_me.dart';
-import 'sections/diploms/diplomas.dart';
-import 'sections/hackatons.dart/hackathons.dart';
+import 'sections/diplomas/diplomas.dart';
 import 'sections/top_section/top_section.dart';
 import 'sections/work_experience/work_experience.dart';
 import 'sections/work_instruments/work_instruments.dart';
@@ -18,8 +18,8 @@ class MainPage extends StatelessWidget {
     MeAndProjects(),
     WorkExperience(),
     WorkInstruments(),
-    Hackathons(),
-    Diplomas(),
+    DiplomasWidget(),
+    CertificatesWidget(),
     ContactMe(),
   ];
 

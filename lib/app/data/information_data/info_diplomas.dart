@@ -7,16 +7,18 @@ final diplomas = [
           "Создание игрового приложения для операторов на аэропорте",
       tags: [
         DiplomaTags.country,
-        DiplomaTags.unity,
         DiplomaTags.top5,
-        DiplomaTags.gamedev,
-        DiplomaTags.flutter,
+        DiplomaTags.unity,
       ],
       image: "assets/images/papers/diplomas/цифровой_прорыв_прорыв_2021.png"),
   Diploma(
       title: "Хакатон Теле2, 2019",
       shortDescription: "Создание фановой мультиплеерной игры",
-      tags: [DiplomaTags.country, DiplomaTags.unity, DiplomaTags.win],
+      tags: [
+        DiplomaTags.country,
+        DiplomaTags.win,
+        DiplomaTags.unity,
+      ],
       image: "assets/images/papers/diplomas/теле2_game_2019.png"),
   Diploma(
       title: "Junction connected, 2020",
@@ -24,9 +26,8 @@ final diplomas = [
           "Игра в виртуальной реальности для детей с ограниченными возможностями",
       tags: [
         DiplomaTags.world,
-        DiplomaTags.unity,
-        DiplomaTags.gamedev,
         DiplomaTags.win,
+        DiplomaTags.unity,
       ],
       image: "assets/images/papers/diplomas/junction_skysea_game-1.png"),
   Diploma(
@@ -37,7 +38,7 @@ final diplomas = [
   Diploma(
       title: "Цифровой прорыв, 2020",
       shortDescription: "Приложение для удобного контроля сотрудников",
-      tags: [DiplomaTags.country, DiplomaTags.flutter],
+      tags: [DiplomaTags.country, DiplomaTags.unity],
       image: "assets/images/papers/diplomas/теле2_game_2019.png"),
   Diploma(
       title: "Хакатон volvo, 2021",

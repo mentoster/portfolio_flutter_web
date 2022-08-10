@@ -32,7 +32,7 @@ class WorkTitlesWidget extends StatelessWidget {
           subTitle: "Был заинтересован в развитие UI/UX навыков",
         ),
         const JobWidget(
-          title: "Design",
+          title: "Unity Teacher",
           subTitle: "Устроен в вузе преподавателем unity.",
         ),
         Column(

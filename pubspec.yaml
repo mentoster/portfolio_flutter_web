@@ -73,8 +73,9 @@ flutter:
     - assets/icons/own_icons/
     - assets/icons/instruments/top_5/
     - assets/icons/instruments/others/
-    - assets/images/projects/Revolit/
     - assets/images/papers/diplomas/
+    - assets/images/papers/certificates/
+    - assets/images/projects/Revolit/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

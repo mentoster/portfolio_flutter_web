@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../theme/app_constants.dart';
 import '../../../theme/app_fonts.dart';
-import 'widgets/hackathon_carusel.dart';
+import 'widgets/diplomas_carusel.dart';
 
-class Hackathons extends StatelessWidget {
-  const Hackathons({Key? key}) : super(key: key);
+class DiplomasWidget extends StatelessWidget {
+  const DiplomasWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class Hackathons extends StatelessWidget {
                   height: defaultPadding * 2,
                 ),
                 const SelectableText(
-                  "Победитель и участников хакатонов.",
+                  "Многократный победитель хакатонов.",
                   style: heading1,
                 ),
                 const SizedBox(
@@ -40,7 +40,7 @@ class Hackathons extends StatelessWidget {
                 const SizedBox(
                   height: defaultPadding,
                 ),
-                HackathonCarousel()
+                DiplomasCarousel()
               ],
             ),
           ),

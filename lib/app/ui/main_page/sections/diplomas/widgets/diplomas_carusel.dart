@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/app/data/information_data/info_diplomas.dart';
 
 import '../../../../global_widgets/carousel_controls_widget.dart';
-import 'hackathon_diploma_widget.dart';
+import 'diploma_diploma_widget.dart';
 
-class HackathonCarousel extends StatelessWidget {
-  HackathonCarousel({Key? key}) : super(key: key);
+class DiplomasCarousel extends StatelessWidget {
+  DiplomasCarousel({Key? key}) : super(key: key);
   final SwiperController _controller = SwiperController();
 
   @override
@@ -38,7 +38,7 @@ class HackathonCarousel extends StatelessWidget {
                   height: 700,
                   child: Swiper(
                     itemBuilder: (BuildContext context, int index) {
-                      return HackathonDiplomaWidget(
+                      return DiplomaPct(
                         diploma: diplomas[index],
                       );
                     },
@@ -54,7 +54,7 @@ class HackathonCarousel extends StatelessWidget {
               ),
             ),
           ),
-          HackCarouselControlsWidget(
+          PaperCarouselControlsWidget(
             swiperController: _controller,
             length: 6,
             axis: Axis.horizontal,

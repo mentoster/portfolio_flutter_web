@@ -2,11 +2,24 @@ import 'package:flutter/material.dart';
 
 import '../../../theme/app_constants.dart';
 import '../../../theme/app_fonts.dart';
-import 'widgets/diploma_text_widget.dart';
-import 'widgets/diplomas_carousel.dart';
+import 'widgets/certificate_text_widget.dart';
+import 'widgets/certificates_carousel.dart';
 
-class Diplomas extends StatelessWidget {
-  const Diplomas({Key? key}) : super(key: key);
+class CertificatesWidget extends StatefulWidget {
+  const CertificatesWidget({Key? key}) : super(key: key);
+
+  @override
+  State<CertificatesWidget> createState() => _CertificatesWidgetState();
+}
+
+class _CertificatesWidgetState extends State<CertificatesWidget> {
+  int index = 0;
+
+  void indexChanged(int newIndex) {
+    setState(() {
+      index = newIndex;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +56,13 @@ class Diplomas extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      DiplomasCarousel(),
+                      CertificatesCarousel(onChanged: indexChanged),
                       const SizedBox(
                         width: 124,
                       ),
-                      const DiplomaTextWidget()
+                      CertificatesTextWidget(
+                        index: index,
+                      )
                     ],
                   ),
                 ],

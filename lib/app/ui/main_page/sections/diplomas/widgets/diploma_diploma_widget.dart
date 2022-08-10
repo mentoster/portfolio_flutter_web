@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../../../data/models/papers.dart';
 import '../../../../theme/app_constants.dart';
 import '../../../../theme/app_fonts.dart';
-import 'hack_tag_widget.dart';
 
-class HackathonDiplomaWidget extends StatelessWidget {
-  const HackathonDiplomaWidget({Key? key, required this.diploma})
-      : super(key: key);
+class DiplomaPct extends StatelessWidget {
+  const DiplomaPct({Key? key, required this.diploma}) : super(key: key);
   final Diploma diploma;
   @override
   Widget build(BuildContext context) {
@@ -57,9 +55,8 @@ class HackathonDiplomaWidget extends StatelessWidget {
         ),
         Wrap(
           spacing: 16,
-          children: const [
-            HackTagWidget(),
-            HackTagWidget(),
+          children: [
+            for (var t in diploma.tags) tagsToWidget[t]!,
           ],
         ),
         const SizedBox(

@@ -13,11 +13,11 @@ class TopSection extends StatelessWidget {
     return Stack(alignment: Alignment.center, children: [
       AnimatedBackground(size: size),
       SizedBox(
-        width: 1600,
         height: size.height,
         child: Scaffold(
           backgroundColor: Colors.white.withOpacity(0),
           body: Stack(
+            fit: StackFit.expand,
             children: [
               Align(
                 alignment: Alignment.centerRight,

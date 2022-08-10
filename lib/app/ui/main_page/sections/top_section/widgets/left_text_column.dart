@@ -88,7 +88,7 @@ class LeftTextColumn extends StatelessWidget {
                   child: Opacity(
                     opacity: value,
                     child: const SelectableText(
-                      "UI/UX Дизайнер, Flutter и Unity разработчик.",
+                      "Профессиональный Unity разработчик.",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
                     ),

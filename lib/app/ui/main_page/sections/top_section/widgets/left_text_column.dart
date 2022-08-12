@@ -9,9 +9,18 @@ import 'circle_icon.dart';
 
 class LeftTextColumn extends StatelessWidget {
   const LeftTextColumn({
-    Key? key,
+    Key? key, required this.controller,
   }) : super(key: key);
   static const _iconRadius = 36.0;
+  final ScrollController controller;
+  void _animateToHeight(double size, {duration = 2}) {
+    controller.animateTo(
+      size,
+      duration: Duration(seconds: duration),
+      curve: Curves.fastOutSlowIn,
+    );
+  }
+
   final animationTime = 2;
   @override
   Widget build(BuildContext context) {

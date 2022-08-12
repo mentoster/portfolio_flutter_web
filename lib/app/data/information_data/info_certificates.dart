@@ -8,7 +8,7 @@ final certificates = [
 
 Это связано с тем, что в отличии от систем сертификации многих других вендеров, сертификационные экзамены Cisco включат в себя помимо стандартных тестов на вопросы, симуляции и настройку виртуального оборудования.
 """,
-      link: "cisco.com",
+      link: "https://cisco.com",
       image:
           "assets/images/papers/certificates/_OST_1_MIREA_IKBO_certificate_page-0001.jpg"),
   Certificate(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/app/data/information_data/info_certificates.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../theme/app_constants.dart';
 import '../../../../theme/app_fonts.dart';
 
 class CertificatesTextWidget extends StatefulWidget {
-
   const CertificatesTextWidget({
     Key? key,
     required this.index,
@@ -50,7 +50,9 @@ class _CertificatesTextWidgetState extends State<CertificatesTextWidget> {
                   backgroundColor: MaterialStateProperty.all(
                       Theme.of(context).colorScheme.primary),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  launchUrl(Uri.parse(certificates[widget.index].link));
+                },
                 child: Text(
                   'Подробнее',
                   style: TextStyle(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 
+import '../../../../../routes/app_pages.dart';
 import '../../../../theme/app_constants.dart';
 import '../../../../theme/app_fonts.dart';
 
@@ -15,25 +17,31 @@ class ProjectsTitleWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const SelectableText("Последние работы", style: heading1),
-        Row(
-          children: [
-            SelectableText(
-              "Больше проектов",
-              style: TextStyle(
+        Link(
+          uri: Uri.parse(Routes.PROJECTS),
+          builder: (BuildContext context, FollowLink? followLink) => TextButton(
+            onPressed: followLink,
+            child: Row(
+              children: [
+                Text(
+                  "Больше проектов",
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontSize: heading2.fontSize,
+                      fontWeight: heading2.fontWeight),
+                ),
+                const SizedBox(
+                  width: defaultPadding,
+                ),
+                Icon(
+                  Icons.arrow_forward,
                   color: Theme.of(context).colorScheme.primary,
-                  fontSize: heading2.fontSize,
-                  fontWeight: heading2.fontWeight),
+                  size: 40,
+                )
+              ],
             ),
-            const SizedBox(
-              width: defaultPadding,
-            ),
-            Icon(
-              Icons.arrow_forward,
-              color: Theme.of(context).colorScheme.primary,
-              size: 40,
-            )
-          ],
-        ),
+          ),
+        )
       ],
     );
   }

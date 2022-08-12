@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SocialNetworkButton extends StatelessWidget {
   final String link;
@@ -18,13 +19,19 @@ class SocialNetworkButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 277,
-      height: 82,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
-        color: backgroundColor.withOpacity(0.1),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: backgroundColor.withOpacity(0.1),
+        onPrimary: Colors.white,
+        elevation: 0,
+        shadowColor: Colors.white.withOpacity(0),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(24.0)),
+        minimumSize: const Size(277, 82), //////// HERE
       ),
+      onPressed: () {
+        launchUrl(Uri.parse(link));
+      },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -35,9 +42,12 @@ class SocialNetworkButton extends StatelessWidget {
           const SizedBox(
             width: 8,
           ),
-          SelectableText(
+          Text(
             tag,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87),
           )
         ],
       ),

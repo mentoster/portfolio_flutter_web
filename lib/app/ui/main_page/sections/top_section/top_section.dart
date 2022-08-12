@@ -5,7 +5,8 @@ import 'widgets/left_text_column.dart';
 import 'widgets/right_image_column.dart';
 
 class TopSection extends StatelessWidget {
-  const TopSection({Key? key}) : super(key: key);
+  const TopSection({Key? key, required this.controller}) : super(key: key);
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,11 @@ class TopSection extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: RightImageColumn(size: size),
               ),
-              const Align(alignment: Alignment.center, child: LeftTextColumn()),
+              Align(
+                  alignment: Alignment.center,
+                  child: LeftTextColumn(
+                    controller: controller,
+                  )),
             ],
           ),
         ),

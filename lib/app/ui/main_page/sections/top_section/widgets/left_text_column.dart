@@ -10,8 +10,18 @@ import 'circle_icon.dart';
 class LeftTextColumn extends StatelessWidget {
   const LeftTextColumn({
     Key? key,
+    required this.controller,
   }) : super(key: key);
   static const _iconRadius = 36.0;
+  final ScrollController controller;
+  void _animateToHeight(double size, {duration = 2}) {
+    controller.animateTo(
+      size,
+      duration: Duration(seconds: duration),
+      curve: Curves.fastOutSlowIn,
+    );
+  }
+
   final animationTime = 2;
   @override
   Widget build(BuildContext context) {
@@ -135,7 +145,10 @@ class LeftTextColumn extends StatelessWidget {
                                 backgroundColor: MaterialStateProperty.all(
                                     Theme.of(context).colorScheme.primary),
                               ),
-                              onPressed: () {},
+                              onPressed: () => _animateToHeight(
+                                  controller.position.viewportDimension +
+                                      controller.position.maxScrollExtent,
+                                  duration: 6),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: defaultPadding * 2,
@@ -168,6 +181,7 @@ class LeftTextColumn extends StatelessWidget {
                           children: const [
                             CircleIcon(
                               name: "vkontakte",
+                              link: "https://vk.com/mentoster_official",
                               iconPath: "assets/icons/social_networks/vk.svg",
                               radius: _iconRadius,
                               backgroundColor:
@@ -175,6 +189,7 @@ class LeftTextColumn extends StatelessWidget {
                             ),
                             CircleIcon(
                               name: "whatsapp",
+                              link: "https://wa.me/79162053580",
                               iconPath:
                                   "assets/icons/social_networks/whatsapp.svg",
                               radius: _iconRadius,
@@ -183,6 +198,7 @@ class LeftTextColumn extends StatelessWidget {
                             ),
                             CircleIcon(
                               name: "telegram",
+                              link: "https://t.me/mentoster",
                               iconPath:
                                   "assets/icons/social_networks/telegram.svg",
                               radius: _iconRadius,
@@ -191,6 +207,7 @@ class LeftTextColumn extends StatelessWidget {
                             ),
                             CircleIcon(
                               name: "github",
+                              link: "https://github.com/mentoster",
                               iconPath:
                                   "assets/icons/social_networks/github.svg",
                               radius: _iconRadius,

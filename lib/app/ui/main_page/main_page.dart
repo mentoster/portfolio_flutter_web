@@ -10,18 +10,19 @@ import 'sections/work_experience/work_experience.dart';
 import 'sections/work_instruments/work_instruments.dart';
 
 class MainPage extends StatelessWidget {
-  MainPage({Key? key}) : super(key: key);
-  final ScrollController _controller = ScrollController();
-
-  final sections = [
-    const TopSection(),
-    const MeAndProjects(),
-    const WorkExperience(),
-    const WorkInstruments(),
-    const DiplomasWidget(),
-    CertificatesWidget(),
-    const ContactMe(),
-  ];
+  MainPage({Key? key}) : super(key: key) {
+    sections = [
+      TopSection(controller: _controller),
+      const MeAndProjects(),
+      const WorkExperience(),
+      const WorkInstruments(),
+      const DiplomasWidget(),
+      CertificatesWidget(),
+      const ContactMe(),
+    ];
+  }
+  final _controller = ScrollController();
+  List<Widget> sections = [];
 
   @override
   Widget build(BuildContext context) {

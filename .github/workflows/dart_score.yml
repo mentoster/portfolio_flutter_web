@@ -22,7 +22,8 @@ jobs:
           TOTAL_MAX: ${{ steps.analysis.outputs.total_max }}
         run: |
           PERCENTAGE=$(( $TOTAL * 100 / $TOTAL_MAX ))
-          if (( $PERCENTAGE < 50 ))
-          then
-            echo Score too low!
+          if (( PERCENTAGE < 50 )); then
+            echo "Score too low: ${PERCENTAGE}%"
             exit 1
+          fi
+          echo "Dart package score: ${PERCENTAGE}%"

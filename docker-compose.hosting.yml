@@ -1,0 +1,10 @@
+services:
+  web7:
+    image: nginx:latest
+    container_name: nginx7
+    restart: unless-stopped
+    ports:
+      - "4077:80"
+    volumes:
+      - ./build/web:/usr/share/nginx/html:ro
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro

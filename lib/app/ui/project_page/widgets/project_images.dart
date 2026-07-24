@@ -16,7 +16,7 @@ class ProjectImages extends StatefulWidget {
   final Project project;
   final Size size;
 
-  final CarouselController _controller = CarouselController();
+  final CarouselSliderController _controller = CarouselSliderController();
   @override
   State<ProjectImages> createState() => _ProjectImagesState();
 }

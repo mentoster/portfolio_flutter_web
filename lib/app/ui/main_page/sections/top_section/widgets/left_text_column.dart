@@ -32,12 +32,12 @@ class LeftTextColumn extends StatelessWidget {
         direction: Axis.vertical,
         spacing: defaultPadding,
         children: [
-          PlayAnimation<double>(
+          PlayAnimationBuilder<double>(
             tween: Tween<double>(begin: 0.0, end: 1.0),
             curve: Curves.ease,
             fps: 300,
             duration: Duration(seconds: animationTime),
-            builder: (context, child, value) {
+            builder: (context, value, child) {
               return Padding(
                 padding: EdgeInsets.only(
                     left: defaultPadding * 4 - value * defaultPadding * 4),
@@ -53,12 +53,12 @@ class LeftTextColumn extends StatelessWidget {
               );
             },
           ),
-          PlayAnimation<double>(
+          PlayAnimationBuilder<double>(
               tween: Tween<double>(begin: 0.0, end: 1.0),
               curve: Curves.ease,
               fps: 300,
               duration: Duration(seconds: animationTime),
-              builder: (context, child, value) {
+              builder: (context, value, child) {
                 return Padding(
                   padding: EdgeInsets.only(
                       left: defaultPadding * 4 - value * defaultPadding * 4),
@@ -84,14 +84,14 @@ class LeftTextColumn extends StatelessWidget {
                           ])),
                 );
               }),
-          PlayAnimation<double>(
+          PlayAnimationBuilder<double>(
               tween: Tween<double>(begin: 0.0, end: 1.0),
               curve: Curves.ease,
               fps: 300,
               delay:
                   Duration(milliseconds: (animationTime * 0.2 * 1000).round()),
               duration: Duration(seconds: animationTime),
-              builder: (context, child, value) {
+              builder: (context, value, child) {
                 return Padding(
                   padding: EdgeInsets.only(
                       left: defaultPadding * 4 - value * defaultPadding * 4),
@@ -105,14 +105,14 @@ class LeftTextColumn extends StatelessWidget {
                   ),
                 );
               }),
-          PlayAnimation<double>(
+          PlayAnimationBuilder<double>(
               tween: Tween<double>(begin: 0.0, end: 1.0),
               curve: Curves.ease,
               fps: 300,
               delay:
                   Duration(milliseconds: (animationTime * 0.4 * 1000).round()),
               duration: Duration(seconds: animationTime),
-              builder: (context, child, value) {
+              builder: (context, value, child) {
                 return Padding(
                     padding: EdgeInsets.only(
                         left: defaultPadding * 4 - value * defaultPadding * 4),
@@ -125,14 +125,14 @@ class LeftTextColumn extends StatelessWidget {
                               fontSize: usualText.fontSize! * 1.5),
                         )));
               }),
-          PlayAnimation<double>(
+          PlayAnimationBuilder<double>(
               tween: Tween<double>(begin: 0.0, end: 1.0),
               curve: Curves.ease,
               fps: 300,
               delay:
                   Duration(milliseconds: (animationTime * 0.6 * 1000).round()),
               duration: Duration(seconds: animationTime),
-              builder: (context, child, value) {
+              builder: (context, value, child) {
                 return Padding(
                     padding: EdgeInsets.only(
                         left: defaultPadding * 4 - value * defaultPadding * 4),
@@ -163,14 +163,14 @@ class LeftTextColumn extends StatelessWidget {
                               )),
                         )));
               }),
-          PlayAnimation<double>(
+          PlayAnimationBuilder<double>(
               tween: Tween<double>(begin: 0.0, end: 1.0),
               curve: Curves.ease,
               fps: 300,
               delay:
                   Duration(milliseconds: (animationTime * 0.8 * 1000).round()),
               duration: Duration(seconds: animationTime),
-              builder: (context, child, value) {
+              builder: (context, value, child) {
                 return Padding(
                     padding: EdgeInsets.only(
                         left: defaultPadding * 4 - value * defaultPadding * 4),

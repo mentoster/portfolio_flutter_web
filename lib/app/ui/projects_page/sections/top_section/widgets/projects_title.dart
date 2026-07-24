@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_animations/stateless_animation/play_animation.dart';
+import 'package:simple_animations/simple_animations.dart';
 
 import '../../../../theme/app_constants.dart';
 import '../../../../theme/app_fonts.dart';
@@ -11,12 +11,12 @@ class ProjectsTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlayAnimation<double>(
+    return PlayAnimationBuilder<double>(
         tween: Tween<double>(begin: 0.0, end: 1.0),
         curve: Curves.ease,
         fps: 300,
         duration: const Duration(seconds: 2),
-        builder: (context, child, value) {
+        builder: (context, value, child) {
           return Padding(
             padding: EdgeInsets.only(
                 left: defaultPadding * 4 - value * defaultPadding * 4),

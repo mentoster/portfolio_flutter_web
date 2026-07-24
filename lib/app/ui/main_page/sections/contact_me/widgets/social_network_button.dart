@@ -21,8 +21,8 @@ class SocialNetworkButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: backgroundColor.withOpacity(0.1),
-        onPrimary: Colors.white,
+        backgroundColor: backgroundColor.withOpacity(0.1),
+        foregroundColor: Colors.white,
         elevation: 0,
         shadowColor: Colors.white.withOpacity(0),
         shape:

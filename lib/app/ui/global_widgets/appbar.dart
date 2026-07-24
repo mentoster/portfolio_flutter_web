@@ -7,7 +7,7 @@ import 'package:url_launcher/link.dart';
 import '../theme/app_addition_colors.dart';
 import '../theme/app_fonts.dart';
 
-class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
+class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget(
       {Key? key,
       this.needBack = true,

@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -10,25 +7,29 @@ import 'small_circle_icon.dart';
 class SmallIconsWrapWidget extends StatefulWidget {
   const SmallIconsWrapWidget({
     Key? key,
+    this.assetBundle,
   }) : super(key: key);
+
+  final AssetBundle? assetBundle;
 
   @override
   State<SmallIconsWrapWidget> createState() => _SmallIconsWrapWidgetState();
 }
 
 class _SmallIconsWrapWidgetState extends State<SmallIconsWrapWidget> {
+  static const _iconsPath = 'assets/icons/instruments/others/';
 
   Future<List<String>> _initImages() async {
-    final manifestContent = await rootBundle.loadString('AssetManifest.json');
+    final manifest = await AssetManifest.loadFromAssetBundle(
+      widget.assetBundle ?? rootBundle,
+    );
 
-    final Map<String, dynamic> manifestMap = json.decode(manifestContent);
-
-    final imagePaths = manifestMap.keys
-        .where((String key) => key.contains('assets/icons/instruments/others/'))
-        .where((String key) => key.contains('.svg'))
-        .toList();
-
-    return imagePaths;
+    return manifest
+        .listAssets()
+        .where((String key) => key.startsWith(_iconsPath))
+        .where((String key) => key.endsWith('.svg'))
+        .toList()
+      ..sort();
   }
 
   @override
@@ -44,12 +45,11 @@ class _SmallIconsWrapWidgetState extends State<SmallIconsWrapWidget> {
                 for (var path in snapshot.data!)
                   SmallCircleIcon(
                     iconPath: path,
-                    title: File(path)
-                        .uri
-                        .pathSegments
+                    title: path
+                        .split('/')
                         .last
-                        .replaceAll(".svg", "")
-                        .replaceAll("_", " "),
+                        .replaceAll('.svg', '')
+                        .replaceAll('_', ' '),
                   )
               ],
             );

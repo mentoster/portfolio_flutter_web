@@ -25,17 +25,6 @@
     }
   </style> -->
   <link rel="manifest" href="manifest.json">
-  <script>
-    let searchParams = new URLSearchParams(window.location.search);
-    if (searchParams.has('renderer')) {
-      window.flutterWebRenderer = searchParams.get('renderer');
-      console.log(searchParams.get('renderer') + ' renderer requested in the URL');
-    }
-
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '2661394060';
-  </script>
-  <script src="flutter.js" defer></script>
 </head>
 
 <body>
@@ -97,28 +86,7 @@
     <img src="icons/Icon-192.png" alt="Loading indicator..." />
   </div>
 
-  <script>
-    window.addEventListener('load', function () {
-      var loading = document.querySelector('#loading');
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function (engineInitializer) {
-        loading.classList.add('main_done');
-        return engineInitializer.initializeEngine();
-      }).then(function (appRunner) {
-        loading.classList.add('init_done');
-        return appRunner.runApp();
-      }).then(function (app) {
-        // Wait a few milliseconds so users can see the "zoooom" animation
-        // before getting rid of the "loading" div.
-        window.setTimeout(function () {
-          loading.remove();
-        }, 200);
-      });
-    });
-  </script>
+  <script src="flutter_bootstrap.js" async></script>
 
 </body>
 

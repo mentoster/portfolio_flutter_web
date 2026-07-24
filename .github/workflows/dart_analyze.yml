@@ -1,18 +1,26 @@
-name: DartAnalyze
+name: Flutter CI
 
-on: pull_request
+on:
+  pull_request:
 
 jobs:
-  linter:
+  verify:
     runs-on: ubuntu-latest
-    name: Lint flutter code
+    name: Analyze, test and build web
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
       - name: Set up Flutter
-        uses: subosito/flutter-action@v1
-      - run: flutter pub get
-      - name: Analyze Flutter
-        uses: ValentinVignal/action-dart-analyze@v0.11
+        uses: subosito/flutter-action@v2
         with:
-          fail-on: "warning"
+          channel: stable
+          flutter-version: '3.44.6'
+          cache: true
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Analyze Flutter
+        run: flutter analyze
+      - name: Run tests
+        run: flutter test
+      - name: Build web
+        run: flutter build web --release

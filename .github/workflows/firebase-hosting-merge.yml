@@ -6,12 +6,22 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - master
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: sudo snap install flutter --classic && flutter channel stable && flutter config --enable-web && flutter build web --release  --web-renderer canvaskit
+      - uses: actions/checkout@v6
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.44.6'
+          cache: true
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Build web
+        run: flutter build web --release
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

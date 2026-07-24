@@ -35,6 +35,7 @@ class CertificatePct extends StatelessWidget {
           child: Image.asset(
             certificate.image,
             fit: BoxFit.fill,
+            cacheWidth: 1500,
           ),
         ),
       ),

@@ -9,14 +9,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.2"
-  archive:
-    dependency: transitive
-    description:
-      name: archive
-      sha256: "793964beb8e297995714326628881437d4211f10fc8843534bab54129cd896ee"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.3.1"
   async:
     dependency: transitive
     description:
@@ -81,14 +73,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.19.1"
-  crypto:
-    dependency: transitive
-    description:
-      name: crypto
-      sha256: aa274aa7774f8964e4f4f38cc994db7b6158dd36e9187aaceaddc994b35c6c67
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.2"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -136,14 +120,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  image:
-    dependency: "direct main"
-    description:
-      name: image
-      sha256: "9d2c5f73435a70a936d317769ee8e7ef480e37674b9f2bce95ea98969a307855"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.2.0"
   intl:
     dependency: "direct main"
     description:
@@ -256,14 +232,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
-  sa3_liquid:
-    dependency: "direct main"
-    description:
-      name: sa3_liquid
-      sha256: "609742dd35e6fd97812eda55262c50468521eb2ffc47e50e625b4ba418648bc8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   simple_animations:
     dependency: "direct main"
     description:
@@ -309,22 +277,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-  supercharged:
-    dependency: transitive
-    description:
-      name: supercharged
-      sha256: ab49c848b33e28243f5ce82b976736de17d0852b71d0dfbde53fbb5e2ecca7cb
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
-  supercharged_dart:
-    dependency: transitive
-    description:
-      name: supercharged_dart
-      sha256: cb95edda32eacd27664089700a750120be41daa84aa6cd2aeded46227c16b867
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
   term_glyph:
     dependency: transitive
     description:
@@ -341,14 +293,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.11"
-  typed_data:
-    dependency: transitive
-    description:
-      name: typed_data
-      sha256: "26f87ade979c47a150c9eaab93ccd2bebe70a27dc0b4b29517f2904f04eb11a5"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.3.1"
   url_launcher:
     dependency: "direct main"
     description:

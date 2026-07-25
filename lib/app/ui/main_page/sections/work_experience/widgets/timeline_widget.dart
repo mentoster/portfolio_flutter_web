@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../global_widgets/shimmer_image.dart';
+
 class TimelineWidget extends StatelessWidget {
   const TimelineWidget({
     Key? key,
@@ -9,7 +11,7 @@ class TimelineWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 1100,
-      child: Image.asset(
+      child: ShimmerImage.asset(
         "assets/images/timeline.png",
       ),
     );

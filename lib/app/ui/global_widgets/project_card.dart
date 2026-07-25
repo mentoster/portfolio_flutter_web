@@ -6,6 +6,7 @@ import '../../data/models/project.dart';
 import '../../routes/app_pages.dart';
 import '../theme/app_fonts.dart';
 import '../theme/responsive.dart';
+import 'shimmer_image.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
@@ -97,7 +98,10 @@ class ProjectCard extends StatelessWidget {
         children: [
           AspectRatio(
             aspectRatio: 16 / 9,
-            child: Image.asset(projectPreview.previewImagePath, fit: BoxFit.cover),
+            child: ShimmerImage.asset(
+              projectPreview.previewImagePath,
+              fit: BoxFit.cover,
+            ),
           ),
           _textContent(context, width),
         ],
@@ -114,7 +118,10 @@ class ProjectCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Image.asset(projectPreview.previewImagePath, fit: BoxFit.cover),
+            child: ShimmerImage.asset(
+              projectPreview.previewImagePath,
+              fit: BoxFit.cover,
+            ),
           ),
           Expanded(child: _textContent(context, width, desktop: true)),
         ],

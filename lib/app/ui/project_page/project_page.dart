@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../data/models/project.dart';
 import '../global_widgets/appbar.dart';
 import '../global_widgets/responsive_content.dart';
+import '../global_widgets/shimmer_image.dart';
 import '../theme/responsive.dart';
 import 'widgets/project_description.dart';
 import 'widgets/project_images.dart';
@@ -30,7 +31,10 @@ class _ProjectPageState extends State<ProjectPage> {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(widget.project.page.backgroundImagePath, fit: BoxFit.cover),
+          ShimmerImage.asset(
+            widget.project.page.backgroundImagePath,
+            fit: BoxFit.cover,
+          ),
           ColoredBox(color: Colors.black.withOpacity(0.60)),
         ],
       ),

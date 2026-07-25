@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'shimmer_image.dart';
+
 class RightImageColumn extends StatelessWidget {
   const RightImageColumn({
     Key? key,
@@ -21,8 +23,10 @@ class RightImageColumn extends StatelessWidget {
           ),
           SizedBox(
               height: size.height - 64,
-              child: Image.asset("assets/images/my_photo.png",
-                  fit: BoxFit.fitHeight))
+              child: ShimmerImage.asset(
+                "assets/images/my_photo.png",
+                fit: BoxFit.fitHeight,
+              ))
         ],
       ),
     );

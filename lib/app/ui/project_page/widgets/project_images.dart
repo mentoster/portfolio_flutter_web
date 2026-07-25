@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/app/data/enums/technology.dart';
 
 import '../../../data/models/project.dart';
+import '../../global_widgets/shimmer_image.dart';
 import '../../theme/app_constants.dart';
 import '../../theme/app_fonts.dart';
 import '../../theme/responsive.dart';
@@ -86,7 +87,10 @@ class _ProjectImagesState extends State<ProjectImages> {
                           margin: const EdgeInsets.symmetric(horizontal: 4),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(24),
-                            child: Image.asset(imagePath, fit: BoxFit.cover),
+                            child: ShimmerImage.asset(
+                              imagePath,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         );
                       },

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/app/data/models/papers.dart';
 
+import '../../../../global_widgets/shimmer_image.dart';
+
 class CertificatePct extends StatelessWidget {
   const CertificatePct({Key? key, required this.certificate}) : super(key: key);
 
@@ -33,7 +35,7 @@ class CertificatePct extends StatelessWidget {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(24),
-                  child: Image.asset(
+                  child: ShimmerImage.asset(
                     certificate.image,
                     fit: BoxFit.fill,
                     cacheWidth: 1500,
@@ -41,6 +43,7 @@ class CertificatePct extends StatelessWidget {
                 ),
               ),
             ),
+
           ),
         );
       },

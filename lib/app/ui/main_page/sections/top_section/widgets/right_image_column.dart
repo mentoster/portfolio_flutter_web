@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mouse_parallax/mouse_parallax.dart';
 
+import '../../../../global_widgets/shimmer_image.dart';
 import '../../../../theme/responsive.dart';
 
 class RightImageColumn extends StatelessWidget {
@@ -37,7 +38,7 @@ class RightImageColumn extends StatelessWidget {
                   left: 30,
                   right: 50,
                   bottom: 30,
-                  child: Image.asset(
+                  child: ShimmerImage.asset(
                     'assets/icons/abstract_figures/dog_and_stars.png',
                     fit: BoxFit.contain,
                   ),
@@ -46,7 +47,7 @@ class RightImageColumn extends StatelessWidget {
                   left: 70,
                   right: 70,
                   bottom: 0,
-                  child: Image.asset(
+                  child: ShimmerImage.asset(
                     'assets/images/me_photo.png',
                     fit: BoxFit.contain,
                   ),
@@ -55,7 +56,7 @@ class RightImageColumn extends StatelessWidget {
                   right: 18,
                   top: 48,
                   width: 128,
-                  child: Image.asset(
+                  child: ShimmerImage.asset(
                     'assets/images/achievement.png',
                     fit: BoxFit.contain,
                   ),
@@ -107,7 +108,7 @@ class RightImageColumn extends StatelessWidget {
                 child: Transform.scale(
                   scale: 1,
                   alignment: alignment,
-                  child: Image.asset(
+                  child: ShimmerImage.asset(
                     'assets/icons/abstract_figures/dog_and_stars.png',
                     fit: BoxFit.fitHeight,
                   ),
@@ -121,7 +122,7 @@ class RightImageColumn extends StatelessWidget {
                 child: Transform.scale(
                   scale: 1,
                   alignment: alignment,
-                  child: Image.asset(
+                  child: ShimmerImage.asset(
                     'assets/images/me_photo.png',
                     fit: BoxFit.fitWidth,
                   ),
@@ -140,7 +141,7 @@ class RightImageColumn extends StatelessWidget {
                 child: Transform.scale(
                   scale: 1,
                   alignment: alignment,
-                  child: Image.asset(
+                  child: ShimmerImage.asset(
                     'assets/images/achievement.png',
                     fit: BoxFit.fitWidth,
                   ),

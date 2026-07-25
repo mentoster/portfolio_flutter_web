@@ -40,6 +40,7 @@ class DiplomaPct extends StatelessWidget {
             child: Image.asset(
               diploma.image,
               fit: BoxFit.cover,
+              cacheWidth: 1200,
             ),
           ),
         ),

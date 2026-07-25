@@ -12,7 +12,7 @@ final projects = [
         description: """
     Приложение дает пользователям возможность осуществлять процесс сборки предоставленной модели в формате виртуальной реальности. Люди могут собирать ракетный двигатель как самостоятельно, так и в многопользовательской комнате, объединившись с напарниками.
     Процесс сопровождают различные подсказки и тексты с описаниями деталей. Все это, вкупе с глубоким погружением, способствует быстрому усвоению материала. При окончании сборки модель становится анимированной и демонстрирует свой принцип работы.""",
-        backgroundImagePath: "assets/images/projects/Revolit/background.png",
+        backgroundImagePath: "assets/images/projects/Revolit/preview.png",
         images: [
           "assets/images/projects/Revolit/preview.png",
           "assets/images/projects/Revolit/preview.png",

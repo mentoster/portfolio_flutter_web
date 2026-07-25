@@ -18,7 +18,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.15.0 <3.0.4"
+  sdk: ">=3.0.0 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -35,14 +35,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^1.1.1+1
   card_swiper: ^2.0.4
-  image: ^3.2.0
-  simple_animations: ^4.2.0
-  sa3_liquid: ^1.0.1
+  simple_animations: 5.2.0
   mouse_parallax: ^1.1.0
-  url_launcher: ^6.1.5
+  url_launcher: ^6.3.2
   animated_text_kit: ^4.2.2
   intl: ^0.17.0
-  carousel_slider: ^4.1.1
+  carousel_slider: ^5.1.2
 
 dev_dependencies:
   flutter_test:
@@ -73,9 +71,16 @@ flutter:
     - assets/icons/own_icons/
     - assets/icons/instruments/top_5/
     - assets/icons/instruments/others/
-    - assets/images/papers/diplomas/
-    - assets/images/papers/certificates/
-    - assets/images/projects/Revolit/
+    - assets/images/papers/diplomas/цифровой_прорыв_прорыв_2021.png
+    - assets/images/papers/diplomas/теле2_game_2019.png
+    - assets/images/papers/diplomas/junction_skysea_game-1.png
+    - assets/images/papers/diplomas/цифровой_прорыв_2021-финал.png
+    - assets/images/papers/diplomas/volvo_page-0001.jpg
+    - assets/images/papers/diplomas/diploma_mai_2021.png
+    - assets/images/papers/certificates/_OST_1_MIREA_IKBO_certificate_page-0001.jpg
+    - assets/images/papers/certificates/Математика и Python для анализа данных_page-0001.jpg
+    - assets/images/papers/certificates/Макаров Дмитрий 2_page-0001.jpg
+    - assets/images/projects/Revolit/preview.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

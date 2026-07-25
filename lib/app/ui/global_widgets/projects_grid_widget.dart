@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/link.dart';
-
 import '../../data/models/project.dart';
-import '../../routes/app_pages.dart';
 import '../theme/app_constants.dart';
 import 'project_card.dart';
 

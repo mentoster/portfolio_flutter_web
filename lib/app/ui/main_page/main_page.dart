@@ -22,7 +22,7 @@ class MainPage extends StatelessWidget {
     ];
   }
   final _controller = ScrollController();
-  List<Widget> sections = [];
+  late final List<Widget> sections;
 
   @override
   Widget build(BuildContext context) {

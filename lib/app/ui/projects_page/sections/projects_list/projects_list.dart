@@ -4,6 +4,7 @@ import '../../../../data/enums/technology.dart';
 import '../../../../data/information_data/info_projects.dart';
 import '../../../../data/models/project.dart';
 import '../../../global_widgets/projects_grid_widget.dart';
+import '../../../global_widgets/responsive_content.dart';
 import 'widgets/project_list_title.dart';
 
 class ProjectsList extends StatefulWidget {
@@ -17,7 +18,8 @@ class _ProjectsListState extends State<ProjectsList> {
   List<Project> _searchResult = List.from(projects);
   List<Project> _filterResult = List.from(projects);
   Technology? tech;
-  onSearchTextChanged(String text) async {
+
+  void onSearchTextChanged(String text) {
     _searchResult.clear();
     if (text.isEmpty) {
       _searchResult = List.from(projects);
@@ -35,52 +37,40 @@ class _ProjectsListState extends State<ProjectsList> {
     onTagSearch(tech);
   }
 
-  onTagSearch(Technology? technology) {
+  void onTagSearch(Technology? technology) {
     tech = technology;
     if (technology == null) {
+      _filterResult = List.from(_searchResult);
       setState(() {});
       return;
     }
-    _filterResult.clear();
-    for (var pr in _searchResult) {
-      for (var t in pr.technologies) {
-        if (t == technology) {
-          _filterResult.add(pr);
-        }
-      }
-    }
+
+    _filterResult = [
+      for (var pr in _searchResult)
+        if (pr.technologies.contains(technology)) pr,
+    ];
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: 500 +
-          200 *
-              (_filterResult.length.toDouble() +
-                  _filterResult.length.toDouble() % 2),
-      width: size.width,
-      child: Scaffold(
-        backgroundColor: Colors.blue.withOpacity(0.03),
-        body: Center(
-          child: SizedBox(
-            width: 1200,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ProjectListTitle(
-                    onSearch: onSearchTextChanged, onTagSearch: onTagSearch),
-                SizedBox(
-                    height: 200 *
-                        (_filterResult.length.toDouble() +
-                            _filterResult.length.toDouble() % 2),
-                    child: ProjectsGridWidget(
-                        projects: _filterResult, count: _filterResult.length)),
-              ],
+    return ColoredBox(
+      color: Colors.blue.withOpacity(0.03),
+      child: ResponsiveContent(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ProjectListTitle(
+              onSearch: onSearchTextChanged,
+              onTagSearch: onTagSearch,
             ),
-          ),
+            ProjectsGridWidget(
+              projects: _filterResult,
+              count: _filterResult.length,
+            ),
+            const SizedBox(height: 48),
+          ],
         ),
       ),
     );

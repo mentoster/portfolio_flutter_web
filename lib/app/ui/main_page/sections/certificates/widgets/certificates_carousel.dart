@@ -1,53 +1,56 @@
+import 'dart:math' as math;
+
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/app/data/information_data/info_certificates.dart';
 
 import '../../../../global_widgets/carousel_controls_widget.dart';
+import '../../../../theme/responsive.dart';
 import 'certificate_widget.dart';
 
 class CertificatesCarousel extends StatelessWidget {
-  const CertificatesCarousel(
-      {Key? key, required this.onChanged, required this.controller})
-      : super(key: key);
+  const CertificatesCarousel({
+    Key? key,
+    required this.onChanged,
+    required this.controller,
+  }) : super(key: key);
+
   final SwiperController controller;
   final Function onChanged;
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 558,
-      height: 700,
-      child: Stack(
-        children: [
-          Center(
-            child: SizedBox(
-              height: 600,
-              child: ShaderMask(
-                shaderCallback: (rect) {
-                  return const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.transparent,
-                      Colors.black,
-                      Colors.black,
-                      Colors.black,
-                      Colors.transparent,
-                    ],
-                  ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
-                },
-                blendMode: BlendMode.dstIn,
+    final viewportWidth = MediaQuery.sizeOf(context).width;
+    final compact = ResponsiveLayout.isCompact(viewportWidth);
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final availableWidth = constraints.maxWidth.isFinite
+            ? constraints.maxWidth
+            : viewportWidth;
+        final compactImageWidth = math.min(availableWidth, 500.0);
+        final height = compact ? compactImageWidth + 88 : 700.0;
+
+        return SizedBox(
+          key: Key(compact
+              ? 'certificates-carousel-compact'
+              : 'certificates-carousel-desktop'),
+          width: compact ? double.infinity : 558,
+          height: height,
+          child: Stack(
+            children: [
+              Center(
                 child: SizedBox(
-                  height: 700,
+                  width: compact ? compactImageWidth : 558,
+                  height: compact ? compactImageWidth : 600,
                   child: Swiper(
                     itemBuilder: (BuildContext context, int index) {
-                      return CertificatePct(
-                        certificate: certificates[index],
-                      );
+                      return CertificatePct(certificate: certificates[index]);
                     },
-                    scrollDirection: Axis.vertical,
+                    scrollDirection: compact ? Axis.horizontal : Axis.vertical,
                     itemCount: certificates.length,
-                    viewportFraction: 0.6,
-                    scale: 0.6,
+                    viewportFraction: compact ? 1.0 : 0.6,
+                    scale: compact ? 1.0 : 0.6,
                     indicatorLayout: PageIndicatorLayout.COLOR,
                     autoplay: true,
                     autoplayDelay: 6000,
@@ -56,15 +59,15 @@ class CertificatesCarousel extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+              PaperCarouselControlsWidget(
+                swiperController: controller,
+                length: certificates.length,
+                axis: compact ? Axis.horizontal : Axis.vertical,
+              ),
+            ],
           ),
-          PaperCarouselControlsWidget(
-            swiperController: controller,
-            length: certificates.length,
-            axis: Axis.vertical,
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/app/data/enums/technology.dart';
 import 'package:portfolio_flutter_web/app/data/information_data/info_projects.dart';
@@ -13,6 +11,7 @@ class ProjectListTitle extends StatefulWidget {
     required this.onSearch,
     required this.onTagSearch,
   }) : super(key: key);
+
   final Function onSearch;
   final Function onTagSearch;
 
@@ -22,111 +21,62 @@ class ProjectListTitle extends StatefulWidget {
 
 class _ProjectListTitleState extends State<ProjectListTitle> {
   Technology? tech;
-  searchTag(Technology? newTech) {
-    setState(() {
-      tech = newTech;
-    });
+
+  void searchTag(Technology? newTech) {
+    setState(() => tech = newTech);
     widget.onTagSearch(newTech);
+  }
+
+  Widget _filterButton(String label, Technology? technology, double width) {
+    return TextButton(
+      onPressed: () => searchTag(technology),
+      child: Text(
+        label,
+        style: responsiveHeading2Bold(width).copyWith(
+          decoration: tech == technology
+              ? TextDecoration.underline
+              : TextDecoration.none,
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 35),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 32,
-          ),
-          const SelectableText(
-            "Проекты",
-            style: heading1,
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          const SelectableText(
-            "Ищите нужный вам проект",
-            style: usualText,
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          SearchWidget(
-            texts: [for (var pr in projects) pr.title],
-            onChanged: widget.onSearch,
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          const SelectableText(
-            "Или выберите определенный тип проектов",
-            style: usualText,
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          Wrap(
-            children: [
-              TextButton(
-                  onPressed: () => searchTag(null),
-                  child: Text("All",
-                      style: TextStyle(
-                        fontSize: heading2Bold.fontSize,
-                        fontWeight: heading2Bold.fontWeight,
-                        decoration: tech == null
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
-                      ))),
-              TextButton(
-                  onPressed: () => searchTag(Technology.gamedev),
-                  child: Text("Gamedev",
-                      style: TextStyle(
-                        fontSize: heading2Bold.fontSize,
-                        fontWeight: heading2Bold.fontWeight,
-                        decoration: tech == Technology.gamedev
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
-                      ))),
-              TextButton(
-                  onPressed: () => searchTag(Technology.unity),
-                  child: Text("Unity",
-                      style: TextStyle(
-                        fontSize: heading2Bold.fontSize,
-                        fontWeight: heading2Bold.fontWeight,
-                        decoration: tech == Technology.unity
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
-                      ))),
-              TextButton(
-                  onPressed: () => searchTag(Technology.flutter),
-                  child: Text("Flutter",
-                      style: TextStyle(
-                        fontSize: heading2Bold.fontSize,
-                        fontWeight: heading2Bold.fontWeight,
-                        decoration: tech == Technology.flutter
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
-                      ))),
-              TextButton(
-                  onPressed: () => searchTag(Technology.design),
-                  child: Text("UI/UX Design",
-                      style: TextStyle(
-                        fontSize: heading2Bold.fontSize,
-                        fontWeight: heading2Bold.fontWeight,
-                        decoration: tech == Technology.design
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
-                      ))),
-            ],
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-        ],
-      ),
+    final width = MediaQuery.sizeOf(context).width;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const SizedBox(height: 32),
+        SelectableText('Проекты', style: responsiveHeading1(width)),
+        const SizedBox(height: 24),
+        SelectableText('Ищите нужный вам проект', style: responsiveBody(width)),
+        const SizedBox(height: 24),
+        SearchWidget(
+          texts: [for (var pr in projects) pr.title],
+          onChanged: widget.onSearch,
+        ),
+        const SizedBox(height: 32),
+        SelectableText(
+          'Или выберите определенный тип проектов',
+          style: responsiveBody(width),
+        ),
+        const SizedBox(height: 20),
+        Wrap(
+          key: const Key('projects-filter-wrap'),
+          spacing: 8,
+          runSpacing: 4,
+          children: [
+            _filterButton('All', null, width),
+            _filterButton('Gamedev', Technology.gamedev, width),
+            _filterButton('Unity', Technology.unity, width),
+            _filterButton('Flutter', Technology.flutter, width),
+            _filterButton('UI/UX Design', Technology.design, width),
+          ],
+        ),
+        const SizedBox(height: 32),
+      ],
     );
   }
 }

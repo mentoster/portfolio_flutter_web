@@ -8,25 +8,26 @@ class JobWidget extends StatelessWidget {
     required this.title,
     required this.subTitle,
   }) : super(key: key);
+
   final String title;
   final String subTitle;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SelectableText(
-          title,
-          style: heading2,
-        ),
-        Container(
-            width: 164,
-            padding: const EdgeInsets.symmetric(vertical: 24),
-            child: SelectableText(
-              subTitle,
-              style: usualText,
-            )),
-      ],
+    final width = MediaQuery.sizeOf(context).width;
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minWidth: 140, maxWidth: 176),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SelectableText(title, style: responsiveHeading2(width)),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: SelectableText(subTitle, style: responsiveBody(width)),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -64,6 +64,7 @@ class PaperCarouselControlsWidget extends StatelessWidget {
     required BuildContext context,
   }) {
     return IconButton(
+        constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
         onPressed: () {
           if (previous) {
             swiperController.previous(animation: true);

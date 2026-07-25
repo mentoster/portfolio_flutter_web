@@ -9,8 +9,10 @@ class SearchWidget extends StatefulWidget {
     required this.texts,
     required this.onChanged,
   }) : super(key: key);
+
   final List<String> texts;
   final Function onChanged;
+
   @override
   State<SearchWidget> createState() => _SearchWidgetState();
 }
@@ -20,97 +22,85 @@ class _SearchWidgetState extends State<SearchWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 480,
-      height: 50,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0x0a000000),
-            blurRadius: 1,
-            offset: Offset(0, 0),
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 480),
+      child: SizedBox(
+        width: double.infinity,
+        height: 50,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24),
+            boxShadow: const [
+              BoxShadow(color: Color(0x0a000000), blurRadius: 1),
+              BoxShadow(color: Color(0x0a000000), blurRadius: 8, offset: Offset(0, 4)),
+              BoxShadow(color: Color(0x0a000000), blurRadius: 24, offset: Offset(0, 16)),
+              BoxShadow(color: Color(0x0a000000), blurRadius: 32, offset: Offset(0, 24)),
+            ],
           ),
-          BoxShadow(
-            color: Color(0x0a000000),
-            blurRadius: 8,
-            offset: Offset(0, 4),
-          ),
-          BoxShadow(
-            color: Color(0x0a000000),
-            blurRadius: 24,
-            offset: Offset(0, 16),
-          ),
-          BoxShadow(
-            color: Color(0x0a000000),
-            blurRadius: 32,
-            offset: Offset(0, 24),
-          ),
-        ],
-      ),
-      child: Stack(fit: StackFit.expand, children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 1),
-          child: TextFormField(
-              keyboardType: TextInputType.text,
-              autocorrect: true,
-              maxLines: 1,
-              onTap: () => setState(() => isTyping = true),
-              onChanged: (input) {
-                if (input.isEmpty) {
-                  setState(() => isTyping = false);
-                } else {
-                  setState(() => isTyping = true);
-                }
-                widget.onChanged(input);
-              },
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(24),
-                    borderSide: const BorderSide(color: Colors.transparent),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(24),
-                    borderSide:
-                        const BorderSide(color: Colors.blue, width: 2.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(24),
-                    borderSide: const BorderSide(color: Colors.transparent),
-                  ),
-                  filled: true,
-                  contentPadding: const EdgeInsets.only(left: 64),
-                  fillColor: Colors.white)),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 24),
-          child: Row(
+          child: Stack(
+            fit: StackFit.expand,
             children: [
-              const Icon(Icons.search),
-              const SizedBox(
-                width: defaultPadding,
+              Padding(
+                padding: const EdgeInsets.only(top: 1),
+                child: TextFormField(
+                  keyboardType: TextInputType.text,
+                  autocorrect: true,
+                  maxLines: 1,
+                  onTap: () => setState(() => isTyping = true),
+                  onChanged: (input) {
+                    setState(() => isTyping = input.isNotEmpty);
+                    widget.onChanged(input);
+                  },
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(24),
+                      borderSide: const BorderSide(color: Colors.transparent),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(24),
+                      borderSide: const BorderSide(color: Colors.blue, width: 2),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(24),
+                      borderSide: const BorderSide(color: Colors.transparent),
+                    ),
+                    filled: true,
+                    contentPadding: const EdgeInsets.only(left: 64),
+                    fillColor: Colors.white,
+                  ),
+                ),
               ),
-              !isTyping
-                  ? AnimatedTextKit(
-                      repeatForever: true,
-                      isRepeatingAnimation: true,
-                      pause: const Duration(seconds: 3),
-                      animatedTexts: [
-                        for (var t in widget.texts)
-                          TypewriterAnimatedText(
-                            t,
-                            speed: const Duration(milliseconds: 200),
-                            textStyle: const TextStyle(
-                              color: Colors.grey,
-                            ),
+              IgnorePointer(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 24),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.search),
+                      const SizedBox(width: defaultPadding),
+                      if (!isTyping)
+                        Flexible(
+                          child: AnimatedTextKit(
+                            repeatForever: true,
+                            isRepeatingAnimation: true,
+                            pause: const Duration(seconds: 3),
+                            animatedTexts: [
+                              for (var t in widget.texts)
+                                TypewriterAnimatedText(
+                                  t,
+                                  speed: const Duration(milliseconds: 200),
+                                  textStyle: const TextStyle(color: Colors.grey),
+                                ),
+                            ],
                           ),
-                      ],
-                    )
-                  : const SizedBox(),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
-      ]),
+      ),
     );
   }
 }

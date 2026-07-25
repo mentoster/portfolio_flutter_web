@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../global_widgets/responsive_content.dart';
+import '../../../theme/app_constants.dart';
 import '../../../theme/app_fonts.dart';
 import 'widgets/small_icons_wrap_widget.dart';
 import 'widgets/top_five_widget.dart';
@@ -9,63 +11,32 @@ class WorkInstruments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
-    return SizedBox(
-        height: 900,
-        width: size.width,
-        child: Scaffold(
-          backgroundColor: Colors.green.withOpacity(0.03),
-          body: Center(
-            child: SizedBox(
-              width: 1200,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  SizedBox(
-                    height: 32,
-                  ),
-                  SelectableText(
-                    "Работал с стеком & клиент",
-                    style: heading1,
-                  ),
-                  SizedBox(
-                    height: 32,
-                  ),
-                  // SearchWidget(
-                  //   texts: const [
-                  //     "Unity",
-                  //     "Flutter",
-                  //     "Dart",
-                  //     "C++",
-                  //     "C#",
-                  //     "Figma"
-                  //   ],
-                  //   onChanged: () {},
-                  // ),
-                  // SizedBox(
-                  //   height: 32,
-                  // ),
-                  SelectableText("Мой топ 5", style: heading2),
-                  SizedBox(
-                    height: 32,
-                  ),
-                  TopFiveWidget(),
-                  SizedBox(
-                    height: 32,
-                  ),
-                  SelectableText("Другие", style: heading2),
-                  SizedBox(
-                    height: 32,
-                  ),
-                  SmallIconsWrapWidget(),
-                  SizedBox(
-                    height: 32,
-                  ),
-                ],
+    final width = MediaQuery.sizeOf(context).width;
+    return ColoredBox(
+      color: Colors.green.withOpacity(0.03),
+      child: ResponsiveContent(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: compactSectionPadding),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SelectableText(
+                'Работал с стеком & клиент',
+                style: responsiveHeading1(width),
               ),
-            ),
+              const SizedBox(height: 32),
+              SelectableText('Мой топ 5', style: responsiveHeading2(width)),
+              const SizedBox(height: 32),
+              const TopFiveWidget(),
+              const SizedBox(height: 32),
+              SelectableText('Другие', style: responsiveHeading2(width)),
+              const SizedBox(height: 32),
+              const SmallIconsWrapWidget(),
+              const SizedBox(height: 16),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

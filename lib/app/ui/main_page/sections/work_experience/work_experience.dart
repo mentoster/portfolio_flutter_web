@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../global_widgets/responsive_content.dart';
+import '../../../theme/app_constants.dart';
 import 'widgets/description_text_widget.dart';
 import 'widgets/timeline_widget.dart';
 import 'widgets/work_exp_title_widger.dart';
@@ -11,37 +13,36 @@ class WorkExperience extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
-    return SizedBox(
-      height: 782,
-      width: size.width,
-      child: Scaffold(
-        backgroundColor: Colors.orange.withOpacity(0.03),
-        body: Center(
-          child: SizedBox(
-            width: 1200,
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 32,
+    return ColoredBox(
+      color: Colors.orange.withOpacity(0.03),
+      child: ResponsiveContent(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: compactSectionPadding),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const WorkExpTitleWidget(),
+              const SizedBox(height: 24),
+              const DescriptionTextWidget(),
+              const SizedBox(height: 32),
+              const WorkTitlesWidget(),
+              const SizedBox(height: 24),
+              SingleChildScrollView(
+                key: const Key('work-timeline-scroll'),
+                scrollDirection: Axis.horizontal,
+                child: SizedBox(
+                  width: 1100,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const TimelineWidget(),
+                      const SizedBox(height: 20),
+                      YearsWidget(),
+                    ],
+                  ),
                 ),
-                const WorkExpTitleWidget(),
-                const SizedBox(
-                  height: 32,
-                ),
-                const DescriptionTextWidget(),
-                const SizedBox(
-                  height: 32,
-                ),
-                const WorkTitlesWidget(),
-                const TimelineWidget(),
-                const SizedBox(
-                  height: 32,
-                ),
-                YearsWidget()
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

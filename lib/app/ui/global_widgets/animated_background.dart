@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 class AnimatedBackground extends StatelessWidget {
   const AnimatedBackground({
     Key? key,
-    required this.size,
+    this.size,
   }) : super(key: key);
 
-  final Size size;
+  final Size? size;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: size.width,
-      height: size.height,
+      width: size?.width ?? double.infinity,
+      height: size?.height ?? double.infinity,
       child: const DecoratedBox(
         decoration: BoxDecoration(
           gradient: LinearGradient(

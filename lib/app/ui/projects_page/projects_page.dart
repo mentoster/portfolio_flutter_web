@@ -4,30 +4,37 @@ import '../global_widgets/appbar.dart';
 import 'sections/projects_list/projects_list.dart';
 import 'sections/top_section/top_section_projects.dart';
 
-class ProjectsPage extends StatelessWidget {
-
+class ProjectsPage extends StatefulWidget {
   const ProjectsPage({Key? key}) : super(key: key);
-  final sections = const [
+
+  @override
+  State<ProjectsPage> createState() => _ProjectsPageState();
+}
+
+class _ProjectsPageState extends State<ProjectsPage> {
+  final ScrollController _controller = ScrollController();
+  final List<Widget> _sections = const [
     TopSectionProjects(),
     ProjectsList(),
   ];
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final ScrollController _controller = ScrollController();
     return Scaffold(
-      appBar: AppBarWidget(
-        needBack: true,
-        controller: _controller,
-      ),
+      appBar: AppBarWidget(needBack: true, controller: _controller),
       extendBodyBehindAppBar: true,
       body: ListView.builder(
-          controller: _controller,
-          itemCount: sections.length,
-          padding: const EdgeInsets.all(0),
-          itemBuilder: (BuildContext context, int index) {
-            return sections[index];
-          }),
+        controller: _controller,
+        itemCount: _sections.length,
+        padding: EdgeInsets.zero,
+        itemBuilder: (BuildContext context, int index) => _sections[index],
+      ),
     );
   }
 }

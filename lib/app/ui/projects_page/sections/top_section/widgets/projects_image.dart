@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mouse_parallax/mouse_parallax.dart';
 
+import '../../../../theme/responsive.dart';
+
 class ProjectsImage extends StatelessWidget {
   const ProjectsImage({
     Key? key,
@@ -9,8 +11,39 @@ class ProjectsImage extends StatelessWidget {
 
   final Size size;
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildCompact() {
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 520),
+        child: AspectRatio(
+          aspectRatio: 1,
+          child: Stack(
+            key: const Key('compact-projects-artwork'),
+            fit: StackFit.expand,
+            alignment: Alignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(28),
+                child: Image.asset(
+                  'assets/images/achievement_projects.png',
+                  fit: BoxFit.contain,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 22),
+                child: Image.asset(
+                  'assets/images/rocket.png',
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDesktop() {
     return Padding(
       padding: const EdgeInsets.only(top: 64),
       child: SizedBox(
@@ -28,9 +61,10 @@ class ProjectsImage extends StatelessWidget {
               xRotation: 0.1,
               zRotation: 0.1,
               child: Center(
-                child: SizedBox(
-                  child: Image.asset("assets/images/rocket.png",
-                      fit: BoxFit.fitWidth, height: size.height / 1.4),
+                child: Image.asset(
+                  'assets/images/rocket.png',
+                  fit: BoxFit.fitWidth,
+                  height: size.height / 1.4,
                 ),
               ),
             ),
@@ -40,14 +74,27 @@ class ProjectsImage extends StatelessWidget {
               yRotation: 0.2,
               xRotation: 0.2,
               zRotation: 0.2,
-              child: Stack(fit: StackFit.expand, children: [
-                Image.asset("assets/images/achievement_projects.png",
-                    fit: BoxFit.fitWidth),
-              ]),
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.asset(
+                    'assets/images/achievement_projects.png',
+                    fit: BoxFit.fitWidth,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (ResponsiveLayout.isCompact(MediaQuery.sizeOf(context).width)) {
+      return _buildCompact();
+    }
+    return _buildDesktop();
   }
 }

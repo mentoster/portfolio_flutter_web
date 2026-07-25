@@ -5,6 +5,7 @@ import '../../data/enums/technology.dart';
 import '../../data/models/project.dart';
 import '../../routes/app_pages.dart';
 import '../theme/app_fonts.dart';
+import 'shimmer_image.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard(
@@ -57,8 +58,10 @@ class ProjectCard extends StatelessWidget {
             child: SizedBox(
               height: 357,
               width: 289.5,
-              child: Image.asset(projectPreview.previewImagePath,
-                  fit: BoxFit.cover),
+              child: ShimmerImage.asset(
+                projectPreview.previewImagePath,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const SizedBox(

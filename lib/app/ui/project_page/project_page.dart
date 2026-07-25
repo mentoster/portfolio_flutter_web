@@ -3,6 +3,7 @@ import 'package:portfolio_flutter_web/app/ui/project_page/widgets/project_images
 
 import '../../data/models/project.dart';
 import '../global_widgets/appbar.dart';
+import '../global_widgets/shimmer_image.dart';
 import 'widgets/project_description.dart';
 
 class ProjectPage extends StatelessWidget {
@@ -23,8 +24,12 @@ class ProjectPage extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Image.asset(project.page.backgroundImagePath,
-              fit: BoxFit.cover, height: size.height, width: size.width),
+          ShimmerImage.asset(
+            project.page.backgroundImagePath,
+            fit: BoxFit.cover,
+            height: size.height,
+            width: size.width,
+          ),
           Container(
             height: size.height,
             width: size.width,

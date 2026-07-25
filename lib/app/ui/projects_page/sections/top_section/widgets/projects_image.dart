@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mouse_parallax/mouse_parallax.dart';
 
+import '../../../../global_widgets/shimmer_image.dart';
+
 class ProjectsImage extends StatelessWidget {
   const ProjectsImage({
     Key? key,
@@ -29,8 +31,11 @@ class ProjectsImage extends StatelessWidget {
               zRotation: 0.1,
               child: Center(
                 child: SizedBox(
-                  child: Image.asset("assets/images/rocket.png",
-                      fit: BoxFit.fitWidth, height: size.height / 1.4),
+                  child: ShimmerImage.asset(
+                    "assets/images/rocket.png",
+                    fit: BoxFit.fitWidth,
+                    height: size.height / 1.4,
+                  ),
                 ),
               ),
             ),
@@ -41,8 +46,10 @@ class ProjectsImage extends StatelessWidget {
               xRotation: 0.2,
               zRotation: 0.2,
               child: Stack(fit: StackFit.expand, children: [
-                Image.asset("assets/images/achievement_projects.png",
-                    fit: BoxFit.fitWidth),
+                ShimmerImage.asset(
+                  "assets/images/achievement_projects.png",
+                  fit: BoxFit.fitWidth,
+                ),
               ]),
             ),
           ],

@@ -4,9 +4,15 @@
 
 **Персональное web-портфолио Дмитрия Макарова — Unity-разработчика, преподавателя и инженера, увлечённого созданием интерактивных продуктов.**
 
-Flutter Web · Dart · Nginx · Docker
+[Открыть портфолио](https://portfolio.mentoster.com) · [GitHub профиль](https://github.com/mentoster) · [Репозиторий](https://github.com/mentoster/portfolio_flutter_web) · [Сообщить о проблеме](https://github.com/mentoster/portfolio_flutter_web/issues)
 
-[GitHub профиль](https://github.com/mentoster) · [Репозиторий](https://github.com/mentoster/portfolio_flutter_web) · [Сообщить о проблеме](https://github.com/mentoster/portfolio_flutter_web/issues)
+[![Portfolio status](https://img.shields.io/website?url=https%3A%2F%2Fportfolio.mentoster.com&up_message=online&down_message=offline&label=portfolio&logo=googlechrome&logoColor=white)](https://portfolio.mentoster.com)
+![Flutter Web](https://img.shields.io/badge/Flutter-Web-02569B?logo=flutter&logoColor=white)
+![Dart 3](https://img.shields.io/badge/Dart-3.x-0175C2?logo=dart&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-serving-009639?logo=nginx&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-hosting-2496ED?logo=docker&logoColor=white)
+[![Last commit](https://img.shields.io/github/last-commit/mentoster/portfolio_flutter_web?logo=github)](https://github.com/mentoster/portfolio_flutter_web/commits/master)
+[![Open issues](https://img.shields.io/github/issues/mentoster/portfolio_flutter_web?logo=github)](https://github.com/mentoster/portfolio_flutter_web/issues)
 
 </div>
 

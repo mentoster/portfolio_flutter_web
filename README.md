@@ -108,15 +108,15 @@ http://127.0.0.1:4077
 
 ```mermaid
 flowchart LR
-    Browser[Browser] --> Web[Flutter Web]
-    Web --> Routes[Application routes]
-    Web --> Data[Dart content models]
-    Web --> Assets[Images and SVG assets]
-    Nginx[Nginx / Docker] -. optional serving .-> Web
+    Browser["Browser"] --> Web["Flutter Web"]
+    Web --> Routes["Application routes"]
+    Web --> Data["Dart content models"]
+    Web --> Assets["Images and SVG assets"]
+    Nginx["Nginx / Docker"] -.-> Web
 
-    Routes --> Home[/]
-    Routes --> Projects[/projects]
-    Routes --> Project[/projects/name]
+    Routes --> Home["/"]
+    Routes --> Projects["/projects"]
+    Routes --> Project["/projects/name"]
 ```
 
 Приложение не использует backend: страницы собираются из Flutter UI, локальных Dart-данных и статических ресурсов.

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../data/models/papers.dart';
+import '../../../../global_widgets/shimmer_image.dart';
 import '../../../../theme/app_constants.dart';
 import '../../../../theme/app_fonts.dart';
 
@@ -37,7 +38,7 @@ class DiplomaPct extends StatelessWidget {
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(24),
-            child: Image.asset(
+            child: ShimmerImage.asset(
               diploma.image,
               fit: BoxFit.cover,
               cacheWidth: 1200,

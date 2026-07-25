@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mouse_parallax/mouse_parallax.dart';
 
+import '../../../../global_widgets/shimmer_image.dart';
+
 class RightImageColumn extends StatelessWidget {
   const RightImageColumn({
     Key? key,
@@ -50,9 +52,10 @@ class RightImageColumn extends StatelessWidget {
                 child: Transform.scale(
                   scale: 1,
                   alignment: alignment,
-                  child: Image.asset(
-                      "assets/icons/abstract_figures/dog_and_stars.png",
-                      fit: BoxFit.fitHeight),
+                  child: ShimmerImage.asset(
+                    "assets/icons/abstract_figures/dog_and_stars.png",
+                    fit: BoxFit.fitHeight,
+                  ),
                 ),
               ),
             ),
@@ -63,8 +66,10 @@ class RightImageColumn extends StatelessWidget {
                 child: Transform.scale(
                   scale: 1,
                   alignment: alignment,
-                  child: Image.asset("assets/images/me_photo.png",
-                      fit: BoxFit.fitWidth),
+                  child: ShimmerImage.asset(
+                    "assets/images/me_photo.png",
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
             ),
@@ -78,8 +83,10 @@ class RightImageColumn extends StatelessWidget {
                 child: Transform.scale(
                   scale: 1,
                   alignment: alignment,
-                  child: Image.asset("assets/images/achievement.png",
-                      fit: BoxFit.fitWidth),
+                  child: ShimmerImage.asset(
+                    "assets/images/achievement.png",
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
             ),

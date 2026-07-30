@@ -35,6 +35,7 @@ class _CertificatesWidgetState extends State<CertificatesWidget> {
     final text = CertificatesTextWidget(index: index);
 
     return ColoredBox(
+      key: const Key('certificates-section'),
       color: Colors.lightBlue.withOpacity(0.03),
       child: ResponsiveContent(
         child: Padding(

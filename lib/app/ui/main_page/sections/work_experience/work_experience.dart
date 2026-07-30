@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../global_widgets/responsive_content.dart';
 import '../../../theme/app_constants.dart';
+import '../../../theme/responsive.dart';
 import 'widgets/description_text_widget.dart';
+import 'widgets/mobile_timeline_widget.dart';
 import 'widgets/timeline_widget.dart';
 import 'widgets/work_exp_title_widger.dart';
 import 'widgets/wortk_titles_widget.dart';
@@ -13,7 +15,9 @@ class WorkExperience extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mobile = ResponsiveLayout.isMobile(MediaQuery.sizeOf(context).width);
     return ColoredBox(
+      key: const Key('work-experience-section'),
       color: Colors.orange.withOpacity(0.03),
       child: ResponsiveContent(
         child: Padding(
@@ -25,23 +29,15 @@ class WorkExperience extends StatelessWidget {
               const SizedBox(height: 24),
               const DescriptionTextWidget(),
               const SizedBox(height: 32),
-              const WorkTitlesWidget(),
-              const SizedBox(height: 24),
-              SingleChildScrollView(
-                key: const Key('work-timeline-scroll'),
-                scrollDirection: Axis.horizontal,
-                child: SizedBox(
-                  width: 1100,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const TimelineWidget(),
-                      const SizedBox(height: 20),
-                      YearsWidget(),
-                    ],
-                  ),
-                ),
-              ),
+              if (mobile)
+                const MobileTimelineWidget()
+              else ...[
+                const WorkTitlesWidget(),
+                const SizedBox(height: 32),
+                const TimelineWidget(),
+                const SizedBox(height: 20),
+                YearsWidget(),
+              ],
             ],
           ),
         ),

@@ -15,19 +15,19 @@ class JobWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    return ConstrainedBox(
-      constraints: const BoxConstraints(minWidth: 140, maxWidth: 176),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SelectableText(title, style: responsiveHeading2(width)),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            child: SelectableText(subTitle, style: responsiveBody(width)),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SelectableText(title, style: responsiveHeading2(width)),
+        Padding(
+          padding: const EdgeInsets.only(top: 16),
+          child: SelectableText(
+            subTitle,
+            style: responsiveBody(width).copyWith(height: 1.4),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

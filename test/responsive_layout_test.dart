@@ -5,6 +5,7 @@ import 'package:portfolio_flutter_web/app/ui/global_widgets/responsive_content.d
 import 'package:portfolio_flutter_web/app/data/information_data/info_projects.dart';
 import 'package:portfolio_flutter_web/app/ui/global_widgets/project_card.dart';
 import 'package:portfolio_flutter_web/app/ui/global_widgets/projects_grid_widget.dart';
+import 'package:portfolio_flutter_web/app/ui/global_widgets/shimmer_image.dart';
 import 'package:portfolio_flutter_web/app/ui/main_page/sections/about_me/me_and_projects.dart';
 import 'package:portfolio_flutter_web/app/ui/main_page/sections/certificates/certificates.dart';
 import 'package:portfolio_flutter_web/app/ui/main_page/sections/contact_me/contact_me.dart';
@@ -633,5 +634,109 @@ void main() {
     expect(find.text('Главная'), findsOneWidget);
     expect(find.text('Все Проекты'), findsOneWidget);
     expectNoFlutterExceptions(tester);
+  });
+
+  testWidgets('compact hero artwork stays pinned to viewport bottom',
+      (tester) async {
+    const sizes = [
+      Size(390, 844),
+      Size(674, 1278),
+      Size(754, 1170),
+    ];
+
+    for (final size in sizes) {
+      setTestViewport(tester, size);
+      await tester.pumpWidget(
+        const MaterialApp(home: _HomeShellHarness()),
+      );
+      await boundedPump(tester, duration: const Duration(milliseconds: 250));
+
+      final artwork = find.byKey(const Key('compact-home-hero-artwork'));
+      final text = find.byKey(const Key('compact-home-hero-text'));
+      final avatar = find.byWidgetPredicate(
+        (widget) =>
+            widget is ShimmerImage &&
+            widget.assetName == 'assets/images/me_photo.png',
+      );
+      final artworkTop = tester.getTopLeft(artwork).dy;
+      final artworkBottom = tester.getBottomRight(artwork).dy;
+      final textBottom = tester.getBottomRight(text).dy;
+      final artworkHeight = tester.getSize(artwork).height;
+      final avatarBottom = tester.getBottomRight(avatar).dy;
+      final avatarWidth = tester.getSize(avatar).width;
+      final minimumArtworkHeight = size.width < 500 ? 180.0 : 360.0;
+
+      expect(
+        artworkBottom,
+        closeTo(size.height, 1),
+        reason: 'Artwork must meet the viewport bottom at '
+            '${size.width}x${size.height}',
+      );
+      expect(
+        artworkTop,
+        greaterThanOrEqualTo(textBottom),
+        reason: 'Hero text and artwork must not overlap at '
+            '${size.width}x${size.height}',
+      );
+      expect(
+        artworkHeight,
+        greaterThanOrEqualTo(minimumArtworkHeight),
+        reason: 'Bottom alignment must not collapse the hero artwork at '
+            '${size.width}x${size.height}',
+      );
+      expect(
+        avatarBottom,
+        closeTo(size.height, 1),
+        reason: 'The avatar itself must meet the viewport bottom at '
+            '${size.width}x${size.height}',
+      );
+      expect(
+        avatarWidth,
+        greaterThanOrEqualTo(artworkHeight * 0.6),
+        reason: 'Responsive artwork padding must not collapse the avatar at '
+            '${size.width}x${size.height}',
+      );
+      expectNoFlutterExceptions(
+        tester,
+        context: 'bottom-aligned hero at ${size.width}x${size.height}',
+      );
+
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+    }
+  });
+
+  testWidgets('hero stays overflow-free on short and desktop viewports',
+      (tester) async {
+    const sizes = [
+      Size(320, 568),
+      Size(1440, 900),
+    ];
+
+    for (final size in sizes) {
+      setTestViewport(tester, size);
+      await tester.pumpWidget(
+        const MaterialApp(home: _HomeShellHarness()),
+      );
+      await boundedPump(tester, duration: const Duration(milliseconds: 250));
+
+      final heroBottom = tester.getBottomRight(find.byType(TopSection)).dy;
+      expect(heroBottom, greaterThanOrEqualTo(size.height));
+      if (size.width >= ResponsiveLayout.desktopBreakpoint) {
+        final avatar = find.byWidgetPredicate(
+          (widget) =>
+              widget is ShimmerImage &&
+              widget.assetName == 'assets/images/me_photo.png',
+        );
+        expect(tester.getBottomRight(avatar).dy, closeTo(size.height, 1));
+      }
+      expectNoFlutterExceptions(
+        tester,
+        context: 'hero overflow check at ${size.width}x${size.height}',
+      );
+
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+    }
   });
 }

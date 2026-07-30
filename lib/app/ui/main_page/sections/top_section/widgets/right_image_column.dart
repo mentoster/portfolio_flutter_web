@@ -15,53 +15,61 @@ class RightImageColumn extends StatelessWidget {
   final alignment = Alignment.bottomCenter;
 
   Widget _buildCompact() {
-    return Center(
+    return Align(
+      alignment: Alignment.bottomCenter,
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 520),
         child: AspectRatio(
           aspectRatio: 1,
           child: ClipRect(
-            child: Stack(
-              key: const Key('compact-home-hero-artwork'),
-              fit: StackFit.expand,
-              children: [
-                Positioned.fill(
-                  child: Padding(
-                    padding: const EdgeInsets.all(40),
-                    child: SvgPicture.asset(
-                      'assets/icons/abstract_figures/blobsbehind.svg',
-                      fit: BoxFit.contain,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final scale = constraints.maxWidth / 520;
+                double scaled(double value) => value * scale;
+
+                return Stack(
+                  key: const Key('compact-home-hero-artwork'),
+                  fit: StackFit.expand,
+                  children: [
+                    Positioned.fill(
+                      child: Padding(
+                        padding: EdgeInsets.all(scaled(40)),
+                        child: SvgPicture.asset(
+                          'assets/icons/abstract_figures/blobsbehind.svg',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                Positioned(
-                  left: 30,
-                  right: 50,
-                  bottom: 30,
-                  child: ShimmerImage.asset(
-                    'assets/icons/abstract_figures/dog_and_stars.png',
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                Positioned(
-                  left: 70,
-                  right: 70,
-                  bottom: 0,
-                  child: ShimmerImage.asset(
-                    'assets/images/me_photo.png',
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                Positioned(
-                  right: 18,
-                  top: 48,
-                  width: 128,
-                  child: ShimmerImage.asset(
-                    'assets/images/achievement.png',
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ],
+                    Positioned(
+                      left: scaled(30),
+                      right: scaled(50),
+                      bottom: scaled(30),
+                      child: ShimmerImage.asset(
+                        'assets/icons/abstract_figures/dog_and_stars.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Positioned(
+                      left: scaled(70),
+                      right: scaled(70),
+                      bottom: 0,
+                      child: ShimmerImage.asset(
+                        'assets/images/me_photo.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Positioned(
+                      right: scaled(18),
+                      top: scaled(48),
+                      width: scaled(128),
+                      child: ShimmerImage.asset(
+                        'assets/images/achievement.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ),

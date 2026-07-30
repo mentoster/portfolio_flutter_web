@@ -29,47 +29,85 @@ class LeftTextColumn extends StatelessWidget {
     );
   }
 
-  Widget _socialLinks({double runSpacing = 0}) {
+  Widget _socialLinks({
+    double runSpacing = 0,
+    double spacing = 16,
+    double iconSize = _iconRadius,
+  }) {
     return Wrap(
-      spacing: 16,
+      spacing: spacing,
       runSpacing: runSpacing,
-      children: const [
+      children: [
         CircleIcon(
           name: 'vkontakte',
           link: 'https://vk.com/mentoster_official',
           iconPath: 'assets/icons/social_networks/vk.svg',
-          radius: _iconRadius,
-          backgroundColor: Color.fromARGB(255, 232, 238, 255),
+          radius: iconSize,
+          backgroundColor: const Color.fromARGB(255, 232, 238, 255),
         ),
         CircleIcon(
           name: 'whatsapp',
           link: 'https://wa.me/79162053580',
           iconPath: 'assets/icons/social_networks/whatsapp.svg',
-          radius: _iconRadius,
-          backgroundColor: Color.fromARGB(255, 232, 255, 232),
+          radius: iconSize,
+          backgroundColor: const Color.fromARGB(255, 232, 255, 232),
         ),
         CircleIcon(
           name: 'telegram',
           link: 'https://t.me/mentoster',
           iconPath: 'assets/icons/social_networks/telegram.svg',
-          radius: _iconRadius,
-          backgroundColor: Color.fromARGB(255, 232, 247, 255),
+          radius: iconSize,
+          backgroundColor: const Color.fromARGB(255, 232, 247, 255),
         ),
         CircleIcon(
           name: 'github',
           link: 'https://github.com/mentoster',
           iconPath: 'assets/icons/social_networks/github.svg',
-          radius: _iconRadius,
-          backgroundColor: Color.fromARGB(255, 233, 232, 232),
+          radius: iconSize,
+          backgroundColor: const Color.fromARGB(255, 233, 232, 232),
         ),
       ],
     );
   }
 
   Widget _buildCompact(BuildContext context, double width) {
-    final titleSize = ResponsiveLayout.heroTitleSize(width);
-    final subtitleSize = ResponsiveLayout.heroSubtitleSize(width);
-    final bodySize = ResponsiveLayout.heroBodySize(width);
+    final viewportHeight = MediaQuery.sizeOf(context).height;
+    final useDenseMobileLayout = width < 500 && viewportHeight < 900;
+    final titleSize =
+        useDenseMobileLayout ? 40.0 : ResponsiveLayout.heroTitleSize(width);
+    final subtitleSize =
+        useDenseMobileLayout ? 20.0 : ResponsiveLayout.heroSubtitleSize(width);
+    final bodySize =
+        useDenseMobileLayout ? 16.0 : ResponsiveLayout.heroBodySize(width);
+    final titleGap = useDenseMobileLayout ? 4.0 : 6.0;
+    final subtitleGap = useDenseMobileLayout ? 12.0 : 20.0;
+    final bodyGap = useDenseMobileLayout ? 10.0 : 16.0;
+    final actionsGap = useDenseMobileLayout ? 16.0 : 24.0;
+
+    Widget buildHireButton({required double height}) {
+      return SizedBox(
+        height: height,
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: () {
+            if (controller.hasClients) {
+              _animateToHeight(
+                controller.position.maxScrollExtent,
+                duration: 6,
+              );
+            }
+          },
+          child: const Text(
+            'Нанять меня',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+      );
+    }
 
     return Column(
       key: const Key('compact-home-hero-text'),
@@ -84,7 +122,7 @@ class LeftTextColumn extends StatelessWidget {
             height: 1.05,
           ),
         ),
-        const SizedBox(height: 6),
+        SizedBox(height: titleGap),
         AnimatedTextKit(
           repeatForever: true,
           isRepeatingAnimation: true,
@@ -107,7 +145,7 @@ class LeftTextColumn extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: subtitleGap),
         SelectableText(
           'Профессиональный Unity разработчик.',
           style: TextStyle(
@@ -115,36 +153,39 @@ class LeftTextColumn extends StatelessWidget {
             fontSize: subtitleSize,
           ),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: bodyGap),
         SelectableText(
           'Нанимая меня, вы получаете сертифицированного специалиста, который любит своё дело.',
-          style: TextStyle(color: Colors.grey[700], fontSize: bodySize, height: 1.45),
+          style: TextStyle(
+              color: Colors.grey[700], fontSize: bodySize, height: 1.45),
         ),
-        const SizedBox(height: 24),
-        ConstrainedBox(
-          constraints: const BoxConstraints(minWidth: 180, maxWidth: 320),
-          child: SizedBox(
-            height: 56,
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {
-                if (controller.hasClients) {
-                  _animateToHeight(controller.position.maxScrollExtent, duration: 6);
-                }
-              },
-              child: const Text(
-                'Нанять меня',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
+        SizedBox(height: actionsGap),
+        if (useDenseMobileLayout)
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 146,
+                child: buildHireButton(height: 48),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: _socialLinks(
+                  runSpacing: 8,
+                  spacing: 8,
+                  iconSize: 32,
                 ),
               ),
-            ),
+            ],
+          )
+        else ...[
+          ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: 180, maxWidth: 320),
+            child: buildHireButton(height: 56),
           ),
-        ),
-        const SizedBox(height: 24),
-        _socialLinks(runSpacing: 12),
+          const SizedBox(height: 24),
+          _socialLinks(runSpacing: 12),
+        ],
       ],
     );
   }

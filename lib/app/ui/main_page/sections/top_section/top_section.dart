@@ -40,21 +40,45 @@ class TopSection extends StatelessWidget {
   }
 
   Widget _buildCompact(BuildContext context, Size size) {
+    if (size.height < 720) {
+      return Stack(
+        children: [
+          const Positioned.fill(child: AnimatedBackground()),
+          ConstrainedBox(
+            constraints: BoxConstraints(minHeight: size.height),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 110, bottom: 48),
+              child: ResponsiveContent(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    LeftTextColumn(controller: controller),
+                    const SizedBox(height: 24),
+                    RightImageColumn(size: size),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+
     return Stack(
       children: [
         const Positioned.fill(child: AnimatedBackground()),
-        ConstrainedBox(
-          constraints: BoxConstraints(minHeight: size.height),
+        SizedBox(
+          height: size.height,
           child: Padding(
-            padding: const EdgeInsets.only(top: 110, bottom: 48),
+            padding: const EdgeInsets.only(top: 110),
             child: ResponsiveContent(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisSize: MainAxisSize.min,
                 children: [
                   LeftTextColumn(controller: controller),
                   const SizedBox(height: 24),
-                  RightImageColumn(size: size),
+                  Expanded(child: RightImageColumn(size: size)),
                 ],
               ),
             ),

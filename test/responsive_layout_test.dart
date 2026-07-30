@@ -11,6 +11,8 @@ import 'package:portfolio_flutter_web/app/ui/main_page/sections/contact_me/conta
 import 'package:portfolio_flutter_web/app/ui/main_page/sections/diplomas/diplomas.dart';
 import 'package:portfolio_flutter_web/app/ui/main_page/sections/top_section/top_section.dart';
 import 'package:portfolio_flutter_web/app/ui/main_page/sections/work_experience/work_experience.dart';
+import 'package:portfolio_flutter_web/app/ui/main_page/sections/work_instruments/widgets/big_circle_icon_widget.dart';
+import 'package:portfolio_flutter_web/app/ui/main_page/sections/work_instruments/widgets/small_circle_icon.dart';
 import 'package:portfolio_flutter_web/app/ui/main_page/sections/work_instruments/work_instruments.dart';
 import 'package:portfolio_flutter_web/app/ui/project_page/project_page.dart';
 import 'package:portfolio_flutter_web/app/ui/projects_page/sections/projects_list/projects_list.dart';
@@ -80,7 +82,8 @@ void expectNoFlutterExceptions(WidgetTester tester, {String? context}) {
   expect(
     exceptions,
     isEmpty,
-    reason: [if (context != null) context, ...exceptions.map((e) => '$e')].join('\n\n'),
+    reason: [if (context != null) context, ...exceptions.map((e) => '$e')]
+        .join('\n\n'),
   );
 }
 
@@ -229,15 +232,120 @@ void main() {
       ),
     );
     await boundedPump(tester);
-    final timeline = find.byKey(const Key('work-timeline-scroll'));
-    await tester.ensureVisible(timeline);
-    await tester.pump();
-    await tester.drag(timeline, const Offset(-300, 0));
-    await tester.pump();
+    expect(find.byKey(const Key('work-timeline-mobile')), findsOneWidget);
+    expect(find.byKey(const Key('work-timeline-scroll')), findsNothing);
     expectNoFlutterExceptions(tester);
   });
 
-  testWidgets('credentials and contact adapt to compact widths', (tester) async {
+  testWidgets('mobile home sections use intentional column counts',
+      (tester) async {
+    setTestViewport(tester, const Size(754, 1178));
+
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: SingleChildScrollView(child: WorkExperience()),
+        ),
+      ),
+    );
+    await boundedPump(tester, duration: const Duration(milliseconds: 350));
+
+    expect(find.byKey(const Key('work-timeline-mobile')), findsOneWidget);
+    expect(find.byKey(const Key('work-timeline-scroll')), findsNothing);
+
+    final mobileEvents = find.byKey(const Key('mobile-work-event-0'));
+    expect(mobileEvents, findsOneWidget);
+    expect(find.byKey(const Key('mobile-work-event-5')), findsOneWidget);
+    expect(
+      tester.getTopLeft(find.byKey(const Key('mobile-work-event-5'))).dy,
+      greaterThan(tester.getTopLeft(mobileEvents).dy),
+      reason: 'Mobile work history must flow vertically.',
+    );
+    expectNoFlutterExceptions(tester);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+
+    setTestViewport(tester, const Size(754, 1178));
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: SingleChildScrollView(child: WorkInstruments()),
+        ),
+      ),
+    );
+    await boundedPump(tester, duration: const Duration(milliseconds: 500));
+
+    final topIcons = find.byType(BigCircleIcon);
+    expect(topIcons, findsNWidgets(5));
+    expect(
+      tester.getTopLeft(topIcons.at(2)).dy,
+      greaterThan(tester.getTopLeft(topIcons.at(0)).dy),
+      reason: 'Mobile primary tools must use at most two columns.',
+    );
+
+    final smallIcons = find.byType(SmallCircleIcon);
+    expect(smallIcons, findsWidgets);
+    expect(
+      tester.getTopLeft(smallIcons.at(4)).dy,
+      greaterThan(tester.getTopLeft(smallIcons.at(0)).dy),
+      reason: 'Mobile secondary tools must use at most four columns.',
+    );
+    expectNoFlutterExceptions(tester);
+  });
+
+  testWidgets('async home sections preserve vertical order', (tester) async {
+    setTestViewport(tester, const Size(754, 1178));
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                const WorkExperience(),
+                const WorkInstruments(),
+                const DiplomasWidget(),
+                CertificatesWidget(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    void expectSectionsInOrder() {
+      const keys = [
+        Key('work-experience-section'),
+        Key('work-instruments-section'),
+        Key('diplomas-section'),
+        Key('certificates-section'),
+      ];
+      for (var index = 0; index < keys.length - 1; index++) {
+        final current = tester.getRect(find.byKey(keys[index]));
+        final next = tester.getRect(find.byKey(keys[index + 1]));
+        expect(
+          current.bottom,
+          lessThanOrEqualTo(next.top),
+          reason: '${keys[index]} must not paint into ${keys[index + 1]}.',
+        );
+      }
+    }
+
+    expectSectionsInOrder();
+
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.byKey(const Key('small-icons-grid')), findsOneWidget);
+    expectSectionsInOrder();
+    expectNoFlutterExceptions(tester);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  });
+
+  testWidgets('credentials and contact adapt to compact widths',
+      (tester) async {
     const sizes = [
       Size(320, 900),
       Size(390, 900),
@@ -283,10 +391,12 @@ void main() {
     expect(find.byKey(const Key('contact-socials-compact')), findsOneWidget);
     expect(find.byKey(const Key('contact-inputs-compact')), findsOneWidget);
     for (final element in find.byType(ElevatedButton).evaluate()) {
-      expect(tester.getSize(find.byWidget(element.widget)).height, greaterThanOrEqualTo(48));
+      expect(tester.getSize(find.byWidget(element.widget)).height,
+          greaterThanOrEqualTo(48));
     }
     for (final element in find.byType(TextFormField).evaluate()) {
-      expect(tester.getSize(find.byWidget(element.widget)).width, lessThanOrEqualTo(240));
+      expect(tester.getSize(find.byWidget(element.widget)).width,
+          lessThanOrEqualTo(240));
     }
     expectNoFlutterExceptions(tester);
 
@@ -303,7 +413,8 @@ void main() {
     );
     await boundedPump(tester);
     expect(find.byKey(const Key('certificates-compact-stack')), findsOneWidget);
-    expect(find.byKey(const Key('certificates-carousel-compact')), findsOneWidget);
+    expect(
+        find.byKey(const Key('certificates-carousel-compact')), findsOneWidget);
     expect(find.byIcon(Icons.keyboard_arrow_right_outlined), findsOneWidget);
     expectNoFlutterExceptions(tester);
 
@@ -320,11 +431,13 @@ void main() {
     );
     await boundedPump(tester);
     expect(find.byKey(const Key('certificates-desktop-row')), findsOneWidget);
-    expect(find.byKey(const Key('certificates-carousel-desktop')), findsOneWidget);
+    expect(
+        find.byKey(const Key('certificates-carousel-desktop')), findsOneWidget);
     expectNoFlutterExceptions(tester);
   });
 
-  testWidgets('projects route search and filters stay responsive', (tester) async {
+  testWidgets('projects route search and filters stay responsive',
+      (tester) async {
     const sizes = [
       Size(320, 900),
       Size(390, 900),
@@ -349,7 +462,8 @@ void main() {
       } else {
         expect(find.byKey(const Key('projects-two-column')), findsOneWidget);
       }
-      expectNoFlutterExceptions(tester, context: 'ProjectsList at ${size.width}');
+      expectNoFlutterExceptions(tester,
+          context: 'ProjectsList at ${size.width}');
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pump();
     }
@@ -382,7 +496,8 @@ void main() {
     expectNoFlutterExceptions(tester);
   });
 
-  testWidgets('project detail stacks and scrolls on compact screens', (tester) async {
+  testWidgets('project detail stacks and scrolls on compact screens',
+      (tester) async {
     const sizes = [
       Size(320, 568),
       Size(360, 800),
@@ -402,15 +517,20 @@ void main() {
       expect(find.text(projects.first.title), findsOneWidget);
       expect(find.text('Описание'), findsOneWidget);
       if (size.width < 1200) {
-        expect(find.byKey(const Key('project-detail-compact-scroll')), findsOneWidget);
+        expect(find.byKey(const Key('project-detail-compact-scroll')),
+            findsOneWidget);
         expect(find.byKey(const Key('project-images-compact')), findsOneWidget);
-        expect(find.byKey(const Key('project-description-compact')), findsOneWidget);
+        expect(find.byKey(const Key('project-description-compact')),
+            findsOneWidget);
       } else {
-        expect(find.byKey(const Key('project-detail-desktop-row')), findsOneWidget);
+        expect(find.byKey(const Key('project-detail-desktop-row')),
+            findsOneWidget);
         expect(find.byKey(const Key('project-images-desktop')), findsOneWidget);
-        expect(find.byKey(const Key('project-description-desktop')), findsOneWidget);
+        expect(find.byKey(const Key('project-description-desktop')),
+            findsOneWidget);
       }
-      expectNoFlutterExceptions(tester, context: 'ProjectPage at ${size.width}');
+      expectNoFlutterExceptions(tester,
+          context: 'ProjectPage at ${size.width}');
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pump();
     }
@@ -433,7 +553,8 @@ void main() {
     expectNoFlutterExceptions(tester);
   });
 
-  testWidgets('app bar and heroes adapt across viewport classes', (tester) async {
+  testWidgets('app bar and heroes adapt across viewport classes',
+      (tester) async {
     const compactSizes = [
       Size(320, 568),
       Size(390, 844),
@@ -450,7 +571,8 @@ void main() {
 
       expect(find.byKey(const Key('compact-nav-menu')), findsOneWidget);
       expect(find.byKey(const Key('compact-home-hero-text')), findsOneWidget);
-      expect(find.byKey(const Key('compact-home-hero-artwork')), findsOneWidget);
+      expect(
+          find.byKey(const Key('compact-home-hero-artwork')), findsOneWidget);
       expectNoFlutterExceptions(tester);
 
       await tester.pumpWidget(const SizedBox.shrink());
@@ -472,12 +594,14 @@ void main() {
       ),
     );
     expect(aboutMenuItem, findsOneWidget);
-    final dynamic menu = tester.widget(find.byKey(const Key('compact-nav-menu')));
+    final dynamic menu =
+        tester.widget(find.byKey(const Key('compact-nav-menu')));
     final dynamic item = tester.widget(aboutMenuItem);
     menu.onSelected(item.value);
     await tester.pump();
     await tester.pump(const Duration(seconds: 3));
-    final homeScrollable = tester.state<ScrollableState>(find.byType(Scrollable).first);
+    final homeScrollable =
+        tester.state<ScrollableState>(find.byType(Scrollable).first);
     expect(homeScrollable.position.pixels, greaterThan(0));
     expectNoFlutterExceptions(tester);
 

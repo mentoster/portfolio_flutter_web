@@ -11,19 +11,20 @@ class YearsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final style = responsiveHeading2(width);
-    return SizedBox(
-      width: 1100,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          SelectableText('2019', style: style),
-          SelectableText('2020', style: style),
-          SelectableText('2020', style: style),
-          SelectableText('2021', style: style),
-          SelectableText('2021', style: style),
-          SelectableText(_yearNow, style: style),
-        ],
-      ),
+    final years = ['2019', '2020', '2020', '2021', '2021', _yearNow];
+
+    return Row(
+      key: const Key('work-years-row'),
+      children: [
+        for (final year in years)
+          Expanded(
+            child: SelectableText(
+              year,
+              style: style,
+              textAlign: TextAlign.center,
+            ),
+          ),
+      ],
     );
   }
 }

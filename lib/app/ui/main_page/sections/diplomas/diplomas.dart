@@ -14,6 +14,7 @@ class DiplomasWidget extends StatelessWidget {
     final width = MediaQuery.sizeOf(context).width;
     final compact = ResponsiveLayout.isCompact(width);
     return ColoredBox(
+      key: const Key('diplomas-section'),
       color: Colors.deepPurple.withOpacity(0.03),
       child: ResponsiveContent(
         child: Padding(

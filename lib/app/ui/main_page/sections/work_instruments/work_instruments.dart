@@ -13,6 +13,7 @@ class WorkInstruments extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     return ColoredBox(
+      key: const Key('work-instruments-section'),
       color: Colors.green.withOpacity(0.03),
       child: ResponsiveContent(
         child: Padding(
@@ -21,7 +22,8 @@ class WorkInstruments extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SelectableText(
-                'Работал с стеком & клиент',
+                'Работал со стеком и клиентами',
+                key: const Key('work-instruments-title'),
                 style: responsiveHeading1(width),
               ),
               const SizedBox(height: 32),
